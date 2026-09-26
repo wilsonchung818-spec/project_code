@@ -1,0 +1,456 @@
+{
+  "contentVersion": "2026.09.25",
+  "lessons": [
+    {
+      "day": 1,
+      "topic": "Project Progress Update",
+      "scenario": "Daily stand-up / status call",
+      "level": "Senior workplace",
+      "speakingLogic": ["Overall Status", "Evidence", "Next Step"],
+      "sentencePatterns": ["Overall, the project is...", "We have completed...", "The next step is..."],
+      "examples": ["Give a concise update with status, evidence, and the next action."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "Overall, the project is on track, and we are still working toward the agreed target date.", "pattern": "Overall, the project is on track, and we are still working toward...", "examples": ["Overall, the project is on track, and we are still working toward the June release.", "Overall, the migration is on track, and we are still working toward the agreed cutover date."]},
+        {"id": "S2", "text": "We have completed the main analysis, and the key requirements are now aligned with the business team.", "pattern": "We have completed..., and ... are now aligned with...", "examples": ["We have completed the SIT preparation, and the test scope is now aligned with QA.", "We have completed the impact assessment, and the findings are now aligned with Finance."]},
+        {"id": "S3", "text": "The next step is to close the remaining open items before we move into delivery.", "pattern": "The next step is to... before we move into...", "examples": ["The next step is to obtain sign-off before we move into UAT.", "The next step is to confirm the data mapping before we move into development."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Give a concise project update covering status, evidence, and the next step."}
+    },
+    {
+      "day": 2,
+      "topic": "Requirement Clarification",
+      "scenario": "Requirements workshop",
+      "level": "Senior workplace",
+      "speakingLogic": ["Confirm Understanding", "Expose Ambiguity", "Agree Next Step"],
+      "sentencePatterns": ["Just to confirm my understanding...", "Could you clarify whether...", "Once we confirm..., I can..."],
+      "examples": ["Clarify the intent before discussing a solution."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "Just to confirm my understanding, the new rule should apply only to payments above the approval threshold.", "pattern": "Just to confirm my understanding, ... should apply only to...", "examples": ["Just to confirm my understanding, this control should apply only to corporate users.", "Just to confirm my understanding, the change should apply only to new instructions."]},
+        {"id": "S2", "text": "Could you clarify whether this is a regulatory requirement or a business preference?", "pattern": "Could you clarify whether this is... or...?", "examples": ["Could you clarify whether this is needed for day one or a later phase?", "Could you clarify whether this applies to all markets or only Hong Kong?"]},
+        {"id": "S3", "text": "Once we confirm the expected outcome, I can update the acceptance criteria and share them for sign-off.", "pattern": "Once we confirm..., I can... and share...", "examples": ["Once we confirm the exception flow, I can update the story and share it for review.", "Once we confirm the data owner, I can update the requirement and request sign-off."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Clarify one ambiguous requirement and propose how to close it."}
+    },
+    {
+      "day": 3,
+      "topic": "Risk & Blocker Update",
+      "scenario": "Project risk discussion",
+      "level": "Senior workplace",
+      "speakingLogic": ["Risk", "Main Concern", "Blocker", "Action Taken", "Escalation / Workaround"],
+      "sentencePatterns": ["We have identified one potential risk that may impact...", "The main concern is that...", "I have already followed up with...", "If there is no update by..., we may need to..."],
+      "examples": ["State the risk, current action, and escalation point."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "We have identified one potential risk that may impact the delivery timeline.", "pattern": "We have identified one potential risk that may impact...", "examples": ["We have identified one potential risk that may impact the UAT timeline.", "We have identified one potential risk that may impact the production release."]},
+        {"id": "S2", "text": "The main concern is that we are still waiting for input from the upstream team, and this is currently blocking the next step.", "pattern": "The main concern is that we are still waiting for..., and this is currently blocking...", "examples": ["The main concern is that we are still waiting for test data, and this is currently blocking SIT.", "The main concern is that we are still waiting for approval, and this is currently blocking deployment."]},
+        {"id": "S3", "text": "I have already followed up with them, but we have not received a confirmed date yet.", "pattern": "I have already followed up with..., but we have not received... yet.", "examples": ["I have already followed up with the vendor, but we have not received the estimate yet.", "I have already followed up with Operations, but we have not received sign-off yet."]},
+        {"id": "S4", "text": "If there is no update by tomorrow, we may need to escalate this issue and discuss a workaround with the team.", "pattern": "If there is no update by..., we may need to escalate... and discuss...", "examples": ["If there is no update by Friday, we may need to escalate the dependency and discuss a workaround.", "If there is no approval by noon, we may need to escalate the issue and revisit the release plan."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Give a short risk update using today’s sentence patterns."}
+    },
+    {
+      "day": 4,
+      "topic": "Action Tracking & Ownership",
+      "scenario": "Meeting action review",
+      "level": "Senior workplace",
+      "speakingLogic": ["Open Item", "Owner", "Target Date"],
+      "sentencePatterns": ["We still have one open item on...", "Can we confirm who will own...", "Let’s set... as the target date..."],
+      "examples": ["Turn discussion into clear ownership and dates."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "We still have one open item on the interface specification, and it needs to be closed before refinement.", "pattern": "We still have one open item on..., and it needs to be closed before...", "examples": ["We still have one open item on the control design, and it needs to be closed before sign-off.", "We still have one open item on the test scope, and it needs to be closed before SIT."]},
+        {"id": "S2", "text": "Can we confirm who will own this action and coordinate with the downstream team?", "pattern": "Can we confirm who will own... and coordinate with...?", "examples": ["Can we confirm who will own the data check and coordinate with Operations?", "Can we confirm who will own the defect and coordinate with the vendor?"]},
+        {"id": "S3", "text": "Let’s set Thursday as the target date and review the status in our next checkpoint.", "pattern": "Let’s set... as the target date and review...", "examples": ["Let’s set 15 October as the target date and review progress next week.", "Let’s set end of day as the target date and review the evidence tomorrow."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Close a meeting by assigning an owner and target date to an open item."}
+    },
+    {
+      "day": 5,
+      "topic": "Weekly Project Status Update",
+      "scenario": "Weekly steering update",
+      "level": "Senior workplace",
+      "speakingLogic": ["Headline", "This Week", "Next Week"],
+      "sentencePatterns": ["The overall status remains...", "This week, the team...", "Next week, our focus will be..."],
+      "examples": ["Lead with the headline before supporting detail."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "The overall status remains green, with no change to the agreed scope or timeline.", "pattern": "The overall status remains..., with no change to...", "examples": ["The overall status remains amber, with no change to the release date at this stage.", "The overall status remains green, with no change to the UAT plan."]},
+        {"id": "S2", "text": "This week, the team completed the design review and resolved the outstanding business questions.", "pattern": "This week, the team completed... and resolved...", "examples": ["This week, the team completed SIT and resolved the high-priority defects.", "This week, the team completed the walkthrough and resolved the data questions."]},
+        {"id": "S3", "text": "Next week, our focus will be finalizing the test data and preparing for UAT sign-off.", "pattern": "Next week, our focus will be... and...", "examples": ["Next week, our focus will be completing development and preparing for SIT.", "Next week, our focus will be closing actions and preparing for the release review."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 75, "instruction": "Give a weekly status update with a headline, achievements, and next-week focus."}
+    },
+    {
+      "day": 6,
+      "topic": "Meeting Facilitation & Decision Alignment",
+      "scenario": "Cross-functional meeting",
+      "level": "Senior workplace",
+      "speakingLogic": ["Refocus", "Summarize", "Confirm Decision"],
+      "sentencePatterns": ["To keep us focused...", "It sounds like we agree that...", "Can I confirm that the decision is...?"],
+      "examples": ["Guide the group from discussion to decision."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "To keep us focused, I suggest we first agree on the business outcome and then discuss the technical approach.", "pattern": "To keep us focused, I suggest we first... and then...", "examples": ["To keep us focused, I suggest we first close the scope and then discuss dates.", "To keep us focused, I suggest we first review the facts and then discuss options."]},
+        {"id": "S2", "text": "It sounds like we agree that the manual control is acceptable for the first release.", "pattern": "It sounds like we agree that...", "examples": ["It sounds like we agree that option two gives us the best trade-off.", "It sounds like we agree that this item should move to the next sprint."]},
+        {"id": "S3", "text": "Can I confirm that the decision is to proceed with option two, subject to Security sign-off?", "pattern": "Can I confirm that the decision is to..., subject to...?", "examples": ["Can I confirm that the decision is to release on Friday, subject to UAT sign-off?", "Can I confirm that the decision is to retain the current process for phase one?"]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Facilitate a short discussion and close with a clearly stated decision."}
+    },
+    {
+      "day": 7,
+      "topic": "Last-Minute Scope Change",
+      "scenario": "Pre-release change request",
+      "level": "Senior workplace",
+      "speakingLogic": ["Acknowledge", "Assess Impact", "Offer Options"],
+      "sentencePatterns": ["I understand why this change is important...", "Before we include it...", "We can either... or..."],
+      "examples": ["Acknowledge the need without bypassing impact assessment."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "I understand why this change is important, especially given the impact on the operations team.", "pattern": "I understand why this change is important, especially given...", "examples": ["I understand why this change is important, especially given the regulatory deadline.", "I understand why this change is important, especially given the client impact."]},
+        {"id": "S2", "text": "Before we include it in the release, we need to assess the effort, test impact, and delivery risk.", "pattern": "Before we include it in..., we need to assess...", "examples": ["Before we include it in this sprint, we need to assess the effort and dependencies.", "Before we include it in UAT, we need to assess the data and control impact."]},
+        {"id": "S3", "text": "We can either protect the current date and move this item to phase two, or revisit the release timeline.", "pattern": "We can either... or...", "examples": ["We can either reduce the scope or add capacity to the sprint.", "We can either use a manual workaround or move the target date."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 75, "instruction": "Respond to a late scope change and present two workable options."}
+    },
+    {
+      "day": 8,
+      "topic": "Managing Stakeholder Expectations",
+      "scenario": "Urgent delivery request",
+      "level": "Senior workplace",
+      "speakingLogic": ["Acknowledge Urgency", "Avoid Overcommitment", "Confirm and Return"],
+      "sentencePatterns": ["I understand the urgency, but...", "I would prefer to give you... rather than...", "Let me align with... and I will come back with..."],
+      "examples": ["Be responsive without making an unsupported commitment."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "I understand the urgency, but I don’t want to commit to a date before we confirm the effort with the team.", "pattern": "I understand the urgency, but I don’t want to commit to... before...", "examples": ["I understand the urgency, but I don’t want to confirm the release before we review the test results.", "I understand the urgency, but I don’t want to commit to the scope before we assess the impact."]},
+        {"id": "S2", "text": "At this stage, I would prefer to give you a realistic timeline rather than an aggressive estimate that we may not be able to meet.", "pattern": "I would prefer to give you... rather than...", "examples": ["I would prefer to give you a confirmed answer rather than an assumption we may need to change.", "I would prefer to agree a realistic scope rather than overcommit the team."]},
+        {"id": "S3", "text": "Let me align with the development team first, and I will come back with a confirmed plan.", "pattern": "Let me align with... first, and I will come back with...", "examples": ["Let me align with Compliance first, and I will come back with a confirmed position.", "Let me align with the vendor first, and I will come back with a revised estimate."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Respond to an urgent date request without overcommitting the team."}
+    },
+    {
+      "day": 9,
+      "topic": "Challenging a Requirement Professionally",
+      "scenario": "Solution challenge session",
+      "level": "Senior workplace",
+      "speakingLogic": ["Validate Goal", "Test Assumption", "Suggest Alternative"],
+      "sentencePatterns": ["I agree with the objective...", "Could we test the assumption that...", "Would it be worth considering...?"],
+      "examples": ["Challenge the proposed method while supporting the goal."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "I agree with the objective, but I’m not yet convinced that this requirement is the simplest way to achieve it.", "pattern": "I agree with the objective, but I’m not yet convinced that...", "examples": ["I agree with the objective, but I’m not yet convinced that a new workflow is necessary.", "I agree with the objective, but I’m not yet convinced that this belongs in phase one."]},
+        {"id": "S2", "text": "Could we test the assumption that every user needs the same level of access?", "pattern": "Could we test the assumption that...?", "examples": ["Could we test the assumption that all records need manual review?", "Could we test the assumption that this data must be available in real time?"]},
+        {"id": "S3", "text": "Would it be worth considering a rule-based exception instead of changing the full process?", "pattern": "Would it be worth considering... instead of...?", "examples": ["Would it be worth considering a configuration change instead of custom development?", "Would it be worth considering a pilot instead of a full rollout?"]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Challenge a proposed requirement while keeping the conversation constructive."}
+    },
+    {
+      "day": 10,
+      "topic": "Pushing Back Without Saying No",
+      "scenario": "Competing delivery request",
+      "level": "Senior workplace",
+      "speakingLogic": ["Recognize Value", "State Constraint", "Create Choice"],
+      "sentencePatterns": ["I can see the value in...", "The constraint we have is...", "If this becomes the priority..."],
+      "examples": ["Make the trade-off explicit and let stakeholders choose."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "I can see the value in adding this feature, and it would improve the user experience.", "pattern": "I can see the value in..., and it would...", "examples": ["I can see the value in automating this check, and it would reduce manual effort.", "I can see the value in bringing this forward, and it would help Operations."]},
+        {"id": "S2", "text": "The constraint we have is limited capacity in the current sprint.", "pattern": "The constraint we have is...", "examples": ["The constraint we have is the fixed regulatory date.", "The constraint we have is the dependency on the vendor release."]},
+        {"id": "S3", "text": "If this becomes the priority, we will need to agree which existing item can move out.", "pattern": "If this becomes the priority, we will need to agree...", "examples": ["If this becomes the priority, we will need to agree which control can follow later.", "If this becomes the priority, we will need to agree how to protect the timeline."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Push back on a new request by explaining the trade-off and asking for a priority decision."}
+    },
+    {
+      "day": 11,
+      "topic": "Technical Solution Discussion",
+      "scenario": "Architecture review",
+      "level": "Senior workplace",
+      "speakingLogic": ["Business Need", "Feasibility", "Decision Criteria"],
+      "sentencePatterns": ["From a business perspective...", "Can the team confirm whether...", "The key decision criteria should be..."],
+      "examples": ["Connect technical choices to business impact."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "From a business perspective, the solution needs to support same-day processing and a clear audit trail.", "pattern": "From a business perspective, the solution needs to support...", "examples": ["From a business perspective, the solution needs to support maker-checker control.", "From a business perspective, the solution needs to support regional cut-off times."]},
+        {"id": "S2", "text": "Can the team confirm whether this option is technically feasible within the current architecture?", "pattern": "Can the team confirm whether... is technically feasible within...?", "examples": ["Can the team confirm whether real-time validation is technically feasible?", "Can the team confirm whether this API is feasible within the current platform?"]},
+        {"id": "S3", "text": "The key decision criteria should be delivery effort, operational resilience, and long-term support cost.", "pattern": "The key decision criteria should be..., ..., and...", "examples": ["The key decision criteria should be security, performance, and maintainability.", "The key decision criteria should be client impact, effort, and implementation risk."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 75, "instruction": "Frame a technical solution discussion around business needs and decision criteria."}
+    },
+    {
+      "day": 12,
+      "topic": "API Integration Discussion",
+      "scenario": "Interface design workshop",
+      "level": "Senior workplace",
+      "speakingLogic": ["Data Exchange", "Failure Handling", "Ownership"],
+      "sentencePatterns": ["The API needs to provide...", "We also need to agree how...", "Which team will own...?"],
+      "examples": ["Cover payload, error handling, and support ownership."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "The API needs to provide the payment status, rejection reason, and last updated timestamp.", "pattern": "The API needs to provide..., ..., and...", "examples": ["The API needs to provide the account status, currency, and available balance.", "The API needs to provide the request ID, outcome, and processing time."]},
+        {"id": "S2", "text": "We also need to agree how timeouts and duplicate requests will be handled.", "pattern": "We also need to agree how... will be handled.", "examples": ["We also need to agree how partial failures will be handled.", "We also need to agree how authentication errors will be handled."]},
+        {"id": "S3", "text": "Which team will own production support if the upstream service is unavailable?", "pattern": "Which team will own... if...?", "examples": ["Which team will own the alert if the response time exceeds the threshold?", "Which team will own reconciliation if a message is not delivered?"]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 75, "instruction": "Summarize the key questions that must be closed for an API integration."}
+    },
+    {
+      "day": 13,
+      "topic": "Data Quality Issue",
+      "scenario": "Data investigation call",
+      "level": "Senior workplace",
+      "speakingLogic": ["Observation", "Business Impact", "Investigation"],
+      "sentencePatterns": ["We found that...", "The business impact is...", "We are checking whether..."],
+      "examples": ["Separate observed facts from the working hypothesis."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "We found that a small number of customer records are missing the source-system identifier.", "pattern": "We found that... are missing...", "examples": ["We found that several transactions are missing the booking date.", "We found that some records are missing the product code."]},
+        {"id": "S2", "text": "The business impact is that these records cannot be matched during reconciliation.", "pattern": "The business impact is that... cannot...", "examples": ["The business impact is that the cases cannot be routed automatically.", "The business impact is that the report cannot be completed on time."]},
+        {"id": "S3", "text": "We are checking whether the issue comes from the source data or the transformation logic.", "pattern": "We are checking whether the issue comes from... or...", "examples": ["We are checking whether the issue comes from the file format or the upload process.", "We are checking whether the issue comes from the mapping or the API response."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Explain a data quality issue, its business impact, and the current investigation."}
+    },
+    {
+      "day": 14,
+      "topic": "Database / Migration Discussion",
+      "scenario": "Data migration planning",
+      "level": "Senior workplace",
+      "speakingLogic": ["Scope", "Validation", "Rollback"],
+      "sentencePatterns": ["The migration scope includes...", "We should validate... before...", "If the reconciliation fails..."],
+      "examples": ["Define what moves, how it is checked, and how to recover."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "The migration scope includes active customer records and seven years of transaction history.", "pattern": "The migration scope includes... and...", "examples": ["The migration scope includes open cases and their supporting documents.", "The migration scope includes account data and current standing instructions."]},
+        {"id": "S2", "text": "We should validate the record counts and control totals before we switch traffic to the new database.", "pattern": "We should validate... before we...", "examples": ["We should validate the balances before we complete the cutover.", "We should validate a sample of records before we sign off the migration."]},
+        {"id": "S3", "text": "If the reconciliation fails, we need a clear rollback plan and an agreed decision point.", "pattern": "If... fails, we need... and...", "examples": ["If the smoke test fails, we need a rollback owner and a decision deadline.", "If the data check fails, we need a recovery plan and clear communication."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 75, "instruction": "Outline a migration plan covering scope, validation, and rollback."}
+    },
+    {
+      "day": 15,
+      "topic": "Sprint Planning",
+      "scenario": "Sprint planning meeting",
+      "level": "Senior workplace",
+      "speakingLogic": ["Sprint Goal", "Capacity", "Commitment"],
+      "sentencePatterns": ["The main goal for this sprint is...", "Based on the team’s capacity...", "Before we commit..."],
+      "examples": ["Keep the sprint goal and capacity visible."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "The main goal for this sprint is to complete the payment validation flow and make it ready for SIT.", "pattern": "The main goal for this sprint is to... and make it ready for...", "examples": ["The main goal for this sprint is to complete the API and make it ready for integration testing.", "The main goal for this sprint is to close the UAT defects and make the release ready."]},
+        {"id": "S2", "text": "Based on the team’s capacity, we can take the first three stories without creating unnecessary delivery risk.", "pattern": "Based on the team’s capacity, we can... without...", "examples": ["Based on the team’s capacity, we can support one additional story without affecting the goal.", "Based on the team’s capacity, we can complete the must-have scope without overtime."]},
+        {"id": "S3", "text": "Before we commit, let’s confirm that the dependencies and acceptance criteria are clear.", "pattern": "Before we commit, let’s confirm that...", "examples": ["Before we commit, let’s confirm that the test data is available.", "Before we commit, let’s confirm that the technical approach is agreed."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Propose a sprint goal and make a capacity-based commitment."}
+    },
+    {
+      "day": 16,
+      "topic": "Refinement Meeting",
+      "scenario": "Backlog refinement",
+      "level": "Senior workplace",
+      "speakingLogic": ["Purpose", "Gaps", "Ready / Not Ready"],
+      "sentencePatterns": ["The purpose of this story is...", "The main gap is...", "Once we close..., the story should be ready..."],
+      "examples": ["Move the story toward shared understanding."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "The purpose of this story is to prevent duplicate payments before they reach the approval queue.", "pattern": "The purpose of this story is to... before...", "examples": ["The purpose of this story is to validate the account before the instruction is submitted.", "The purpose of this story is to show the exception before the case is closed."]},
+        {"id": "S2", "text": "The main gap is that we have not defined the expected behavior for partial matches.", "pattern": "The main gap is that we have not defined...", "examples": ["The main gap is that we have not defined the timeout behavior.", "The main gap is that we have not defined who can override the control."]},
+        {"id": "S3", "text": "Once we close that point and add the examples, the story should be ready for estimation.", "pattern": "Once we close... and add..., the story should be ready for...", "examples": ["Once we close the data question, the story should be ready for development.", "Once we add the error scenarios, the story should be ready for planning."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Walk the team through a story and identify what is needed before estimation."}
+    },
+    {
+      "day": 17,
+      "topic": "Story Readiness / Definition of Ready",
+      "scenario": "Pre-planning readiness check",
+      "level": "Senior workplace",
+      "speakingLogic": ["Readiness", "Evidence", "Decision"],
+      "sentencePatterns": ["This story is not ready yet because...", "We still need...", "I recommend that we... until..."],
+      "examples": ["Use readiness criteria to protect delivery quality."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "This story is not ready yet because the business rules are still open to interpretation.", "pattern": "This story is not ready yet because...", "examples": ["This story is not ready yet because the interface contract is not agreed.", "This story is not ready yet because the test scenarios are incomplete."]},
+        {"id": "S2", "text": "We still need confirmed acceptance criteria, sample data, and a named business owner.", "pattern": "We still need..., ..., and...", "examples": ["We still need the API specification, error codes, and test endpoint.", "We still need the control wording, approver, and audit evidence."]},
+        {"id": "S3", "text": "I recommend that we keep it out of sprint planning until those points are resolved.", "pattern": "I recommend that we... until...", "examples": ["I recommend that we defer estimation until the dependency is confirmed.", "I recommend that we keep it in refinement until the scope is stable."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Explain why a story is not ready and what evidence is still required."}
+    },
+    {
+      "day": 18,
+      "topic": "Priority Negotiation",
+      "scenario": "Backlog priority discussion",
+      "level": "Senior workplace",
+      "speakingLogic": ["Compare Value", "Expose Trade-off", "Agree Order"],
+      "sentencePatterns": ["Both items are valuable, but...", "If we bring... forward...", "My recommendation is to prioritize..."],
+      "examples": ["Make value and trade-offs comparable."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "Both items are valuable, but the regulatory change has a fixed deadline and a higher business impact.", "pattern": "Both items are valuable, but... has... and...", "examples": ["Both items are valuable, but the control fix has a higher operational impact.", "Both items are valuable, but the client commitment has a fixed date."]},
+        {"id": "S2", "text": "If we bring the reporting enhancement forward, the onboarding change will move to the next sprint.", "pattern": "If we bring... forward, ... will move to...", "examples": ["If we bring the defect fix forward, the automation story will move out.", "If we bring phase two forward, the current release date will need to move."]},
+        {"id": "S3", "text": "My recommendation is to prioritize the mandatory scope and keep the enhancement next in line.", "pattern": "My recommendation is to prioritize... and keep...", "examples": ["My recommendation is to prioritize the client issue and keep the reporting change next.", "My recommendation is to prioritize the control gap and keep the usability change next."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Negotiate the order of two competing backlog items."}
+    },
+    {
+      "day": 19,
+      "topic": "Timeline Negotiation",
+      "scenario": "Delivery date discussion",
+      "level": "Senior workplace",
+      "speakingLogic": ["Desired Date", "Conditions", "Options"],
+      "sentencePatterns": ["We can aim for..., provided that...", "The earliest realistic date is...", "To meet the earlier date..."],
+      "examples": ["Turn a date request into explicit delivery conditions."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "We can aim for the end of November, provided that the requirements are signed off this week.", "pattern": "We can aim for..., provided that...", "examples": ["We can aim for Friday, provided that UAT completes by Wednesday.", "We can aim for the current release, provided that the API is available on Monday."]},
+        {"id": "S2", "text": "Based on the current scope, the earliest realistic date is 12 December.", "pattern": "Based on the current scope, the earliest realistic date is...", "examples": ["Based on the current defects, the earliest realistic date is next Tuesday.", "Based on the current capacity, the earliest realistic date is sprint 24."]},
+        {"id": "S3", "text": "To meet the earlier date, we would need to reduce the scope or add experienced capacity.", "pattern": "To meet the earlier date, we would need to... or...", "examples": ["To meet the earlier date, we would need to shorten UAT or accept a manual control.", "To meet the earlier date, we would need to defer reporting or add another developer."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Negotiate a requested date by explaining conditions and options."}
+    },
+    {
+      "day": 20,
+      "topic": "Resource / Capacity Discussion",
+      "scenario": "Delivery capacity review",
+      "level": "Senior workplace",
+      "speakingLogic": ["Capacity Fact", "Impact", "Mitigation"],
+      "sentencePatterns": ["The team is currently operating with...", "This means we can... but not...", "One option is to..."],
+      "examples": ["Discuss capacity using facts, not pressure."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "The team is currently operating with two fewer developers because of planned leave and production support.", "pattern": "The team is currently operating with... because of...", "examples": ["The team is currently operating with reduced QA capacity because of parallel releases.", "The team is currently operating with one BA because of another priority project."]},
+        {"id": "S2", "text": "This means we can protect the committed sprint goal, but not take on the additional request.", "pattern": "This means we can..., but not...", "examples": ["This means we can complete the mandatory scope, but not the enhancements.", "This means we can support UAT, but not start the new analysis in parallel."]},
+        {"id": "S3", "text": "One option is to borrow capacity from the platform team for the integration work.", "pattern": "One option is to... for...", "examples": ["One option is to use vendor support for the data migration.", "One option is to split the scope across two sprints."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Explain a capacity constraint and propose a practical mitigation."}
+    },
+    {
+      "day": 21,
+      "topic": "Handling Different Opinions",
+      "scenario": "Team disagreement",
+      "level": "Senior workplace",
+      "speakingLogic": ["Recognize Views", "Find Common Ground", "Resolve"],
+      "sentencePatterns": ["I can see why...", "The common point seems to be...", "Could we compare both options against...?"],
+      "examples": ["Lower the temperature and create shared criteria."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "I can see why the business prefers a flexible rule, while Technology is concerned about support complexity.", "pattern": "I can see why... prefers..., while... is concerned about...", "examples": ["I can see why Operations prefers automation, while Risk is concerned about control evidence.", "I can see why the vendor prefers option one, while we are concerned about resilience."]},
+        {"id": "S2", "text": "The common point seems to be that we all want a solution that is safe and practical to operate.", "pattern": "The common point seems to be that we all want...", "examples": ["The common point seems to be that we all want to protect the client experience.", "The common point seems to be that we all want a supportable release."]},
+        {"id": "S3", "text": "Could we compare both options against the same criteria before we make a decision?", "pattern": "Could we compare both options against... before...?", "examples": ["Could we compare both options against cost, effort, and risk?", "Could we compare both options against the agreed business outcomes?"]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 75, "instruction": "Handle a disagreement by recognizing both views and proposing neutral criteria."}
+    },
+    {
+      "day": 22,
+      "topic": "Making a Decision in a Meeting",
+      "scenario": "Decision meeting",
+      "level": "Senior workplace",
+      "speakingLogic": ["Options", "Recommendation", "Decision Record"],
+      "sentencePatterns": ["We have considered...", "On balance, I recommend...", "Unless there are objections..."],
+      "examples": ["State the basis for a decision and close it clearly."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "We have considered three options, and each one has a different trade-off between speed and control.", "pattern": "We have considered... options, and each one has a different trade-off between...", "examples": ["We have considered two options, and each has a different trade-off between cost and resilience.", "We have considered three dates, and each has a different delivery risk."]},
+        {"id": "S2", "text": "On balance, I recommend option two because it meets the control requirement without changing the release date.", "pattern": "On balance, I recommend... because... without...", "examples": ["On balance, I recommend the phased approach because it protects the deadline.", "On balance, I recommend the standard API because it reduces support effort."]},
+        {"id": "S3", "text": "Unless there are any objections, I will record that as the decision and update the action log.", "pattern": "Unless there are any objections, I will record... and...", "examples": ["Unless there are any objections, I will record the new date and update the plan.", "Unless there are any objections, I will close this point and circulate the minutes."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Recommend an option, explain why, and formally close the decision."}
+    },
+    {
+      "day": 23,
+      "topic": "Giving a Management Update",
+      "scenario": "Executive status update",
+      "level": "Senior workplace",
+      "speakingLogic": ["Headline", "Business Impact", "Ask"],
+      "sentencePatterns": ["The key message is...", "The impact is currently limited to...", "What we need from this group is..."],
+      "examples": ["Keep management updates brief and decision-oriented."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "The key message is that the programme remains on track, but one external dependency needs close attention.", "pattern": "The key message is that... remains..., but...", "examples": ["The key message is that UAT is progressing well, but defect turnaround needs attention.", "The key message is that the release is ready, but final sign-off is outstanding."]},
+        {"id": "S2", "text": "The impact is currently limited to the reporting workstream and does not affect the core release.", "pattern": "The impact is currently limited to... and does not affect...", "examples": ["The impact is currently limited to one market and does not affect other regions.", "The impact is currently limited to test data and does not affect production."]},
+        {"id": "S3", "text": "What we need from this group is support in confirming the priority with the vendor.", "pattern": "What we need from this group is support in...", "examples": ["What we need from this group is a decision on the remaining scope.", "What we need from this group is support in securing temporary capacity."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Give a management update with one headline, the business impact, and a clear ask."}
+    },
+    {
+      "day": 24,
+      "topic": "Responding When You Don't Know the Answer",
+      "scenario": "Unexpected stakeholder question",
+      "level": "Senior workplace",
+      "speakingLogic": ["Be Honest", "Define Check", "Commit to Return"],
+      "sentencePatterns": ["I don’t have that detail with me...", "I need to check...", "I’ll confirm this by..."],
+      "examples": ["Be credible without guessing."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "I don’t have that detail with me, and I don’t want to give you an inaccurate answer.", "pattern": "I don’t have that detail with me, and I don’t want to...", "examples": ["I don’t have the latest number with me, and I don’t want to misstate it.", "I don’t have the contract detail with me, and I don’t want to make an assumption."]},
+        {"id": "S2", "text": "I need to check the latest design and confirm the position with the solution architect.", "pattern": "I need to check... and confirm... with...", "examples": ["I need to check the defect log and confirm the status with QA.", "I need to check the policy and confirm the interpretation with Compliance."]},
+        {"id": "S3", "text": "I’ll confirm this by end of day and send the answer to everyone on this call.", "pattern": "I’ll confirm this by... and send... to...", "examples": ["I’ll confirm this by noon tomorrow and update the project channel.", "I’ll confirm this after the vendor call and add it to the minutes."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 45, "instruction": "Respond confidently to a question you cannot answer yet."}
+    },
+    {
+      "day": 25,
+      "topic": "Handling an Urgent Production Issue",
+      "scenario": "Production incident call",
+      "level": "Senior workplace",
+      "speakingLogic": ["Known Facts", "Containment", "Next Update"],
+      "sentencePatterns": ["What we know so far is...", "The immediate priority is...", "We will provide the next update by..."],
+      "examples": ["Communicate facts, containment, and cadence under pressure."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "What we know so far is that payment submissions are delayed, but no transactions have been lost.", "pattern": "What we know so far is that..., but...", "examples": ["What we know so far is that logins are failing, but existing sessions remain active.", "What we know so far is that one region is affected, but other markets are stable."]},
+        {"id": "S2", "text": "The immediate priority is to stabilize the service and confirm the customer impact.", "pattern": "The immediate priority is to... and...", "examples": ["The immediate priority is to stop duplicate processing and reconcile the queue.", "The immediate priority is to restore access and confirm the affected users."]},
+        {"id": "S3", "text": "We will provide the next update by 2 p.m., even if the root cause is still under investigation.", "pattern": "We will provide the next update by..., even if...", "examples": ["We will provide the next update in thirty minutes, even if recovery is still in progress.", "We will provide the next update after the log review, even if the fix is not confirmed."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Give a calm production incident update using only confirmed facts."}
+    },
+    {
+      "day": 26,
+      "topic": "Release Readiness Discussion",
+      "scenario": "Go / no-go meeting",
+      "level": "Senior workplace",
+      "speakingLogic": ["Readiness Evidence", "Residual Risk", "Recommendation"],
+      "sentencePatterns": ["All critical checks have been completed...", "The remaining risk is...", "My recommendation is to proceed..."],
+      "examples": ["Base the release decision on evidence and residual risk."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "All critical checks have been completed, including UAT sign-off, security approval, and the rollback rehearsal.", "pattern": "All critical checks have been completed, including..., ..., and...", "examples": ["All critical checks have been completed, including smoke testing and business validation.", "All critical checks have been completed, including data reconciliation and support handover."]},
+        {"id": "S2", "text": "The remaining risk is one medium-severity defect with a tested operational workaround.", "pattern": "The remaining risk is... with...", "examples": ["The remaining risk is a reporting delay with a manual extract available.", "The remaining risk is a vendor dependency with overnight support in place."]},
+        {"id": "S3", "text": "My recommendation is to proceed with the release and monitor the issue closely during the warranty period.", "pattern": "My recommendation is to proceed with... and monitor...", "examples": ["My recommendation is to proceed with cutover and monitor reconciliation closely.", "My recommendation is to proceed as planned and monitor volumes after launch."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 75, "instruction": "Make a go/no-go recommendation using readiness evidence and residual risk."}
+    },
+    {
+      "day": 27,
+      "topic": "Cross-Team Dependency Discussion",
+      "scenario": "Dependency alignment call",
+      "level": "Senior workplace",
+      "speakingLogic": ["Dependency", "Required Date", "Joint Plan"],
+      "sentencePatterns": ["Our delivery depends on...", "To protect our timeline...", "Can we agree a joint plan...?"],
+      "examples": ["Make the handoff and timing explicit across teams."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "Our delivery depends on the upstream team providing the final API contract and a stable test endpoint.", "pattern": "Our delivery depends on... providing... and...", "examples": ["Our delivery depends on Finance providing the approved accounting rules.", "Our delivery depends on the downstream team confirming the file format."]},
+        {"id": "S2", "text": "To protect our timeline, we need both items by Wednesday at the latest.", "pattern": "To protect our timeline, we need... by... at the latest.", "examples": ["To protect our timeline, we need sign-off by close of business Monday.", "To protect our timeline, we need the test data before sprint planning."]},
+        {"id": "S3", "text": "Can we agree a joint plan with named owners, dates, and an escalation route?", "pattern": "Can we agree a joint plan with..., ..., and...?", "examples": ["Can we agree a joint plan with daily checkpoints and clear owners?", "Can we agree a joint plan with milestones, dependencies, and escalation points?"]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Align two teams on a dependency, required date, and joint action plan."}
+    },
+    {
+      "day": 28,
+      "topic": "Vendor / External Team Communication",
+      "scenario": "Vendor delivery call",
+      "level": "Senior workplace",
+      "speakingLogic": ["Expectation", "Evidence", "Recovery Plan"],
+      "sentencePatterns": ["As agreed, we expected...", "Please provide... so that...", "We also need a recovery plan..."],
+      "examples": ["Be firm, factual, and specific with external teams."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "As agreed, we expected the updated build and release notes by close of business yesterday.", "pattern": "As agreed, we expected... by...", "examples": ["As agreed, we expected the estimate by noon today.", "As agreed, we expected the test evidence before the checkpoint."]},
+        {"id": "S2", "text": "Please provide a confirmed delivery date and the reason for the delay so that we can assess the impact.", "pattern": "Please provide... and... so that we can...", "examples": ["Please provide the defect analysis and fix date so that we can update the plan.", "Please provide the support model and contacts so that we can complete handover."]},
+        {"id": "S3", "text": "We also need a recovery plan that shows how the lost time will be addressed.", "pattern": "We also need a recovery plan that shows how...", "examples": ["We also need a recovery plan that shows how quality will be protected.", "We also need a recovery plan that shows how the revised date will be met."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Address a missed vendor commitment and request a credible recovery plan."}
+    },
+    {
+      "day": 29,
+      "topic": "Retrospective / Lessons Learned",
+      "scenario": "Sprint retrospective",
+      "level": "Senior workplace",
+      "speakingLogic": ["What Worked", "What Did Not", "Improvement"],
+      "sentencePatterns": ["One thing that worked well was...", "The main friction point was...", "For the next sprint, I suggest..."],
+      "examples": ["Turn reflection into one specific improvement."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "One thing that worked well was involving Operations early in the story walkthroughs.", "pattern": "One thing that worked well was...", "examples": ["One thing that worked well was using daily defect triage during UAT.", "One thing that worked well was agreeing examples before development started."]},
+        {"id": "S2", "text": "The main friction point was that decisions were made in separate chats and were not visible to the whole team.", "pattern": "The main friction point was that...", "examples": ["The main friction point was that test data arrived too late.", "The main friction point was that ownership changed several times."]},
+        {"id": "S3", "text": "For the next sprint, I suggest recording decisions in one place and reviewing them at stand-up.", "pattern": "For the next sprint, I suggest... and...", "examples": ["For the next sprint, I suggest refining smaller stories and confirming dependencies earlier.", "For the next sprint, I suggest adding a readiness check before planning."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Share one success, one friction point, and one practical improvement."}
+    },
+    {
+      "day": 30,
+      "topic": "Leading an End-to-End Project Meeting",
+      "scenario": "Project governance meeting",
+      "level": "Senior workplace",
+      "speakingLogic": ["Set Purpose", "Navigate Agenda", "Close with Decisions"],
+      "sentencePatterns": ["The purpose of today’s meeting is...", "I’ll take us through...", "Before we close, let me summarize..."],
+      "examples": ["Lead with purpose and finish with decisions, owners, and dates."],
+      "sections": [{"title": "Core expressions", "sentences": [
+        {"id": "S1", "text": "The purpose of today’s meeting is to confirm release readiness, close the remaining decisions, and align on next steps.", "pattern": "The purpose of today’s meeting is to..., ..., and...", "examples": ["The purpose of today’s meeting is to review progress, resolve blockers, and confirm ownership.", "The purpose of today’s meeting is to align the scope, timeline, and delivery approach."]},
+        {"id": "S2", "text": "I’ll take us through the status first, then the key risks, and finally the decisions we need today.", "pattern": "I’ll take us through... first, then..., and finally...", "examples": ["I’ll take us through the business outcome first, then the options, and finally my recommendation.", "I’ll take us through the test results first, then open defects, and finally the go-live decision."]},
+        {"id": "S3", "text": "Before we close, let me summarize the decisions, action owners, and target dates.", "pattern": "Before we close, let me summarize..., ..., and...", "examples": ["Before we close, let me summarize the agreed scope, assumptions, and next checkpoint.", "Before we close, let me summarize the open items, owners, and escalation points."]}
+      ]}],
+      "speakingChallenge": {"targetSeconds": 90, "instruction": "Lead a complete project meeting opening, status update, decision point, and action summary."}
+    }
+  ]
+}

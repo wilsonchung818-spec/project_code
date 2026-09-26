@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#172554">
+    <meta name="description" content="Daily speaking practice for senior BAs, project managers and scrum masters.">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="BA Speak">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="icon" href="./assets/icons/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
+    <link rel="stylesheet" href="./styles.css">
+    <title>BA English Speaking Trainer</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#app-view">Skip to content</a>
+    <div class="app-shell">
+      <header class="app-header">
+        <button class="brand" type="button" data-nav="today" aria-label="Go to today">
+          <span class="brand-mark" aria-hidden="true">BA</span>
+          <span>Speak<span class="brand-dot">.</span></span>
+        </button>
+        <div class="header-actions">
+          <span class="offline-pill" id="offline-pill" hidden>Offline</span>
+          <button class="icon-button" id="install-button" type="button" aria-label="Install app" hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 19h14"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <main id="app-view" class="app-view" tabindex="-1" aria-live="polite">
+        <section class="loading-state">
+          <span class="loading-mark">BA</span>
+          <p>Preparing today’s session…</p>
+        </section>
+      </main>
+
+      <nav class="bottom-nav" aria-label="Main navigation">
+        <button type="button" data-nav="today" class="nav-item is-active" aria-current="page">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10.5 12 5l7 5.5V20H5z"/><path d="M9 20v-6h6v6"/></svg>
+          <span>Today</span>
+        </button>
+        <button type="button" data-nav="progress" class="nav-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19V9m7 10V5m7 14v-7"/></svg>
+          <span>Progress</span>
+        </button>
+        <button type="button" data-nav="library" class="nav-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v16H6z"/><path d="M9 8h6M9 12h6"/></svg>
+          <span>Library</span>
+        </button>
+        <button type="button" data-nav="settings" class="nav-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.4-2.4 1a7 7 0 0 0-1.7-1L14.5 3h-5l-.4 3.1a7 7 0 0 0-1.7 1l-2.4-1-2 3.4L5.1 11a7 7 0 0 0 0 2L3 14.5l2 3.4 2.4-1a7 7 0 0 0 1.7 1l.4 3.1h5l.4-3.1a7 7 0 0 0 1.7-1l2.4 1 2-3.4-2.1-1.5a7 7 0 0 0 .1-1Z"/></svg>
+          <span>Settings</span>
+        </button>
+      </nav>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <input id="import-input" type="file" accept="application/json,.json" hidden>
+    <script src="./logic.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
+

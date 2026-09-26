@@ -1,0 +1,12 @@
+{
+  "name": "ba-english-speaking-trainer",
+  "version": "1.0.4",
+  "private": true,
+  "description": "A zero-dependency mobile-first English speaking training PWA.",
+  "scripts": {
+    "test": "node --test tests/logic.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
