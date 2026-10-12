@@ -7,6 +7,8 @@ The MVP is deliberately small: no account, backend, speech recognition, or cloud
 ## Features
 
 - 30 practical BA/PM/Scrum Master lessons, stored separately from application code
+- Days 11–30 use an Ogden Basic English-inspired vocabulary model: the 18 operators, mostly 850-word vocabulary, and only necessary BA/Scrum terms
+- Four sentences per lesson from Day 11 onward: three workplace situations and one everyday-life situation
 - Sentence-by-sentence practice with patterns and workplace examples
 - Active training timer that pauses when the app is not visible
 - Timed speaking challenge with personal-best tracking
@@ -30,10 +32,10 @@ python -m http.server 4173
 
 Then open <http://localhost:4173>.
 
-Run the zero-dependency logic tests with Node.js 18 or later:
+Run the zero-dependency logic and lesson-content tests with Node.js 18 or later:
 
 ```bash
-node --test tests/logic.test.js
+npm test
 ```
 
 ## File structure
@@ -43,7 +45,7 @@ node --test tests/logic.test.js
 ├── .github/workflows/deploy.yml  # GitHub Pages deployment
 ├── assets/icons/                 # PWA and browser icons
 ├── data/lessons.json             # Versioned 30-day course content
-├── tests/logic.test.js           # Scoring, streak, and migration tests
+├── tests/                        # Scoring, migration, and content-rule tests
 ├── app.js                        # UI, timers, navigation, and persistence
 ├── index.html                    # Semantic app shell
 ├── logic.js                      # Pure scoring/state/date functions
@@ -63,6 +65,8 @@ node --test tests/logic.test.js
 - `speakingChallenge`
 
 Every sentence has a stable `id`, the full `text`, a reusable `pattern`, and contextual `examples`. Keep sentence IDs stable after release because saved practice data refers to them.
+
+Days 11–30 follow [Ogden's 850-word list](https://zbenglish.net/sites/basic/words.html) and the [18 Basic English operators](https://zbenglish.net/sites/basic/verbs.html) as a practical writing guide. Required domain terms such as API, UAT, sprint, story, release, production, dependency, sign-off, and rollback are retained so the course remains useful to Business Analysts and Scrum Masters. Each of these lessons contains exactly three `Work` sentences and one `Life` sentence.
 
 ### Modify an existing lesson
 

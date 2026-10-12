@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  const APP_VERSION = '1.0.4';
+  const APP_VERSION = '1.1.0';
   const STORAGE_KEY = 'ba-speaking-trainer:v1';
   const view = document.querySelector('#app-view');
   const toast = document.querySelector('#toast');
@@ -37,6 +37,23 @@
 
   function getSentences(lesson) {
     return lesson.sections.flatMap(section => section.sentences);
+  }
+
+  function sentenceContext(sentence) {
+    return sentence.context === 'Life' ? 'Life' : 'Work';
+  }
+
+  function sentenceContextMarkup(sentence) {
+    const context = sentenceContext(sentence);
+    return `<span class="sentence-context${context === 'Life' ? ' is-life' : ''}">${context}</span>`;
+  }
+
+  function contextSummary(lesson) {
+    const counts = getSentences(lesson).reduce((result, sentence) => {
+      result[sentenceContext(sentence)] += 1;
+      return result;
+    }, { Work: 0, Life: 0 });
+    return counts.Life ? `${counts.Work} work · ${counts.Life} life` : `${counts.Work} work`;
   }
 
   function getProgress(day) {
@@ -170,7 +187,7 @@
       </section>
       <div class="section-heading"><h2>Speaking logic</h2><span>10–15 min</span></div>
       ${logicMarkup(lesson.speakingLogic)}
-      <div class="session-meta"><span>${sentenceCount} core sentences</span><span>${escapeHtml(lesson.level || 'Senior workplace')}</span></div>
+      <div class="session-meta"><span>${sentenceCount} core sentences</span><span>${contextSummary(lesson)}</span><span>${escapeHtml(lesson.level || 'Senior workplace')}</span></div>
     `;
   }
 
@@ -269,7 +286,7 @@
     view.innerHTML = `
       ${trainingHeader(lesson, session.sentenceIndex + 1, sentences.length)}
       <article class="sentence-panel" key="${escapeHtml(sentence.id)}">
-        <span class="sentence-id">${escapeHtml(sentence.id)}</span>
+        <div class="sentence-label-row"><span class="sentence-id">${escapeHtml(sentence.id)}</span>${sentenceContextMarkup(sentence)}</div>
         <p class="sentence-text">${escapeHtml(sentence.text)}</p>
         <div class="pattern-block"><span>Sentence pattern</span><p>${escapeHtml(sentence.pattern)}</p></div>
         <div class="examples-block"><span>In context</span>${sentence.examples.map(example => `<p>${escapeHtml(example)}</p>`).join('')}</div>
@@ -568,7 +585,7 @@
         ${logicMarkup(lesson.speakingLogic)}
         <div class="section-heading"><h2>Core sentences</h2><span>Tap for examples</span></div>
         ${sentences.map(sentence => `<article class="review-sentence">
-          <span class="sentence-id">${escapeHtml(sentence.id)}</span>
+          <div class="sentence-label-row"><span class="sentence-id">${escapeHtml(sentence.id)}</span>${sentenceContextMarkup(sentence)}</div>
           <h3>${escapeHtml(sentence.text)}</h3>
           <p class="micro">${escapeHtml(sentence.pattern)}</p>
           <details><summary>Show examples</summary>${sentence.examples.map(example => `<p>${escapeHtml(example)}</p>`).join('')}</details>

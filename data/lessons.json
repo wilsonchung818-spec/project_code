@@ -1,5 +1,6 @@
 {
-  "contentVersion": "2026.09.25",
+  "contentVersion": "2026.10.12",
+  "contentMethod": "Ogden Basic English inspired: core operators plus essential BA and Scrum Master terms",
   "lessons": [
     {
       "day": 1,
@@ -157,300 +158,400 @@
       "topic": "Technical Solution Discussion",
       "scenario": "Architecture review",
       "level": "Senior workplace",
-      "speakingLogic": ["Business Need", "Feasibility", "Decision Criteria"],
-      "sentencePatterns": ["From a business perspective...", "Can the team confirm whether...", "The key decision criteria should be..."],
-      "examples": ["Connect technical choices to business impact."],
-      "sections": [{"title": "Core expressions", "sentences": [
-        {"id": "S1", "text": "From a business perspective, the solution needs to support same-day processing and a clear audit trail.", "pattern": "From a business perspective, the solution needs to support...", "examples": ["From a business perspective, the solution needs to support maker-checker control.", "From a business perspective, the solution needs to support regional cut-off times."]},
-        {"id": "S2", "text": "Can the team confirm whether this option is technically feasible within the current architecture?", "pattern": "Can the team confirm whether... is technically feasible within...?", "examples": ["Can the team confirm whether real-time validation is technically feasible?", "Can the team confirm whether this API is feasible within the current platform?"]},
-        {"id": "S3", "text": "The key decision criteria should be delivery effort, operational resilience, and long-term support cost.", "pattern": "The key decision criteria should be..., ..., and...", "examples": ["The key decision criteria should be security, performance, and maintainability.", "The key decision criteria should be client impact, effort, and implementation risk."]}
-      ]}],
-      "speakingChallenge": {"targetSeconds": 75, "instruction": "Frame a technical solution discussion around business needs and decision criteria."}
+      "speakingLogic": ["Business Need", "Possible Design", "Make a Choice", "Life Transfer"],
+      "sentencePatterns": ["The system has to give us...", "Can we see whether... is possible...?", "Let us make the choice on...", "Before I get..., I make a comparison of..."],
+      "examples": ["Use simple operator phrases to connect a design choice to business needs."],
+      "sections": [
+        {"title": "Work · 3 sentences", "sentences": [
+          {"id": "S1", "context": "Work", "text": "From the business side, the system has to give us a clear record of every change.", "pattern": "From the business side, the system has to give us...", "examples": ["The report has to give us a clear record of every approval.", "The process has to give Operations a clear view of every error."]},
+          {"id": "S2", "context": "Work", "text": "Can we see whether this design is possible with the system we have now?", "pattern": "Can we see whether... is possible with... we have now?", "examples": ["Can we see whether this API is possible with the platform we have now?", "Can we see whether this control is possible without a system change?"]},
+          {"id": "S3", "context": "Work", "text": "Let us make the choice on cost, time, and support needs.", "pattern": "Let us make the choice on..., ..., and...", "examples": ["Let us make the choice on business value, risk, and delivery time.", "Let us make the choice on system fit, cost, and long-term support."]}
+        ]},
+        {"title": "Life · 1 sentence", "sentences": [
+          {"id": "S4", "context": "Life", "text": "Before I get a new phone, I make a comparison of price, size, and battery life.", "pattern": "Before I get..., I make a comparison of...", "examples": ["Before I get a new bag, I make a comparison of price and quality.", "Before I get a new camera, I make a comparison of size and weight."]}
+        ]}
+      ],
+      "speakingChallenge": {"targetSeconds": 75, "instruction": "Give three simple points for a technical choice, then use the same comparison pattern for a life choice."}
     },
     {
       "day": 12,
       "topic": "API Integration Discussion",
       "scenario": "Interface design workshop",
       "level": "Senior workplace",
-      "speakingLogic": ["Data Exchange", "Failure Handling", "Ownership"],
-      "sentencePatterns": ["The API needs to provide...", "We also need to agree how...", "Which team will own...?"],
-      "examples": ["Cover payload, error handling, and support ownership."],
-      "sections": [{"title": "Core expressions", "sentences": [
-        {"id": "S1", "text": "The API needs to provide the payment status, rejection reason, and last updated timestamp.", "pattern": "The API needs to provide..., ..., and...", "examples": ["The API needs to provide the account status, currency, and available balance.", "The API needs to provide the request ID, outcome, and processing time."]},
-        {"id": "S2", "text": "We also need to agree how timeouts and duplicate requests will be handled.", "pattern": "We also need to agree how... will be handled.", "examples": ["We also need to agree how partial failures will be handled.", "We also need to agree how authentication errors will be handled."]},
-        {"id": "S3", "text": "Which team will own production support if the upstream service is unavailable?", "pattern": "Which team will own... if...?", "examples": ["Which team will own the alert if the response time exceeds the threshold?", "Which team will own reconciliation if a message is not delivered?"]}
-      ]}],
-      "speakingChallenge": {"targetSeconds": 75, "instruction": "Summarize the key questions that must be closed for an API integration."}
+      "speakingLogic": ["Information", "Error Rule", "Support Owner", "Life Transfer"],
+      "sentencePatterns": ["Please send... in the API response.", "We need to have a clear rule for...", "Which team will take control when...?", "When I send..., I keep... until..."],
+      "examples": ["Use send, have, take, and keep for a clear API discussion."],
+      "sections": [
+        {"title": "Work · 3 sentences", "sentences": [
+          {"id": "S1", "context": "Work", "text": "Please send the payment status, error code, and last update time in the API response.", "pattern": "Please send..., ..., and... in the API response.", "examples": ["Please send the request ID and result in the API response.", "Please send the account status and update time in the API response."]},
+          {"id": "S2", "context": "Work", "text": "We need to have a clear rule for a timeout or the same request coming in twice.", "pattern": "We need to have a clear rule for...", "examples": ["We need to have a clear rule for an empty response.", "We need to have a clear rule for a request coming in after cut-off."]},
+          {"id": "S3", "context": "Work", "text": "Which team will take control when the upstream API is down in production?", "pattern": "Which team will take control when...?", "examples": ["Which team will take control when the payment API is slow?", "Which team will take control when the message does not get to the downstream system?"]}
+        ]},
+        {"title": "Life · 1 sentence", "sentences": [
+          {"id": "S4", "context": "Life", "text": "When I send money to a friend, I keep the receipt until the payment is complete.", "pattern": "When I send..., I keep... until...", "examples": ["When I send a parcel, I keep the receipt until it gets there.", "When I send a form, I keep a copy until I get an answer."]}
+        ]}
+      ],
+      "speakingChallenge": {"targetSeconds": 75, "instruction": "Give an API update with information, error rules, and ownership, then add one everyday send-and-keep example."}
     },
     {
       "day": 13,
       "topic": "Data Quality Issue",
       "scenario": "Data investigation call",
       "level": "Senior workplace",
-      "speakingLogic": ["Observation", "Business Impact", "Investigation"],
-      "sentencePatterns": ["We found that...", "The business impact is...", "We are checking whether..."],
-      "examples": ["Separate observed facts from the working hypothesis."],
-      "sections": [{"title": "Core expressions", "sentences": [
-        {"id": "S1", "text": "We found that a small number of customer records are missing the source-system identifier.", "pattern": "We found that... are missing...", "examples": ["We found that several transactions are missing the booking date.", "We found that some records are missing the product code."]},
-        {"id": "S2", "text": "The business impact is that these records cannot be matched during reconciliation.", "pattern": "The business impact is that... cannot...", "examples": ["The business impact is that the cases cannot be routed automatically.", "The business impact is that the report cannot be completed on time."]},
-        {"id": "S3", "text": "We are checking whether the issue comes from the source data or the transformation logic.", "pattern": "We are checking whether the issue comes from... or...", "examples": ["We are checking whether the issue comes from the file format or the upload process.", "We are checking whether the issue comes from the mapping or the API response."]}
-      ]}],
-      "speakingChallenge": {"targetSeconds": 60, "instruction": "Explain a data quality issue, its business impact, and the current investigation."}
+      "speakingLogic": ["What We See", "Business Effect", "Make a Check", "Life Transfer"],
+      "sentencePatterns": ["We can see... without...", "This error may have an effect on...", "Let us make a check of... before...", "I keep... the same in..."],
+      "examples": ["Keep facts, effects, and the next check separate."],
+      "sections": [
+        {"title": "Work · 3 sentences", "sentences": [
+          {"id": "S1", "context": "Work", "text": "We can see some customer records without a source-system ID.", "pattern": "We can see some... without...", "examples": ["We can see some payments without a booking date.", "We can see some accounts without a product code."]},
+          {"id": "S2", "context": "Work", "text": "This error may have an effect on payment matching and the control report.", "pattern": "This error may have an effect on... and...", "examples": ["This error may have an effect on customer letters and monthly reports.", "This error may have an effect on account matching and sign-off."]},
+          {"id": "S3", "context": "Work", "text": "Let us make a check of the source data and the data mapping before we put in a fix.", "pattern": "Let us make a check of... before we put in...", "examples": ["Let us make a check of the file and the API response before we put in a fix.", "Let us make a check of the test data before we put in a new rule."]}
+        ]},
+        {"title": "Life · 1 sentence", "sentences": [
+          {"id": "S4", "context": "Life", "text": "I keep my home address the same in my bank and delivery apps.", "pattern": "I keep... the same in... and...", "examples": ["I keep my phone number the same in my bank and store accounts.", "I keep my name the same on my ticket and ID."]}
+        ]}
+      ],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Say what you see, give the business effect, and make a simple check plan, then add one life data example."}
     },
     {
       "day": 14,
       "topic": "Database / Migration Discussion",
       "scenario": "Data migration planning",
       "level": "Senior workplace",
-      "speakingLogic": ["Scope", "Validation", "Rollback"],
-      "sentencePatterns": ["The migration scope includes...", "We should validate... before...", "If the reconciliation fails..."],
-      "examples": ["Define what moves, how it is checked, and how to recover."],
-      "sections": [{"title": "Core expressions", "sentences": [
-        {"id": "S1", "text": "The migration scope includes active customer records and seven years of transaction history.", "pattern": "The migration scope includes... and...", "examples": ["The migration scope includes open cases and their supporting documents.", "The migration scope includes account data and current standing instructions."]},
-        {"id": "S2", "text": "We should validate the record counts and control totals before we switch traffic to the new database.", "pattern": "We should validate... before we...", "examples": ["We should validate the balances before we complete the cutover.", "We should validate a sample of records before we sign off the migration."]},
-        {"id": "S3", "text": "If the reconciliation fails, we need a clear rollback plan and an agreed decision point.", "pattern": "If... fails, we need... and...", "examples": ["If the smoke test fails, we need a rollback owner and a decision deadline.", "If the data check fails, we need a recovery plan and clear communication."]}
-      ]}],
-      "speakingChallenge": {"targetSeconds": 75, "instruction": "Outline a migration plan covering scope, validation, and rollback."}
+      "speakingLogic": ["What Goes In", "Make a Check", "Go Back", "Life Transfer"],
+      "sentencePatterns": ["The migration will take in...", "Before cutover, we will make a check of...", "If... are different, we will go back to...", "Before I get..., I put... in a safe backup."],
+      "examples": ["Use take in, make a check, go back, and put for migration language."],
+      "sections": [
+        {"title": "Work · 3 sentences", "sentences": [
+          {"id": "S1", "context": "Work", "text": "The migration will take in active customers and seven years of payment records.", "pattern": "The migration will take in... and...", "examples": ["The migration will take in open cases and their documents.", "The migration will take in account data and payment history."]},
+          {"id": "S2", "context": "Work", "text": "Before cutover, we will make a check of record counts and control totals.", "pattern": "Before cutover, we will make a check of... and...", "examples": ["Before cutover, we will make a check of balances and sample records.", "Before cutover, we will make a check of the backup and rollback steps."]},
+          {"id": "S3", "context": "Work", "text": "If the numbers are different, we will go back to the old database.", "pattern": "If... are different, we will go back to...", "examples": ["If the control totals are different, we will go back to the old system.", "If the main test has an error, we will go back to the last safe point."]}
+        ]},
+        {"title": "Life · 1 sentence", "sentences": [
+          {"id": "S4", "context": "Life", "text": "Before I get a new phone, I put my photos and contacts in a safe backup.", "pattern": "Before I get..., I put... in a safe backup.", "examples": ["Before I get a new computer, I put my files in a safe backup.", "Before I change my phone, I put my contact list in a safe backup."]}
+        ]}
+      ],
+      "speakingChallenge": {"targetSeconds": 75, "instruction": "Give a migration plan with scope, checks, and a way back, then add one personal backup example."}
     },
     {
       "day": 15,
       "topic": "Sprint Planning",
       "scenario": "Sprint planning meeting",
       "level": "Senior workplace",
-      "speakingLogic": ["Sprint Goal", "Capacity", "Commitment"],
-      "sentencePatterns": ["The main goal for this sprint is...", "Based on the team’s capacity...", "Before we commit..."],
-      "examples": ["Keep the sprint goal and capacity visible."],
-      "sections": [{"title": "Core expressions", "sentences": [
-        {"id": "S1", "text": "The main goal for this sprint is to complete the payment validation flow and make it ready for SIT.", "pattern": "The main goal for this sprint is to... and make it ready for...", "examples": ["The main goal for this sprint is to complete the API and make it ready for integration testing.", "The main goal for this sprint is to close the UAT defects and make the release ready."]},
-        {"id": "S2", "text": "Based on the team’s capacity, we can take the first three stories without creating unnecessary delivery risk.", "pattern": "Based on the team’s capacity, we can... without...", "examples": ["Based on the team’s capacity, we can support one additional story without affecting the goal.", "Based on the team’s capacity, we can complete the must-have scope without overtime."]},
-        {"id": "S3", "text": "Before we commit, let’s confirm that the dependencies and acceptance criteria are clear.", "pattern": "Before we commit, let’s confirm that...", "examples": ["Before we commit, let’s confirm that the test data is available.", "Before we commit, let’s confirm that the technical approach is agreed."]}
-      ]}],
-      "speakingChallenge": {"targetSeconds": 60, "instruction": "Propose a sprint goal and make a capacity-based commitment."}
+      "speakingLogic": ["Make the Goal Clear", "Keep Within Capacity", "Take Ready Work", "Life Transfer"],
+      "sentencePatterns": ["Let us make... clear: get... ready for...", "We have capacity for..., so we will keep... out...", "Before we take... in, we need...", "I make a short list... so I do... first."],
+      "examples": ["Build a sprint commitment with make, get, keep, and take."],
+      "sections": [
+        {"title": "Work · 3 sentences", "sentences": [
+          {"id": "S1", "context": "Work", "text": "Let us make the sprint goal clear: get the payment check ready for SIT.", "pattern": "Let us make the sprint goal clear: get... ready for...", "examples": ["Let us make the sprint goal clear: get the API ready for SIT.", "Let us make the sprint goal clear: get the key UAT defects closed."]},
+          {"id": "S2", "context": "Work", "text": "We have capacity for three stories, so we will keep the other work out of this sprint.", "pattern": "We have capacity for..., so we will keep... out of...", "examples": ["We have capacity for two changes, so we will keep the report work out of this sprint.", "We have capacity for the required scope, so we will keep the extra feature out."]},
+          {"id": "S3", "context": "Work", "text": "Before we take a story in, we need clear acceptance criteria and no open dependency.", "pattern": "Before we take... in, we need... and...", "examples": ["Before we take the API story in, we need sample data and a test endpoint.", "Before we take the control story in, we need sign-off and a clear owner."]}
+        ]},
+        {"title": "Life · 1 sentence", "sentences": [
+          {"id": "S4", "context": "Life", "text": "I make a short list before the weekend so I do the important things first.", "pattern": "I make a short list before... so I do... first.", "examples": ["I make a short list before a journey so I do not leave important things at home.", "I make a short list before shopping so I get the things I need first."]}
+        ]}
+      ],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Make a sprint goal, set a capacity limit, and take in only ready work, then give one life-planning example."}
     },
     {
       "day": 16,
       "topic": "Refinement Meeting",
       "scenario": "Backlog refinement",
       "level": "Senior workplace",
-      "speakingLogic": ["Purpose", "Gaps", "Ready / Not Ready"],
-      "sentencePatterns": ["The purpose of this story is...", "The main gap is...", "Once we close..., the story should be ready..."],
-      "examples": ["Move the story toward shared understanding."],
-      "sections": [{"title": "Core expressions", "sentences": [
-        {"id": "S1", "text": "The purpose of this story is to prevent duplicate payments before they reach the approval queue.", "pattern": "The purpose of this story is to... before...", "examples": ["The purpose of this story is to validate the account before the instruction is submitted.", "The purpose of this story is to show the exception before the case is closed."]},
-        {"id": "S2", "text": "The main gap is that we have not defined the expected behavior for partial matches.", "pattern": "The main gap is that we have not defined...", "examples": ["The main gap is that we have not defined the timeout behavior.", "The main gap is that we have not defined who can override the control."]},
-        {"id": "S3", "text": "Once we close that point and add the examples, the story should be ready for estimation.", "pattern": "Once we close... and add..., the story should be ready for...", "examples": ["Once we close the data question, the story should be ready for development.", "Once we add the error scenarios, the story should be ready for planning."]}
-      ]}],
-      "speakingChallenge": {"targetSeconds": 60, "instruction": "Walk the team through a story and identify what is needed before estimation."}
+      "speakingLogic": ["Purpose", "Open Point", "Get Ready", "Life Transfer"],
+      "sentencePatterns": ["This story has one purpose: keep... from...", "We still have an open question about...", "After we get..., we can give... and make it ready.", "Before I make..., I take a look at..."],
+      "examples": ["Use have, keep, get, give, make, and take to refine a story."],
+      "sections": [
+        {"title": "Work · 3 sentences", "sentences": [
+          {"id": "S1", "context": "Work", "text": "This story has one purpose: keep the same payment from going into the approval queue twice.", "pattern": "This story has one purpose: keep... from going into...", "examples": ["This story has one purpose: keep an invalid account from going into payment.", "This story has one purpose: keep an open error from going into production."]},
+          {"id": "S2", "context": "Work", "text": "We still have an open question about a part match.", "pattern": "We still have an open question about...", "examples": ["We still have an open question about the timeout rule.", "We still have an open question about who may give approval."]},
+          {"id": "S3", "context": "Work", "text": "After we get the examples, we can give the story a point value and make it ready.", "pattern": "After we get..., we can give... and make it ready.", "examples": ["After we get the test data, we can give the story a point value.", "After we get the API rules, we can make the story ready for planning."]}
+        ]},
+        {"title": "Life · 1 sentence", "sentences": [
+          {"id": "S4", "context": "Life", "text": "Before I make an online order, I take a look at the size, price, and return rules.", "pattern": "Before I make..., I take a look at...", "examples": ["Before I make a hotel booking, I take a look at the place and price.", "Before I make a meal, I take a look at the food I have."]}
+        ]}
+      ],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Give the story purpose, one open point, and what will make it ready, then add one life check."}
     },
     {
       "day": 17,
       "topic": "Story Readiness / Definition of Ready",
       "scenario": "Pre-planning readiness check",
       "level": "Senior workplace",
-      "speakingLogic": ["Readiness", "Evidence", "Decision"],
-      "sentencePatterns": ["This story is not ready yet because...", "We still need...", "I recommend that we... until..."],
-      "examples": ["Use readiness criteria to protect delivery quality."],
-      "sections": [{"title": "Core expressions", "sentences": [
-        {"id": "S1", "text": "This story is not ready yet because the business rules are still open to interpretation.", "pattern": "This story is not ready yet because...", "examples": ["This story is not ready yet because the interface contract is not agreed.", "This story is not ready yet because the test scenarios are incomplete."]},
-        {"id": "S2", "text": "We still need confirmed acceptance criteria, sample data, and a named business owner.", "pattern": "We still need..., ..., and...", "examples": ["We still need the API specification, error codes, and test endpoint.", "We still need the control wording, approver, and audit evidence."]},
-        {"id": "S3", "text": "I recommend that we keep it out of sprint planning until those points are resolved.", "pattern": "I recommend that we... until...", "examples": ["I recommend that we defer estimation until the dependency is confirmed.", "I recommend that we keep it in refinement until the scope is stable."]}
-      ]}],
-      "speakingChallenge": {"targetSeconds": 60, "instruction": "Explain why a story is not ready and what evidence is still required."}
+      "speakingLogic": ["Not Ready", "What We Need", "Keep It Out", "Life Transfer"],
+      "sentencePatterns": ["This story is not ready because... may have...", "We still need to get...", "Let us keep it out... until...", "I do not make... until I have..."],
+      "examples": ["Use a small set of operator phrases to protect story quality."],
+      "sections": [
+        {"title": "Work · 3 sentences", "sentences": [
+          {"id": "S1", "context": "Work", "text": "This story is not ready because the business rules may have more than one meaning.", "pattern": "This story is not ready because... may have more than one meaning.", "examples": ["This story is not ready because the error rule may have more than one meaning.", "This story is not ready because the scope may have two different meanings."]},
+          {"id": "S2", "context": "Work", "text": "We still need to get acceptance criteria, sample data, and a business owner.", "pattern": "We still need to get..., ..., and...", "examples": ["We still need to get the API contract and a test endpoint.", "We still need to get sign-off, an owner, and a target date."]},
+          {"id": "S3", "context": "Work", "text": "Let us keep it out of sprint planning until every open point has an answer.", "pattern": "Let us keep it out of... until...", "examples": ["Let us keep it out of the sprint until the dependency has a date.", "Let us keep it out of planning until the business gives approval."]}
+        ]},
+        {"title": "Life · 1 sentence", "sentences": [
+          {"id": "S4", "context": "Life", "text": "I do not make a travel booking until I have the date and price in writing.", "pattern": "I do not make... until I have...", "examples": ["I do not make a large payment until I have the price in writing.", "I do not make a dinner booking until I have the time and place."]}
+        ]}
+      ],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Say why a story is not ready, what you need, and why it stays out, then give one careful life decision."}
     },
     {
       "day": 18,
       "topic": "Priority Negotiation",
       "scenario": "Backlog priority discussion",
       "level": "Senior workplace",
-      "speakingLogic": ["Compare Value", "Expose Trade-off", "Agree Order"],
-      "sentencePatterns": ["Both items are valuable, but...", "If we bring... forward...", "My recommendation is to prioritize..."],
-      "examples": ["Make value and trade-offs comparable."],
-      "sections": [{"title": "Core expressions", "sentences": [
-        {"id": "S1", "text": "Both items are valuable, but the regulatory change has a fixed deadline and a higher business impact.", "pattern": "Both items are valuable, but... has... and...", "examples": ["Both items are valuable, but the control fix has a higher operational impact.", "Both items are valuable, but the client commitment has a fixed date."]},
-        {"id": "S2", "text": "If we bring the reporting enhancement forward, the onboarding change will move to the next sprint.", "pattern": "If we bring... forward, ... will move to...", "examples": ["If we bring the defect fix forward, the automation story will move out.", "If we bring phase two forward, the current release date will need to move."]},
-        {"id": "S3", "text": "My recommendation is to prioritize the mandatory scope and keep the enhancement next in line.", "pattern": "My recommendation is to prioritize... and keep...", "examples": ["My recommendation is to prioritize the client issue and keep the reporting change next.", "My recommendation is to prioritize the control gap and keep the usability change next."]}
-      ]}],
-      "speakingChallenge": {"targetSeconds": 60, "instruction": "Negotiate the order of two competing backlog items."}
+      "speakingLogic": ["Compare Value", "Put One First", "Keep One Next", "Life Transfer"],
+      "sentencePatterns": ["Both items have value, but... has...", "If we put... first, we will have to put...", "My suggestion is to take... first and keep... next.", "When... are waiting, I do... first."],
+      "examples": ["Use have, put, take, keep, and do to make the trade-off clear."],
+      "sections": [
+        {"title": "Work · 3 sentences", "sentences": [
+          {"id": "S1", "context": "Work", "text": "Both items have value, but the regulatory change has a fixed date and greater business impact.", "pattern": "Both items have value, but... has...", "examples": ["Both stories have value, but the control fix has greater business impact.", "Both changes have value, but the client request has a fixed date."]},
+          {"id": "S2", "context": "Work", "text": "If we put the report change first, we will have to put the onboarding change in the next sprint.", "pattern": "If we put... first, we will have to put... in...", "examples": ["If we put the defect first, we will have to put the new feature in the next sprint.", "If we put UAT support first, we will have to put the analysis work in next week."]},
+          {"id": "S3", "context": "Work", "text": "My suggestion is to take the required work first and keep the other item next in line.", "pattern": "My suggestion is to take... first and keep... next in line.", "examples": ["My suggestion is to take the control fix first and keep the report change next.", "My suggestion is to take the client issue first and keep the system change next."]}
+        ]},
+        {"title": "Life · 1 sentence", "sentences": [
+          {"id": "S4", "context": "Life", "text": "When two jobs at home are waiting, I do the one with the greater need first.", "pattern": "When... are waiting, I do... first.", "examples": ["When two payments are waiting, I do the one with the earlier date first.", "When two family needs are waiting, I do the more important one first."]}
+        ]}
+      ],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Compare two items, put one first, and keep one next, then use the same rule for a life choice."}
     },
     {
       "day": 19,
       "topic": "Timeline Negotiation",
       "scenario": "Delivery date discussion",
       "level": "Senior workplace",
-      "speakingLogic": ["Desired Date", "Conditions", "Options"],
-      "sentencePatterns": ["We can aim for..., provided that...", "The earliest realistic date is...", "To meet the earlier date..."],
-      "examples": ["Turn a date request into explicit delivery conditions."],
-      "sections": [{"title": "Core expressions", "sentences": [
-        {"id": "S1", "text": "We can aim for the end of November, provided that the requirements are signed off this week.", "pattern": "We can aim for..., provided that...", "examples": ["We can aim for Friday, provided that UAT completes by Wednesday.", "We can aim for the current release, provided that the API is available on Monday."]},
-        {"id": "S2", "text": "Based on the current scope, the earliest realistic date is 12 December.", "pattern": "Based on the current scope, the earliest realistic date is...", "examples": ["Based on the current defects, the earliest realistic date is next Tuesday.", "Based on the current capacity, the earliest realistic date is sprint 24."]},
-        {"id": "S3", "text": "To meet the earlier date, we would need to reduce the scope or add experienced capacity.", "pattern": "To meet the earlier date, we would need to... or...", "examples": ["To meet the earlier date, we would need to shorten UAT or accept a manual control.", "To meet the earlier date, we would need to defer reporting or add another developer."]}
-      ]}],
-      "speakingChallenge": {"targetSeconds": 60, "instruction": "Negotiate a requested date by explaining conditions and options."}
+      "speakingLogic": ["Possible Date", "Safe Date", "What Must Change", "Life Transfer"],
+      "sentencePatterns": ["We may get to... if we have...", "With the present scope, ... seems to be...", "To get the earlier date, we have to make... or get...", "If I have only..., I make... rather than..."],
+      "examples": ["Make the date depend on clear conditions, not hope."],
+      "sections": [
+        {"title": "Work · 3 sentences", "sentences": [
+          {"id": "S1", "context": "Work", "text": "We may get to the end of November if we have sign-off this week.", "pattern": "We may get to... if we have...", "examples": ["We may get to Friday if we have the test result by Wednesday.", "We may get to the release date if we have the API on Monday."]},
+          {"id": "S2", "context": "Work", "text": "With the present scope, 12 December seems to be the first safe target date.", "pattern": "With the present scope, ... seems to be the first safe target date.", "examples": ["With the present defects, next Tuesday seems to be the first safe date.", "With the present capacity, sprint 24 seems to be the first safe target."]},
+          {"id": "S3", "context": "Work", "text": "To get the earlier date, we have to make the scope smaller or get more capacity.", "pattern": "To get the earlier date, we have to make... or get...", "examples": ["To get the earlier date, we have to make UAT shorter or get more test help.", "To get the earlier date, we have to make the release smaller or get another developer."]}
+        ]},
+        {"title": "Life · 1 sentence", "sentences": [
+          {"id": "S4", "context": "Life", "text": "If I have only one hour, I make a simple meal rather than a complex one.", "pattern": "If I have only..., I make... rather than...", "examples": ["If I have little time, I make a short journey rather than a long one.", "If I have little money, I make a simple plan rather than an expensive one."]}
+        ]}
+      ],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Give a possible date, a safe date, and the change needed for an earlier date, then add one life time choice."}
     },
     {
       "day": 20,
       "topic": "Resource / Capacity Discussion",
       "scenario": "Delivery capacity review",
       "level": "Senior workplace",
-      "speakingLogic": ["Capacity Fact", "Impact", "Mitigation"],
-      "sentencePatterns": ["The team is currently operating with...", "This means we can... but not...", "One option is to..."],
-      "examples": ["Discuss capacity using facts, not pressure."],
-      "sections": [{"title": "Core expressions", "sentences": [
-        {"id": "S1", "text": "The team is currently operating with two fewer developers because of planned leave and production support.", "pattern": "The team is currently operating with... because of...", "examples": ["The team is currently operating with reduced QA capacity because of parallel releases.", "The team is currently operating with one BA because of another priority project."]},
-        {"id": "S2", "text": "This means we can protect the committed sprint goal, but not take on the additional request.", "pattern": "This means we can..., but not...", "examples": ["This means we can complete the mandatory scope, but not the enhancements.", "This means we can support UAT, but not start the new analysis in parallel."]},
-        {"id": "S3", "text": "One option is to borrow capacity from the platform team for the integration work.", "pattern": "One option is to... for...", "examples": ["One option is to use vendor support for the data migration.", "One option is to split the scope across two sprints."]}
-      ]}],
-      "speakingChallenge": {"targetSeconds": 60, "instruction": "Explain a capacity constraint and propose a practical mitigation."}
+      "speakingLogic": ["Capacity Fact", "Keep the Goal", "Get Help", "Life Transfer"],
+      "sentencePatterns": ["We have... because of...", "With this capacity, we can keep... but cannot take in...", "We may get help from...", "When I have little time, I put... first and let... wait."],
+      "examples": ["Use facts and simple operator phrases instead of pressure language."],
+      "sections": [
+        {"title": "Work · 3 sentences", "sentences": [
+          {"id": "S1", "context": "Work", "text": "We have two fewer developers because of leave and production support.", "pattern": "We have... fewer... because of...", "examples": ["We have one fewer tester because of another release.", "We have one BA this week because of planned leave."]},
+          {"id": "S2", "context": "Work", "text": "With this capacity, we can keep the sprint goal but cannot take in more work.", "pattern": "With this capacity, we can keep... but cannot take in...", "examples": ["With this capacity, we can keep the release date but cannot take in a new feature.", "With this capacity, we can keep UAT support but cannot take in more analysis."]},
+          {"id": "S3", "context": "Work", "text": "We may get help from the platform team for the API work.", "pattern": "We may get help from... for...", "examples": ["We may get help from QA for the UAT work.", "We may get help from the vendor for the migration work."]}
+        ]},
+        {"title": "Life · 1 sentence", "sentences": [
+          {"id": "S4", "context": "Life", "text": "When I have little time, I put one important thing first and let the rest wait.", "pattern": "When I have little time, I put... first and let... wait.", "examples": ["When I have little time, I put family needs first and let small jobs wait.", "When I have little time, I put sleep first and let the housework wait."]}
+        ]}
+      ],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Give the capacity fact, say what stays in, and ask for help, then add one life-capacity example."}
     },
     {
       "day": 21,
       "topic": "Handling Different Opinions",
       "scenario": "Team disagreement",
       "level": "Senior workplace",
-      "speakingLogic": ["Recognize Views", "Find Common Ground", "Resolve"],
-      "sentencePatterns": ["I can see why...", "The common point seems to be...", "Could we compare both options against...?"],
-      "examples": ["Lower the temperature and create shared criteria."],
-      "sections": [{"title": "Core expressions", "sentences": [
-        {"id": "S1", "text": "I can see why the business prefers a flexible rule, while Technology is concerned about support complexity.", "pattern": "I can see why... prefers..., while... is concerned about...", "examples": ["I can see why Operations prefers automation, while Risk is concerned about control evidence.", "I can see why the vendor prefers option one, while we are concerned about resilience."]},
-        {"id": "S2", "text": "The common point seems to be that we all want a solution that is safe and practical to operate.", "pattern": "The common point seems to be that we all want...", "examples": ["The common point seems to be that we all want to protect the client experience.", "The common point seems to be that we all want a supportable release."]},
-        {"id": "S3", "text": "Could we compare both options against the same criteria before we make a decision?", "pattern": "Could we compare both options against... before...?", "examples": ["Could we compare both options against cost, effort, and risk?", "Could we compare both options against the agreed business outcomes?"]}
-      ]}],
-      "speakingChallenge": {"targetSeconds": 75, "instruction": "Handle a disagreement by recognizing both views and proposing neutral criteria."}
+      "speakingLogic": ["See Both Views", "Same Purpose", "Make a Comparison", "Life Transfer"],
+      "sentencePatterns": ["I see why... wants... and why... wants...", "We all have the same purpose...", "Let us make a comparison of... with...", "I let everyone give a reason before we make a choice."],
+      "examples": ["Lower the heat by seeing both sides and using the same points."],
+      "sections": [
+        {"title": "Work · 3 sentences", "sentences": [
+          {"id": "S1", "context": "Work", "text": "I see why the business wants a flexible rule and why Technology wants simple support.", "pattern": "I see why... wants... and why... wants...", "examples": ["I see why Operations wants automation and why Risk wants a manual control.", "I see why the vendor wants option one and why our team wants option two."]},
+          {"id": "S2", "context": "Work", "text": "We all have the same purpose: a safe system that is simple to keep in operation.", "pattern": "We all have the same purpose: ...", "examples": ["We all have the same purpose: a safe release with little customer impact.", "We all have the same purpose: a clear process that is simple to support."]},
+          {"id": "S3", "context": "Work", "text": "Let us make a comparison of both options with the same three points.", "pattern": "Let us make a comparison of... with the same...", "examples": ["Let us make a comparison of both designs with cost, time, and risk.", "Let us make a comparison of both dates with scope, capacity, and customer impact."]}
+        ]},
+        {"title": "Life · 1 sentence", "sentences": [
+          {"id": "S4", "context": "Life", "text": "When my family has different ideas, I let everyone give a reason before we make a choice.", "pattern": "When... has different ideas, I let everyone give a reason before we make a choice.", "examples": ["When friends have different ideas, I let everyone give a reason before we make a plan.", "When we have different meal choices, I let everyone give an opinion first."]}
+        ]}
+      ],
+      "speakingChallenge": {"targetSeconds": 75, "instruction": "Show that you see both views, state the same purpose, and compare the options, then add one family example."}
     },
     {
       "day": 22,
       "topic": "Making a Decision in a Meeting",
       "scenario": "Decision meeting",
       "level": "Senior workplace",
-      "speakingLogic": ["Options", "Recommendation", "Decision Record"],
-      "sentencePatterns": ["We have considered...", "On balance, I recommend...", "Unless there are objections..."],
-      "examples": ["State the basis for a decision and close it clearly."],
-      "sections": [{"title": "Core expressions", "sentences": [
-        {"id": "S1", "text": "We have considered three options, and each one has a different trade-off between speed and control.", "pattern": "We have considered... options, and each one has a different trade-off between...", "examples": ["We have considered two options, and each has a different trade-off between cost and resilience.", "We have considered three dates, and each has a different delivery risk."]},
-        {"id": "S2", "text": "On balance, I recommend option two because it meets the control requirement without changing the release date.", "pattern": "On balance, I recommend... because... without...", "examples": ["On balance, I recommend the phased approach because it protects the deadline.", "On balance, I recommend the standard API because it reduces support effort."]},
-        {"id": "S3", "text": "Unless there are any objections, I will record that as the decision and update the action log.", "pattern": "Unless there are any objections, I will record... and...", "examples": ["Unless there are any objections, I will record the new date and update the plan.", "Unless there are any objections, I will close this point and circulate the minutes."]}
-      ]}],
-      "speakingChallenge": {"targetSeconds": 60, "instruction": "Recommend an option, explain why, and formally close the decision."}
+      "speakingLogic": ["Options", "Give Support", "Put It on Record", "Life Transfer"],
+      "sentencePatterns": ["We have... options, and each one has...", "I give... my support because...", "If there is no strong argument against it, let us put...", "I put the facts on paper and make..."],
+      "examples": ["Close a choice with have, give, put, and make."],
+      "sections": [
+        {"title": "Work · 3 sentences", "sentences": [
+          {"id": "S1", "context": "Work", "text": "We have three options, and each one has a different balance of speed and control.", "pattern": "We have... options, and each one has a different balance of... and...", "examples": ["We have two options, and each one has a different balance of cost and support.", "We have three dates, and each one has a different balance of scope and risk."]},
+          {"id": "S2", "context": "Work", "text": "I give option two my support because it keeps the control and the release date.", "pattern": "I give... my support because it keeps... and...", "examples": ["I give the standard API my support because it keeps the design simple.", "I give the smaller release my support because it keeps the target date safe."]},
+          {"id": "S3", "context": "Work", "text": "If there is no strong argument against it, let us put this decision in the meeting record.", "pattern": "If there is no strong argument against it, let us put... in...", "examples": ["If there is no strong argument against it, let us put the new date in the plan.", "If there is no strong argument against it, let us put the owner in the action list."]}
+        ]},
+        {"title": "Life · 1 sentence", "sentences": [
+          {"id": "S4", "context": "Life", "text": "When I have two good choices, I put the facts on paper and make one clear decision.", "pattern": "When I have... choices, I put... and make...", "examples": ["When I have two travel choices, I put the price and time on paper.", "When I have two job choices, I put the good and bad points on paper."]}
+        ]}
+      ],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Set out the options, give one your support, and put the decision on record, then add one life decision."}
     },
     {
       "day": 23,
       "topic": "Giving a Management Update",
       "scenario": "Executive status update",
       "level": "Senior workplace",
-      "speakingLogic": ["Headline", "Business Impact", "Ask"],
-      "sentencePatterns": ["The key message is...", "The impact is currently limited to...", "What we need from this group is..."],
-      "examples": ["Keep management updates brief and decision-oriented."],
-      "sections": [{"title": "Core expressions", "sentences": [
-        {"id": "S1", "text": "The key message is that the programme remains on track, but one external dependency needs close attention.", "pattern": "The key message is that... remains..., but...", "examples": ["The key message is that UAT is progressing well, but defect turnaround needs attention.", "The key message is that the release is ready, but final sign-off is outstanding."]},
-        {"id": "S2", "text": "The impact is currently limited to the reporting workstream and does not affect the core release.", "pattern": "The impact is currently limited to... and does not affect...", "examples": ["The impact is currently limited to one market and does not affect other regions.", "The impact is currently limited to test data and does not affect production."]},
-        {"id": "S3", "text": "What we need from this group is support in confirming the priority with the vendor.", "pattern": "What we need from this group is support in...", "examples": ["What we need from this group is a decision on the remaining scope.", "What we need from this group is support in securing temporary capacity."]}
-      ]}],
-      "speakingChallenge": {"targetSeconds": 60, "instruction": "Give a management update with one headline, the business impact, and a clear ask."}
+      "speakingLogic": ["Main Message", "Business Effect", "Give Support", "Life Transfer"],
+      "sentencePatterns": ["The programme is on track, but...", "The effect is limited to... and does not put...", "We need... to give us support with...", "When I give... an update, I say..."],
+      "examples": ["Keep a management update short: status, effect, and ask."],
+      "sections": [
+        {"title": "Work · 3 sentences", "sentences": [
+          {"id": "S1", "context": "Work", "text": "The programme is on track, but one outside dependency needs attention.", "pattern": "The programme is on track, but... needs attention.", "examples": ["UAT is on track, but one vendor item needs attention.", "The release is on track, but final sign-off needs attention."]},
+          {"id": "S2", "context": "Work", "text": "The effect is limited to the report work and does not put the main release at risk.", "pattern": "The effect is limited to... and does not put... at risk.", "examples": ["The effect is limited to one market and does not put other regions at risk.", "The effect is limited to test data and does not put production at risk."]},
+          {"id": "S3", "context": "Work", "text": "We need this group to give us support with the vendor priority.", "pattern": "We need... to give us support with...", "examples": ["We need this group to give us support with the scope decision.", "We need management to give us support with short-term capacity."]}
+        ]},
+        {"title": "Life · 1 sentence", "sentences": [
+          {"id": "S4", "context": "Life", "text": "When I give my family an update, I say what is going well, what is not, and what help I need.", "pattern": "When I give... an update, I say..., ..., and...", "examples": ["When I give a friend an update, I say where I am and when I will come.", "When I give my family a travel update, I say the time, place, and next step."]}
+        ]}
+      ],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Give a management update with one message, one business effect, and one ask, then add one family update."}
     },
     {
       "day": 24,
       "topic": "Responding When You Don't Know the Answer",
       "scenario": "Unexpected stakeholder question",
       "level": "Senior workplace",
-      "speakingLogic": ["Be Honest", "Define Check", "Commit to Return"],
-      "sentencePatterns": ["I don’t have that detail with me...", "I need to check...", "I’ll confirm this by..."],
-      "examples": ["Be credible without guessing."],
-      "sections": [{"title": "Core expressions", "sentences": [
-        {"id": "S1", "text": "I don’t have that detail with me, and I don’t want to give you an inaccurate answer.", "pattern": "I don’t have that detail with me, and I don’t want to...", "examples": ["I don’t have the latest number with me, and I don’t want to misstate it.", "I don’t have the contract detail with me, and I don’t want to make an assumption."]},
-        {"id": "S2", "text": "I need to check the latest design and confirm the position with the solution architect.", "pattern": "I need to check... and confirm... with...", "examples": ["I need to check the defect log and confirm the status with QA.", "I need to check the policy and confirm the interpretation with Compliance."]},
-        {"id": "S3", "text": "I’ll confirm this by end of day and send the answer to everyone on this call.", "pattern": "I’ll confirm this by... and send... to...", "examples": ["I’ll confirm this by noon tomorrow and update the project channel.", "I’ll confirm this after the vendor call and add it to the minutes."]}
-      ]}],
-      "speakingChallenge": {"targetSeconds": 45, "instruction": "Respond confidently to a question you cannot answer yet."}
+      "speakingLogic": ["Be Clear", "Make a Check", "Send the Answer", "Life Transfer"],
+      "sentencePatterns": ["I do not have..., and I do not want to give...", "I will make a check of... with...", "I will send the answer... before...", "If I do not have..., I get help rather than make a guess."],
+      "examples": ["Stay credible with have, give, make, and send."],
+      "sections": [
+        {"title": "Work · 3 sentences", "sentences": [
+          {"id": "S1", "context": "Work", "text": "I do not have that detail now, and I do not want to give a wrong answer.", "pattern": "I do not have..., and I do not want to give...", "examples": ["I do not have the latest number now, and I do not want to give a wrong answer.", "I do not have the contract detail now, and I do not want to give a guess."]},
+          {"id": "S2", "context": "Work", "text": "I will make a check of the latest design with the solution architect.", "pattern": "I will make a check of... with...", "examples": ["I will make a check of the defect list with QA.", "I will make a check of the control rule with Compliance."]},
+          {"id": "S3", "context": "Work", "text": "I will send the answer to everyone on this call before the end of the day.", "pattern": "I will send the answer to... before...", "examples": ["I will send the answer to the project group before noon tomorrow.", "I will send the answer to everyone after the vendor call."]}
+        ]},
+        {"title": "Life · 1 sentence", "sentences": [
+          {"id": "S4", "context": "Life", "text": "If I do not have the answer, I get help rather than make a guess.", "pattern": "If I do not have..., I get help rather than make...", "examples": ["If I do not have the right direction, I get help rather than make a guess.", "If I do not have the full price, I get more information before I make a choice."]}
+        ]}
+      ],
+      "speakingChallenge": {"targetSeconds": 45, "instruction": "Say that you do not have the answer, give your check plan, and promise when you will send it, then add one life example."}
     },
     {
       "day": 25,
       "topic": "Handling an Urgent Production Issue",
       "scenario": "Production incident call",
       "level": "Senior workplace",
-      "speakingLogic": ["Known Facts", "Containment", "Next Update"],
-      "sentencePatterns": ["What we know so far is...", "The immediate priority is...", "We will provide the next update by..."],
-      "examples": ["Communicate facts, containment, and cadence under pressure."],
-      "sections": [{"title": "Core expressions", "sentences": [
-        {"id": "S1", "text": "What we know so far is that payment submissions are delayed, but no transactions have been lost.", "pattern": "What we know so far is that..., but...", "examples": ["What we know so far is that logins are failing, but existing sessions remain active.", "What we know so far is that one region is affected, but other markets are stable."]},
-        {"id": "S2", "text": "The immediate priority is to stabilize the service and confirm the customer impact.", "pattern": "The immediate priority is to... and...", "examples": ["The immediate priority is to stop duplicate processing and reconcile the queue.", "The immediate priority is to restore access and confirm the affected users."]},
-        {"id": "S3", "text": "We will provide the next update by 2 p.m., even if the root cause is still under investigation.", "pattern": "We will provide the next update by..., even if...", "examples": ["We will provide the next update in thirty minutes, even if recovery is still in progress.", "We will provide the next update after the log review, even if the fix is not confirmed."]}
-      ]}],
-      "speakingChallenge": {"targetSeconds": 60, "instruction": "Give a calm production incident update using only confirmed facts."}
+      "speakingLogic": ["What We See", "Get Stable", "Give Next Update", "Life Transfer"],
+      "sentencePatterns": ["What we see now is..., but...", "Our first work is to get... and see...", "We will give the next update at..., even if...", "If... goes off, I keep calm and make a check of..."],
+      "examples": ["Use only facts, the first action, and the next update time."],
+      "sections": [
+        {"title": "Work · 3 sentences", "sentences": [
+          {"id": "S1", "context": "Work", "text": "What we see now is that payments are late, but no payment is lost.", "pattern": "What we see now is that..., but...", "examples": ["What we see now is that logins are slow, but current users are still in the system.", "What we see now is that one region is down, but other markets are stable."]},
+          {"id": "S2", "context": "Work", "text": "Our first work is to get the service back to a stable condition and see the customer effect.", "pattern": "Our first work is to get... and see...", "examples": ["Our first work is to get payment processing back and see the queue size.", "Our first work is to get access back and see how many users have an error."]},
+          {"id": "S3", "context": "Work", "text": "We will give the next update at 2 p.m., even if we do not have the root cause.", "pattern": "We will give the next update at..., even if we do not have...", "examples": ["We will give the next update in thirty minutes, even if we do not have a fix.", "We will give the next update after the log check, even if we do not have full recovery."]}
+        ]},
+        {"title": "Life · 1 sentence", "sentences": [
+          {"id": "S4", "context": "Life", "text": "If the power goes off at home, I keep calm and make a check of the main switch first.", "pattern": "If... goes off, I keep calm and make a check of... first.", "examples": ["If my phone goes off, I keep calm and make a check of the battery first.", "If the water goes off, I keep calm and make a check with the building manager."]}
+        ]}
+      ],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Give the known facts, the first recovery action, and the next update time, then add one calm life response."}
     },
     {
       "day": 26,
       "topic": "Release Readiness Discussion",
       "scenario": "Go / no-go meeting",
       "level": "Senior workplace",
-      "speakingLogic": ["Readiness Evidence", "Residual Risk", "Recommendation"],
-      "sentencePatterns": ["All critical checks have been completed...", "The remaining risk is...", "My recommendation is to proceed..."],
-      "examples": ["Base the release decision on evidence and residual risk."],
-      "sections": [{"title": "Core expressions", "sentences": [
-        {"id": "S1", "text": "All critical checks have been completed, including UAT sign-off, security approval, and the rollback rehearsal.", "pattern": "All critical checks have been completed, including..., ..., and...", "examples": ["All critical checks have been completed, including smoke testing and business validation.", "All critical checks have been completed, including data reconciliation and support handover."]},
-        {"id": "S2", "text": "The remaining risk is one medium-severity defect with a tested operational workaround.", "pattern": "The remaining risk is... with...", "examples": ["The remaining risk is a reporting delay with a manual extract available.", "The remaining risk is a vendor dependency with overnight support in place."]},
-        {"id": "S3", "text": "My recommendation is to proceed with the release and monitor the issue closely during the warranty period.", "pattern": "My recommendation is to proceed with... and monitor...", "examples": ["My recommendation is to proceed with cutover and monitor reconciliation closely.", "My recommendation is to proceed as planned and monitor volumes after launch."]}
-      ]}],
-      "speakingChallenge": {"targetSeconds": 75, "instruction": "Make a go/no-go recommendation using readiness evidence and residual risk."}
+      "speakingLogic": ["Have the Evidence", "Open Risk", "Go Ahead", "Life Transfer"],
+      "sentencePatterns": ["We have all key checks...", "One... is still open, but we have...", "My suggestion is to go ahead... and keep...", "Before I go..., I make a check of..."],
+      "examples": ["Base the release choice on evidence, remaining risk, and a clear suggestion."],
+      "sections": [
+        {"title": "Work · 3 sentences", "sentences": [
+          {"id": "S1", "context": "Work", "text": "We have all key checks: UAT sign-off, security approval, and a successful rollback test.", "pattern": "We have all key checks: ..., ..., and...", "examples": ["We have all key checks: business approval, smoke test, and support handover.", "We have all key checks: data totals, access control, and rollback steps."]},
+          {"id": "S2", "context": "Work", "text": "One medium defect is still open, but we have a tested workaround.", "pattern": "One... is still open, but we have...", "examples": ["One report error is still open, but we have a manual workaround.", "One vendor risk is still open, but we have extra support in place."]},
+          {"id": "S3", "context": "Work", "text": "My suggestion is to go ahead with the release and keep a close watch in the warranty period.", "pattern": "My suggestion is to go ahead with... and keep a close watch...", "examples": ["My suggestion is to go ahead with cutover and keep a close watch on payment totals.", "My suggestion is to go ahead as planned and keep a close watch on system use."]}
+        ]},
+        {"title": "Life · 1 sentence", "sentences": [
+          {"id": "S4", "context": "Life", "text": "Before I go on a long journey, I make a check of my ticket, money, and phone.", "pattern": "Before I go..., I make a check of..., ..., and...", "examples": ["Before I go to the airport, I make a check of my ticket and passport.", "Before I go out for the day, I make a check of the weather and my phone."]}
+        ]}
+      ],
+      "speakingChallenge": {"targetSeconds": 75, "instruction": "Give the readiness evidence, one open risk, and your go/no-go suggestion, then add one personal readiness check."}
     },
     {
       "day": 27,
       "topic": "Cross-Team Dependency Discussion",
       "scenario": "Dependency alignment call",
       "level": "Senior workplace",
-      "speakingLogic": ["Dependency", "Required Date", "Joint Plan"],
-      "sentencePatterns": ["Our delivery depends on...", "To protect our timeline...", "Can we agree a joint plan...?"],
-      "examples": ["Make the handoff and timing explicit across teams."],
-      "sections": [{"title": "Core expressions", "sentences": [
-        {"id": "S1", "text": "Our delivery depends on the upstream team providing the final API contract and a stable test endpoint.", "pattern": "Our delivery depends on... providing... and...", "examples": ["Our delivery depends on Finance providing the approved accounting rules.", "Our delivery depends on the downstream team confirming the file format."]},
-        {"id": "S2", "text": "To protect our timeline, we need both items by Wednesday at the latest.", "pattern": "To protect our timeline, we need... by... at the latest.", "examples": ["To protect our timeline, we need sign-off by close of business Monday.", "To protect our timeline, we need the test data before sprint planning."]},
-        {"id": "S3", "text": "Can we agree a joint plan with named owners, dates, and an escalation route?", "pattern": "Can we agree a joint plan with..., ..., and...?", "examples": ["Can we agree a joint plan with daily checkpoints and clear owners?", "Can we agree a joint plan with milestones, dependencies, and escalation points?"]}
-      ]}],
-      "speakingChallenge": {"targetSeconds": 60, "instruction": "Align two teams on a dependency, required date, and joint action plan."}
+      "speakingLogic": ["Dependency", "Get It by a Date", "Put Owners in Place", "Life Transfer"],
+      "sentencePatterns": ["Our work is dependent on... for...", "To keep..., we have to get... by...", "Let us put an owner, date, and path against...", "If... is giving me..., I get... clear before..."],
+      "examples": ["Make the handoff, date, and owner easy to see."],
+      "sections": [
+        {"title": "Work · 3 sentences", "sentences": [
+          {"id": "S1", "context": "Work", "text": "Our work is dependent on the upstream team for the final API contract and a stable test endpoint.", "pattern": "Our work is dependent on... for... and...", "examples": ["Our work is dependent on Finance for the final accounting rules.", "Our work is dependent on the downstream team for the final file format."]},
+          {"id": "S2", "context": "Work", "text": "To keep our target date, we have to get both items by Wednesday.", "pattern": "To keep our target date, we have to get... by...", "examples": ["To keep our target date, we have to get sign-off by Monday.", "To keep our sprint goal, we have to get the test data before planning."]},
+          {"id": "S3", "context": "Work", "text": "Let us put an owner, date, and escalation path against every open item.", "pattern": "Let us put an owner, date, and... against every...", "examples": ["Let us put an owner and target date against every dependency.", "Let us put a daily check and escalation path against this open item."]}
+        ]},
+        {"title": "Life · 1 sentence", "sentences": [
+          {"id": "S4", "context": "Life", "text": "If a friend is giving me a ride, I get the time and place clear before I go from home.", "pattern": "If... is giving me..., I get... clear before...", "examples": ["If a friend is giving me help, I get the time and place clear first.", "If someone is sending me a parcel, I get the delivery date clear first."]}
+        ]}
+      ],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "State the dependency, required date, and named action plan, then add one everyday dependency example."}
     },
     {
       "day": 28,
       "topic": "Vendor / External Team Communication",
       "scenario": "Vendor delivery call",
       "level": "Senior workplace",
-      "speakingLogic": ["Expectation", "Evidence", "Recovery Plan"],
-      "sentencePatterns": ["As agreed, we expected...", "Please provide... so that...", "We also need a recovery plan..."],
-      "examples": ["Be firm, factual, and specific with external teams."],
-      "sections": [{"title": "Core expressions", "sentences": [
-        {"id": "S1", "text": "As agreed, we expected the updated build and release notes by close of business yesterday.", "pattern": "As agreed, we expected... by...", "examples": ["As agreed, we expected the estimate by noon today.", "As agreed, we expected the test evidence before the checkpoint."]},
-        {"id": "S2", "text": "Please provide a confirmed delivery date and the reason for the delay so that we can assess the impact.", "pattern": "Please provide... and... so that we can...", "examples": ["Please provide the defect analysis and fix date so that we can update the plan.", "Please provide the support model and contacts so that we can complete handover."]},
-        {"id": "S3", "text": "We also need a recovery plan that shows how the lost time will be addressed.", "pattern": "We also need a recovery plan that shows how...", "examples": ["We also need a recovery plan that shows how quality will be protected.", "We also need a recovery plan that shows how the revised date will be met."]}
-      ]}],
-      "speakingChallenge": {"targetSeconds": 60, "instruction": "Address a missed vendor commitment and request a credible recovery plan."}
+      "speakingLogic": ["Agreement", "Give a Date", "Make Up Lost Time", "Life Transfer"],
+      "sentencePatterns": ["We had an agreement to get... by...", "Please give us... and...", "We need a plan for making up...", "If... is late, I send... and make a request for..."],
+      "examples": ["Be firm with had, get, give, make, and send."],
+      "sections": [
+        {"title": "Work · 3 sentences", "sentences": [
+          {"id": "S1", "context": "Work", "text": "We had an agreement to get the new build and release notes yesterday.", "pattern": "We had an agreement to get... by...", "examples": ["We had an agreement to get the estimate by noon today.", "We had an agreement to get the test evidence before this meeting."]},
+          {"id": "S2", "context": "Work", "text": "Please give us a confirmed date and a clear reason for the delay.", "pattern": "Please give us... and...", "examples": ["Please give us the fix date and the reason for the error.", "Please give us the support plan and the main contact name."]},
+          {"id": "S3", "context": "Work", "text": "We also need a recovery plan for making up the lost time.", "pattern": "We also need a recovery plan for making up...", "examples": ["We also need a recovery plan for making up the two-day delay.", "We also need a recovery plan for keeping the new target date safe."]}
+        ]},
+        {"title": "Life · 1 sentence", "sentences": [
+          {"id": "S4", "context": "Life", "text": "If an online order is late, I send the store the order number and make a request for a new date.", "pattern": "If... is late, I send... and make a request for...", "examples": ["If a parcel is late, I send the store the receipt and make a request for help.", "If a service is late, I send the company the details and make a request for a new time."]}
+        ]}
+      ],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "State the agreement, ask for a date and reason, and request a recovery plan, then add one life-service example."}
     },
     {
       "day": 29,
       "topic": "Retrospective / Lessons Learned",
       "scenario": "Sprint retrospective",
       "level": "Senior workplace",
-      "speakingLogic": ["What Worked", "What Did Not", "Improvement"],
-      "sentencePatterns": ["One thing that worked well was...", "The main friction point was...", "For the next sprint, I suggest..."],
-      "examples": ["Turn reflection into one specific improvement."],
-      "sections": [{"title": "Core expressions", "sentences": [
-        {"id": "S1", "text": "One thing that worked well was involving Operations early in the story walkthroughs.", "pattern": "One thing that worked well was...", "examples": ["One thing that worked well was using daily defect triage during UAT.", "One thing that worked well was agreeing examples before development started."]},
-        {"id": "S2", "text": "The main friction point was that decisions were made in separate chats and were not visible to the whole team.", "pattern": "The main friction point was that...", "examples": ["The main friction point was that test data arrived too late.", "The main friction point was that ownership changed several times."]},
-        {"id": "S3", "text": "For the next sprint, I suggest recording decisions in one place and reviewing them at stand-up.", "pattern": "For the next sprint, I suggest... and...", "examples": ["For the next sprint, I suggest refining smaller stories and confirming dependencies earlier.", "For the next sprint, I suggest adding a readiness check before planning."]}
-      ]}],
-      "speakingChallenge": {"targetSeconds": 60, "instruction": "Share one success, one friction point, and one practical improvement."}
+      "speakingLogic": ["Good Point", "Trouble Point", "Put One Change in Place", "Life Transfer"],
+      "sentencePatterns": ["One good point was getting...", "One trouble was that..., so... did not see...", "Let us put... in one place and take a look at...", "I make a note of one good thing and one change..."],
+      "examples": ["Turn the review into one small action for the next sprint."],
+      "sections": [
+        {"title": "Work · 3 sentences", "sentences": [
+          {"id": "S1", "context": "Work", "text": "One good point was getting Operations into the story talks early.", "pattern": "One good point was getting... into... early.", "examples": ["One good point was getting QA into the story talks early.", "One good point was getting Risk into the design discussion early."]},
+          {"id": "S2", "context": "Work", "text": "One trouble was that decisions were in separate chats, so the full team did not see them.", "pattern": "One trouble was that..., so... did not see...", "examples": ["One trouble was that test data came late, so the team did not have enough time.", "One trouble was that owners changed, so the team did not have a clear contact."]},
+          {"id": "S3", "context": "Work", "text": "For the next sprint, let us put every decision in one place and take a look at it in stand-up.", "pattern": "For the next sprint, let us put... in one place and take a look at it...", "examples": ["For the next sprint, let us put every dependency in one list.", "For the next sprint, let us take a look at story readiness before planning."]}
+        ]},
+        {"title": "Life · 1 sentence", "sentences": [
+          {"id": "S4", "context": "Life", "text": "At the end of the week, I make a note of one good thing and one change for next week.", "pattern": "At the end of..., I make a note of... and...", "examples": ["At the end of the day, I make a note of one success and one open job.", "At the end of a journey, I make a note of one good place and one useful change."]}
+        ]}
+      ],
+      "speakingChallenge": {"targetSeconds": 60, "instruction": "Give one good point, one trouble point, and one next-sprint change, then add one personal review habit."}
     },
     {
       "day": 30,
       "topic": "Leading an End-to-End Project Meeting",
       "scenario": "Project governance meeting",
       "level": "Senior workplace",
-      "speakingLogic": ["Set Purpose", "Navigate Agenda", "Close with Decisions"],
-      "sentencePatterns": ["The purpose of today’s meeting is...", "I’ll take us through...", "Before we close, let me summarize..."],
-      "examples": ["Lead with purpose and finish with decisions, owners, and dates."],
-      "sections": [{"title": "Core expressions", "sentences": [
-        {"id": "S1", "text": "The purpose of today’s meeting is to confirm release readiness, close the remaining decisions, and align on next steps.", "pattern": "The purpose of today’s meeting is to..., ..., and...", "examples": ["The purpose of today’s meeting is to review progress, resolve blockers, and confirm ownership.", "The purpose of today’s meeting is to align the scope, timeline, and delivery approach."]},
-        {"id": "S2", "text": "I’ll take us through the status first, then the key risks, and finally the decisions we need today.", "pattern": "I’ll take us through... first, then..., and finally...", "examples": ["I’ll take us through the business outcome first, then the options, and finally my recommendation.", "I’ll take us through the test results first, then open defects, and finally the go-live decision."]},
-        {"id": "S3", "text": "Before we close, let me summarize the decisions, action owners, and target dates.", "pattern": "Before we close, let me summarize..., ..., and...", "examples": ["Before we close, let me summarize the agreed scope, assumptions, and next checkpoint.", "Before we close, let me summarize the open items, owners, and escalation points."]}
-      ]}],
-      "speakingChallenge": {"targetSeconds": 90, "instruction": "Lead a complete project meeting opening, status update, decision point, and action summary."}
+      "speakingLogic": ["Set the Aims", "Take the Group Through", "Give the Close", "Life Transfer"],
+      "sentencePatterns": ["Today we have three aims: see..., make..., and get...", "I will take us through...", "Before we go, I will give a short account of...", "When I make a plan, I put... in one message."],
+      "examples": ["Open with purpose and close with decisions, owners, and dates."],
+      "sections": [
+        {"title": "Work · 3 sentences", "sentences": [
+          {"id": "S1", "context": "Work", "text": "Today we have three aims: see release readiness, make the open decisions, and get agreement on next steps.", "pattern": "Today we have three aims: see..., make..., and get...", "examples": ["Today we have three aims: see project status, make two decisions, and get clear owners.", "Today we have three aims: see the UAT result, make the release choice, and get agreement on support."]},
+          {"id": "S2", "context": "Work", "text": "I will take us through status, key risks, and the decisions we need today.", "pattern": "I will take us through..., ..., and...", "examples": ["I will take us through the business need, the options, and my suggestion.", "I will take us through the test result, open defects, and the go-live choice."]},
+          {"id": "S3", "context": "Work", "text": "Before we go, I will give a short account of each decision, owner, and target date.", "pattern": "Before we go, I will give a short account of..., ..., and...", "examples": ["Before we go, I will give a short account of the scope and next steps.", "Before we go, I will give a short account of every open item and owner."]}
+        ]},
+        {"title": "Life · 1 sentence", "sentences": [
+          {"id": "S4", "context": "Life", "text": "When I make a plan with friends, I put the time, place, and next step in one message.", "pattern": "When I make a plan with..., I put..., ..., and... in one message.", "examples": ["When I make a family plan, I put the time and place in one message.", "When I make a travel plan, I put the ticket, hotel, and meeting point in one note."]}
+        ]}
+      ],
+      "speakingChallenge": {"targetSeconds": 90, "instruction": "Open and close a full project meeting with simple operator language, then use the same structure for a plan with friends."}
     }
   ]
 }
