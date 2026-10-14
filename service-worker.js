@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'ba-speak-v1.1.0';
+const CACHE_VERSION = 'ba-speak-v1.2.0';
 const APP_SHELL = [
   './',
   './index.html',

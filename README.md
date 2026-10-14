@@ -9,6 +9,7 @@ The MVP is deliberately small: no account, backend, speech recognition, or cloud
 - 30 practical BA/PM/Scrum Master lessons, stored separately from application code
 - Days 11–30 use an Ogden Basic English-inspired vocabulary model: the 18 operators, mostly 850-word vocabulary, and only necessary BA/Scrum terms
 - Four sentences per lesson from Day 11 onward: three workplace situations and one everyday-life situation
+- Connected-speech playback for every core sentence, with natural speed, slow speed, and a three-pass shadowing drill; context examples can also be played individually
 - Sentence-by-sentence practice with patterns and workplace examples
 - Active training timer that pauses when the app is not visible
 - Timed speaking challenge with personal-best tracking
@@ -144,6 +145,7 @@ Never store GitHub tokens, API keys, passwords, or other credentials in this rep
 ## MVP limitations
 
 - No speech recognition or pronunciation scoring
+- Speech playback uses the English voices installed by the device, so voice quality and exact accent can differ across iPhone, Android, and desktop browsers
 - No cloud sync or multi-device account
 - Training records use the device’s local date and time
 - Browser storage can be removed by the user or operating system, so regular JSON exports are recommended

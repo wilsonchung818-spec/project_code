@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  const APP_VERSION = '1.1.0';
+  const APP_VERSION = '1.2.0';
   const STORAGE_KEY = 'ba-speaking-trainer:v1';
   const view = document.querySelector('#app-view');
   const toast = document.querySelector('#toast');
@@ -18,6 +18,11 @@
   let session = null;
   let tickHandle = null;
   let lastTick = 0;
+  let speechRunId = 0;
+  let speechPauseHandle = null;
+  let speechSafetyHandle = null;
+  let activeSpeechButton = null;
+  let preferredEnglishVoice = null;
 
   function loadState() {
     try {
@@ -54,6 +59,115 @@
       return result;
     }, { Work: 0, Life: 0 });
     return counts.Life ? `${counts.Work} work · ${counts.Life} life` : `${counts.Work} work`;
+  }
+
+  function speakerIcon() {
+    return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10v4h4l5 4V6l-5 4H5Z"/><path d="M17 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg>';
+  }
+
+  function listeningControlsMarkup(sentence) {
+    const text = escapeHtml(sentence.text);
+    return `<section class="listening-drill" aria-label="Listening and connected speech practice">
+      <div class="listening-heading"><span>Connected speech</span><small>Device-generated English voice</small></div>
+      <div class="listening-actions">
+        <button type="button" data-action="speak-sentence" data-text="${text}" data-rate="0.96" aria-label="Play at natural speed">${speakerIcon()}<span>Natural</span></button>
+        <button type="button" data-action="speak-sentence" data-text="${text}" data-rate="0.70" aria-label="Play slowly">${speakerIcon()}<span>Slow</span></button>
+        <button type="button" data-action="speak-sentence" data-text="${text}" data-mode="shadow" aria-label="Play three times for shadowing">${speakerIcon()}<span>Shadow ×3</span></button>
+      </div>
+      <p>Listen for linked sounds, then copy the rhythm without stopping.</p>
+    </section>`;
+  }
+
+  function exampleMarkup(example) {
+    const text = escapeHtml(example);
+    return `<div class="example-audio-row"><p>${text}</p><button type="button" class="example-audio-button" data-action="speak-sentence" data-text="${text}" data-rate="0.96" aria-label="Play example sentence">${speakerIcon()}</button></div>`;
+  }
+
+  function supportsSpeech() {
+    return 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+  }
+
+  function voiceScore(voice) {
+    let score = 0;
+    if (/^en-US/i.test(voice.lang)) score += 12;
+    else if (/^en/i.test(voice.lang)) score += 4;
+    if (/premium|enhanced|natural|neural/i.test(voice.name)) score += 12;
+    if (/samantha|ava|allison|jenny|aria|guy|google us english/i.test(voice.name)) score += 8;
+    if (voice.localService) score += 2;
+    if (voice.default) score += 1;
+    return score;
+  }
+
+  function selectEnglishVoice() {
+    if (!supportsSpeech()) return null;
+    const voices = window.speechSynthesis.getVoices().filter(voice => /^en(?:-|_)/i.test(voice.lang));
+    preferredEnglishVoice = voices.sort((left, right) => voiceScore(right) - voiceScore(left))[0] || null;
+    return preferredEnglishVoice;
+  }
+
+  function clearSpeechButton() {
+    clearTimeout(speechSafetyHandle);
+    speechSafetyHandle = null;
+    if (!activeSpeechButton) return;
+    activeSpeechButton.classList.remove('is-playing');
+    activeSpeechButton.removeAttribute('aria-pressed');
+    activeSpeechButton = null;
+  }
+
+  function stopSpeech() {
+    speechRunId += 1;
+    clearTimeout(speechPauseHandle);
+    speechPauseHandle = null;
+    if (supportsSpeech()) window.speechSynthesis.cancel();
+    clearSpeechButton();
+  }
+
+  function speakSentence(text, rates, button) {
+    if (!supportsSpeech()) {
+      showToast('Speech playback is not available in this browser');
+      return;
+    }
+
+    stopSpeech();
+    const runId = speechRunId;
+    let index = 0;
+    activeSpeechButton = button;
+    button.classList.add('is-playing');
+    button.setAttribute('aria-pressed', 'true');
+    const wordCount = text.trim().split(/\s+/).length;
+    const safetyDelay = Math.max(8000, rates.reduce((total, rate) => total + (wordCount * 600 / rate), 0) + rates.length * 1500);
+    speechSafetyHandle = setTimeout(() => {
+      if (runId !== speechRunId) return;
+      speechRunId += 1;
+      window.speechSynthesis.cancel();
+      clearSpeechButton();
+    }, safetyDelay);
+
+    const speakNext = () => {
+      if (runId !== speechRunId) return;
+      const utterance = new SpeechSynthesisUtterance(text);
+      const voice = preferredEnglishVoice || selectEnglishVoice();
+      if (voice) utterance.voice = voice;
+      utterance.lang = voice?.lang || 'en-US';
+      utterance.rate = rates[index];
+      utterance.pitch = 1;
+      utterance.volume = 1;
+      utterance.onend = () => {
+        index += 1;
+        if (index < rates.length && runId === speechRunId) {
+          speechPauseHandle = setTimeout(speakNext, 650);
+        } else if (runId === speechRunId) {
+          clearSpeechButton();
+        }
+      };
+      utterance.onerror = event => {
+        if (event.error !== 'canceled' && runId === speechRunId) showToast('Unable to play this sentence');
+        if (runId === speechRunId) clearSpeechButton();
+      };
+      window.speechSynthesis.speak(utterance);
+    };
+
+    speakNext();
   }
 
   function getProgress(day) {
@@ -118,6 +232,7 @@
   }
 
   function setView(name, options = {}) {
+    stopSpeech();
     stopTicking();
     if (name !== 'training') session = null;
     currentView = name;
@@ -288,13 +403,15 @@
       <article class="sentence-panel" key="${escapeHtml(sentence.id)}">
         <div class="sentence-label-row"><span class="sentence-id">${escapeHtml(sentence.id)}</span>${sentenceContextMarkup(sentence)}</div>
         <p class="sentence-text">${escapeHtml(sentence.text)}</p>
+        ${listeningControlsMarkup(sentence)}
         <div class="pattern-block"><span>Sentence pattern</span><p>${escapeHtml(sentence.pattern)}</p></div>
-        <div class="examples-block"><span>In context</span>${sentence.examples.map(example => `<p>${escapeHtml(example)}</p>`).join('')}</div>
+        <div class="examples-block"><span>In context</span>${sentence.examples.map(exampleMarkup).join('')}</div>
         <button class="primary-button button-block" type="button" data-action="practice-sentence">Mark as Practiced</button>
       </article>`;
   }
 
   function markSentencePracticed() {
+    stopSpeech();
     const lesson = getLesson(session.day);
     const sentences = getSentences(lesson);
     const progress = getProgress(session.day);
@@ -587,8 +704,9 @@
         ${sentences.map(sentence => `<article class="review-sentence">
           <div class="sentence-label-row"><span class="sentence-id">${escapeHtml(sentence.id)}</span>${sentenceContextMarkup(sentence)}</div>
           <h3>${escapeHtml(sentence.text)}</h3>
+          ${listeningControlsMarkup(sentence)}
           <p class="micro">${escapeHtml(sentence.pattern)}</p>
-          <details><summary>Show examples</summary>${sentence.examples.map(example => `<p>${escapeHtml(example)}</p>`).join('')}</details>
+          <details><summary>Show examples</summary>${sentence.examples.map(exampleMarkup).join('')}</details>
         </article>`).join('')}
       </section>`;
   }
@@ -658,6 +776,15 @@
     if (!button) return;
     if (button.dataset.nav) return setView(button.dataset.nav);
     const action = button.dataset.action;
+    if (action === 'speak-sentence') {
+      if (button === activeSpeechButton) {
+        stopSpeech();
+        return;
+      }
+      const rates = button.dataset.mode === 'shadow' ? [0.96, 0.70, 0.96] : [Number(button.dataset.rate) || 0.96];
+      speakSentence(button.dataset.text, rates, button);
+      return;
+    }
     if (action === 'start-training') startTraining();
     if (action === 'show-result') {
       const day = lessonDayForToday();
@@ -676,6 +803,7 @@
     if (action === 'finish-session') setView('today');
     if (action === 'retry-session') startTraining();
     if (action === 'review-lesson') {
+      stopSpeech();
       selectedLessonDay = Number(button.dataset.day);
       currentView = 'review';
       render();
@@ -703,6 +831,7 @@
   window.addEventListener('online', updateNetworkStatus);
   window.addEventListener('offline', updateNetworkStatus);
   document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopSpeech();
     if (!session) return;
     lastTick = Date.now();
     if (document.hidden && session.speakingRunning) {
@@ -717,6 +846,10 @@
 
   async function init() {
     updateNetworkStatus();
+    if (supportsSpeech()) {
+      selectEnglishVoice();
+      window.speechSynthesis.addEventListener('voiceschanged', selectEnglishVoice);
+    }
     try {
       const response = await fetch('./data/lessons.json', { cache: 'no-cache' });
       if (!response.ok) throw new Error(`Lessons failed: ${response.status}`);
@@ -734,5 +867,6 @@
     }
   }
 
+  window.addEventListener('pagehide', stopSpeech);
   init();
 })();
