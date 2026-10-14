@@ -1,5 +1,7 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
 const content = require('../data/lessons.json');
 
 const OPERATORS = {
@@ -57,4 +59,26 @@ test('Days 11–30 cover all 18 Basic English operators', () => {
     .filter(([, pattern]) => !pattern.test(revisedText))
     .map(([operator]) => operator);
   assert.deepEqual(missing, []);
+});
+
+test('every core sentence and context example has a generated audio file', () => {
+  const expected = [];
+  for (const lesson of content.lessons) {
+    for (const sentence of lesson.sections.flatMap(section => section.sentences)) {
+      const prefix = `day-${String(lesson.day).padStart(2, '0')}-${sentence.id.toLowerCase()}`;
+      expected.push(`${prefix}.mp3`);
+      sentence.examples.forEach((example, index) => expected.push(`${prefix}-e${index + 1}.mp3`));
+    }
+  }
+
+  const audioDirectory = path.join(__dirname, '..', 'assets', 'audio');
+  const actual = fs.readdirSync(audioDirectory).filter(file => file.endsWith('.mp3')).sort();
+  assert.deepEqual(actual, expected.sort());
+  for (const filename of actual) {
+    assert.ok(fs.statSync(path.join(audioDirectory, filename)).size > 1_000, `${filename} is unexpectedly small`);
+  }
+
+  const manifest = JSON.parse(fs.readFileSync(path.join(audioDirectory, 'manifest.json'), 'utf8'));
+  assert.equal(manifest.voice, 'en-US-AriaNeural');
+  assert.equal(manifest.clips, expected.length);
 });
