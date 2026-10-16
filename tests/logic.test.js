@@ -29,11 +29,13 @@ test('current streak ignores duplicate completions on the same date', () => {
 
 test('state migration preserves progress and fills new settings', () => {
   const migrated = logic.migrateState({ version: 0, progress: { 1: { score: 75 } }, settings: { sound: true } });
-  assert.equal(migrated.version, 1);
+  assert.equal(migrated.version, 2);
   assert.equal(migrated.progress[1].score, 75);
   assert.equal(migrated.settings.sound, true);
   assert.equal(migrated.settings.reducedData, false);
   assert.deepEqual(migrated.stats.trainingByDate, {});
+  assert.deepEqual(migrated.wordBank, []);
+  assert.deepEqual(migrated.reading, { completed: [], lastBookId: null });
 });
 
 test('state migration reconstructs the date ledger for existing users', () => {
@@ -67,4 +69,22 @@ test('streak accepts a completion yesterday and stops at a gap', () => {
   };
   assert.equal(logic.calculateStreak(progress, '2026-09-25'), 3);
   assert.equal(logic.longestStreak(progress), 3);
+});
+
+test('personal words use a simple spaced-review schedule', () => {
+  const word = { id: 'w1', word: 'clarify', intervalDays: 0, reviewCount: 0 };
+  const tomorrow = logic.reviewWord(word, 'good', '2026-10-16');
+  assert.equal(tomorrow.dueDate, '2026-10-17');
+  assert.equal(tomorrow.reviewCount, 1);
+  assert.equal(logic.isWordDue(tomorrow, '2026-10-16'), false);
+  const inThreeDays = logic.reviewWord(tomorrow, 'good', '2026-10-17');
+  assert.equal(inThreeDays.dueDate, '2026-10-20');
+  const again = logic.reviewWord(inThreeDays, 'again', '2026-10-18');
+  assert.equal(again.dueDate, '2026-10-18');
+  assert.equal(logic.isWordDue(again, '2026-10-18'), true);
+});
+
+test('word normalization keeps useful apostrophes and removes punctuation', () => {
+  assert.equal(logic.normalizeWord('  Clarify! '), 'clarify');
+  assert.equal(logic.normalizeWord("Reader's"), "reader's");
 });

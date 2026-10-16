@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  const APP_VERSION = '1.3.0';
+  const APP_VERSION = '1.4.0';
   const STORAGE_KEY = 'ba-speaking-trainer:v1';
   const view = document.querySelector('#app-view');
   const toast = document.querySelector('#toast');
@@ -11,6 +11,7 @@
   const utils = window.BAUtils;
 
   let lessonData = null;
+  let readingData = null;
   let state = loadState();
   let currentView = new URLSearchParams(location.search).get('view') || 'today';
   let selectedLessonDay = null;
@@ -23,6 +24,28 @@
   let audioSafetyHandle = null;
   let activeAudioButton = null;
   let activeAudio = null;
+  let createMode = 'sentence';
+  let reviewWordId = null;
+  let reviewRevealed = false;
+  let selectedReadingId = null;
+  let selectedLookupWord = null;
+  let dialoguePromptIndex = 0;
+  let storyPromptIndex = 0;
+
+  const DIALOGUE_SCENARIOS = [
+    { title: 'Daily stand-up', place: 'Work · Teams call', partner: 'Your teammate', opening: 'What changed since yesterday, and what do you need from me?', task: 'Give a short update, name one risk, and ask for one action.' },
+    { title: 'Client clarification', place: 'Work · Requirement meeting', partner: 'The product owner', opening: 'Can you explain what success should look like for the user?', task: 'Confirm the need, give one example, and check your understanding.' },
+    { title: 'Coffee order', place: 'Life · Café', partner: 'The barista', opening: 'Hi! What can I get started for you today?', task: 'Order, make one change, and respond to a follow-up question.' },
+    { title: 'Weekend plan', place: 'Life · With a friend', partner: 'Your friend', opening: 'What would you like to do this weekend?', task: 'Make a suggestion, give a reason, and agree on a time.' },
+    { title: 'Travel problem', place: 'Life · Hotel desk', partner: 'The receptionist', opening: 'How can I help you with your room?', task: 'Explain the problem clearly and ask for a practical solution.' }
+  ];
+
+  const STORY_PROMPTS = [
+    { title: 'The late message', setup: 'A message arrives five minutes before an important meeting.', turn: 'It changes what everyone thought was true.', ending: 'Show the decision you make next.' },
+    { title: 'The wrong train', setup: 'You notice that you are travelling in the wrong direction.', turn: 'A stranger offers an unexpected idea.', ending: 'End with what you learn from the mistake.' },
+    { title: 'One small promise', setup: 'Two people make a simple promise at work or at home.', turn: 'Keeping it becomes harder than expected.', ending: 'Show how the promise changes their relationship.' },
+    { title: 'The quiet expert', setup: 'Nobody listens to the quietest person in the room.', turn: 'That person sees the real problem first.', ending: 'End with one sentence they finally say aloud.' }
+  ];
 
   function loadState() {
     try {
@@ -233,9 +256,13 @@
     if (name !== 'training') session = null;
     currentView = name;
     selectedLessonDay = options.day || null;
+    if (name !== 'reading') {
+      selectedReadingId = null;
+      selectedLookupWord = null;
+    }
     syncNavigation();
     const url = new URL(location.href);
-    url.searchParams.set('view', ['today', 'progress', 'library', 'settings'].includes(name) ? name : 'today');
+    url.searchParams.set('view', ['today', 'progress', 'library', 'create', 'reading', 'settings'].includes(name) ? name : 'today');
     history.replaceState(null, '', url);
     render();
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -258,6 +285,8 @@
       today: renderToday,
       progress: renderProgress,
       library: renderLibrary,
+      create: renderCreate,
+      reading: renderReading,
       settings: renderSettings,
       review: renderLessonReview,
       training: renderTraining
@@ -707,6 +736,167 @@
       </section>`;
   }
 
+  function activePracticeWords(limit = 3) {
+    return [...state.wordBank]
+      .sort((a, b) => (a.dueDate || '').localeCompare(b.dueDate || '') || (b.createdAt || '').localeCompare(a.createdAt || ''))
+      .slice(0, limit);
+  }
+
+  function createTabsMarkup() {
+    const tabs = [
+      ['sentence', 'Sentence'],
+      ['dialogue', 'Dialogue'],
+      ['story', 'Story']
+    ];
+    return `<div class="create-tabs" role="tablist" aria-label="Create practice type">${tabs.map(([id, label]) => `
+      <button type="button" role="tab" class="${createMode === id ? 'is-active' : ''}" aria-selected="${createMode === id}" data-action="create-mode" data-mode="${id}">${label}</button>`).join('')}</div>`;
+  }
+
+  function renderCreate() {
+    const dueCount = state.wordBank.filter(word => utils.isWordDue(word)).length;
+    view.innerHTML = `
+      <p class="eyebrow">Use what you learn</p>
+      <h1 class="page-title">Create</h1>
+      <p class="page-subtitle">Make a sentence. Use it in a scene. Turn it into a story.</p>
+      <div class="create-summary" aria-label="Personal vocabulary summary">
+        <div><strong>${state.wordBank.length}</strong><span>My words</span></div>
+        <div><strong>${dueCount}</strong><span>Review now</span></div>
+        <div><strong>${state.stories.length}</strong><span>Stories</span></div>
+      </div>
+      ${createTabsMarkup()}
+      <div class="create-workspace">${createMode === 'sentence' ? sentenceCreatorMarkup() : createMode === 'dialogue' ? dialogueCreatorMarkup() : storyCreatorMarkup()}</div>`;
+  }
+
+  function sentenceCreatorMarkup() {
+    const dueWords = state.wordBank.filter(word => utils.isWordDue(word));
+    if (!reviewWordId || !dueWords.some(word => word.id === reviewWordId)) reviewWordId = dueWords[0]?.id || null;
+    const reviewWord = dueWords.find(word => word.id === reviewWordId);
+    return `
+      <section class="create-section">
+        <div class="section-heading"><h2>Make it yours</h2><span>New word → own sentence</span></div>
+        <form id="word-form" class="create-form">
+          <label><span>New word</span><input name="word" type="text" autocapitalize="none" autocomplete="off" maxlength="40" placeholder="e.g. clarify" required></label>
+          <label><span>中文意思</span><input name="meaning" type="text" maxlength="80" placeholder="e.g. 澄清；说明" required></label>
+          <label><span>Your sentence</span><textarea name="sentence" rows="3" maxlength="240" placeholder="I’d like to clarify the expected result." required></textarea></label>
+          <button class="primary-button button-block" type="submit">Save word & sentence</button>
+        </form>
+      </section>
+      <section class="create-section review-zone">
+        <div class="section-heading"><h2>Review</h2><span>${dueWords.length} due</span></div>
+        ${reviewWord ? `<article class="word-review">
+          <p class="micro">Say the meaning, then make a fresh sentence.</p>
+          <strong>${escapeHtml(reviewWord.word)}</strong>
+          ${reviewRevealed ? `<div class="review-answer"><p>${escapeHtml(reviewWord.meaning || 'Meaning not added')}</p><q>${escapeHtml(reviewWord.sentence || 'Add your own sentence next time.')}</q></div>
+            <div class="button-row"><button class="quiet-button" type="button" data-action="review-word" data-result="again">Again</button><button class="primary-button" type="button" data-action="review-word" data-result="good">Got it</button></div>`
+            : '<button class="secondary-button button-block" type="button" data-action="reveal-word">Show meaning & sentence</button>'}
+        </article>` : '<div class="calm-empty"><strong>You’re caught up.</strong><p>Add a word above or come back tomorrow.</p></div>'}
+      </section>
+      <section class="create-section">
+        <div class="section-heading"><h2>My word bank</h2><span>Saved on this device</span></div>
+        ${state.wordBank.length ? `<div class="word-bank">${[...state.wordBank].reverse().slice(0, 20).map(word => `
+          <div class="word-row"><span><strong>${escapeHtml(word.word)}</strong><small>${escapeHtml(word.meaning || 'Add a meaning')}</small></span><button type="button" data-action="delete-word" data-id="${escapeHtml(word.id)}" aria-label="Delete ${escapeHtml(word.word)}">×</button></div>`).join('')}</div>` : '<div class="calm-empty"><p>Your saved words will appear here.</p></div>'}
+      </section>`;
+  }
+
+  function dialogueCreatorMarkup() {
+    const scenario = DIALOGUE_SCENARIOS[dialoguePromptIndex % DIALOGUE_SCENARIOS.length];
+    const words = activePracticeWords(3);
+    return `
+      <section class="prompt-stage">
+        <div class="prompt-topline"><span>${escapeHtml(scenario.place)}</span><button type="button" data-action="next-dialogue">New scene ↻</button></div>
+        <p class="eyebrow">Real dialogue</p>
+        <h2>${escapeHtml(scenario.title)}</h2>
+        <p class="scene-partner">${escapeHtml(scenario.partner)} says:</p>
+        <blockquote>“${escapeHtml(scenario.opening)}”</blockquote>
+        <p class="scene-task">${escapeHtml(scenario.task)}</p>
+        <div class="practice-words"><span>Try to use</span>${words.length ? words.map(word => `<b>${escapeHtml(word.word)}</b>`).join('') : '<b>clear</b><b>need</b><b>next</b>'}</div>
+      </section>
+      <form id="dialogue-form" class="create-form response-form">
+        <label><span>Your reply</span><textarea name="response" rows="5" maxlength="600" placeholder="Write it first, then look up and say it aloud." required></textarea></label>
+        <button class="primary-button button-block" type="submit">Save response</button>
+      </form>
+      <p class="saved-note">${state.dialogues.length} saved dialogue ${state.dialogues.length === 1 ? 'reply' : 'replies'}.</p>
+      ${state.dialogues.length ? `<div class="saved-practice"><p class="eyebrow">Recent replies</p>${state.dialogues.slice(0, 5).map(item => `<details><summary>${escapeHtml(item.title)}<span>${escapeHtml((item.createdAt || '').slice(0, 10))}</span></summary><p>${escapeHtml(item.response)}</p></details>`).join('')}</div>` : ''}`;
+  }
+
+  function storyCreatorMarkup() {
+    const prompt = STORY_PROMPTS[storyPromptIndex % STORY_PROMPTS.length];
+    const words = activePracticeWords(3);
+    return `
+      <section class="prompt-stage story-stage">
+        <div class="prompt-topline"><span>60-second story</span><button type="button" data-action="next-story">New prompt ↻</button></div>
+        <p class="eyebrow">Impromptu speaking</p>
+        <h2>${escapeHtml(prompt.title)}</h2>
+        <ol class="story-beats"><li><span>1</span>${escapeHtml(prompt.setup)}</li><li><span>2</span>${escapeHtml(prompt.turn)}</li><li><span>3</span>${escapeHtml(prompt.ending)}</li></ol>
+        <div class="practice-words"><span>Work these in</span>${words.length ? words.map(word => `<b>${escapeHtml(word.word)}</b>`).join('') : '<b>change</b><b>because</b><b>finally</b>'}</div>
+      </section>
+      <form id="story-form" class="create-form response-form">
+        <label><span>Your story notes</span><textarea name="story" rows="6" maxlength="1200" placeholder="Use short notes, then tell the story without reading." required></textarea></label>
+        <button class="primary-button button-block" type="submit">Save story</button>
+      </form>
+      <p class="saved-note">${state.stories.length} ${state.stories.length === 1 ? 'story' : 'stories'} saved for future retelling.</p>
+      ${state.stories.length ? `<div class="saved-practice"><p class="eyebrow">Retell these</p>${state.stories.slice(0, 5).map(item => `<details><summary>${escapeHtml(item.title)}<span>${escapeHtml((item.createdAt || '').slice(0, 10))}</span></summary><p>${escapeHtml(item.text)}</p></details>`).join('')}</div>` : ''}`;
+  }
+
+  function getReading(id) {
+    return readingData.readings.find(reading => reading.id === id);
+  }
+
+  function readingWordMarkup(reading) {
+    return reading.text.split(/([A-Za-z]+(?:[’'-][A-Za-z]+)*)/g).map(token => {
+      const key = token.toLowerCase().replace(/’/g, "'");
+      const exactKey = Object.prototype.hasOwnProperty.call(reading.glossary, key) ? key : null;
+      if (!exactKey) return escapeHtml(token);
+      return `<button type="button" class="reading-word${selectedLookupWord === exactKey ? ' is-selected' : ''}" data-action="lookup-word" data-word="${escapeHtml(exactKey)}">${escapeHtml(token)}</button>`;
+    }).join('');
+  }
+
+  function renderReading() {
+    if (selectedReadingId) return renderReadingDetail();
+    const complete = state.reading.completed || [];
+    view.innerHTML = `
+      <p class="eyebrow">Read inside the story</p>
+      <h1 class="page-title">Reading</h1>
+      <p class="page-subtitle">10 public-domain classics. Tap highlighted words for Chinese meaning.</p>
+      <div class="reading-progress"><strong>${complete.length}<span> / ${readingData.readings.length}</span></strong><p>excerpts read</p></div>
+      <div class="reading-list">${readingData.readings.map((reading, index) => `
+        <button type="button" class="reading-row" data-action="open-reading" data-id="${escapeHtml(reading.id)}">
+          <span class="reading-index">${complete.includes(reading.id) ? '✓' : String(index + 1).padStart(2, '0')}</span>
+          <span><small>${escapeHtml(reading.author)} · ${reading.year}</small><strong>${escapeHtml(reading.title)}</strong><em>${escapeHtml(reading.summary)}</em></span>
+          <b>${escapeHtml(reading.level)}</b>
+        </button>`).join('')}</div>`;
+  }
+
+  function renderReadingDetail() {
+    const reading = getReading(selectedReadingId);
+    if (!reading) {
+      selectedReadingId = null;
+      return renderReading();
+    }
+    const meaning = selectedLookupWord ? reading.glossary[selectedLookupWord] : null;
+    const saved = selectedLookupWord && state.wordBank.some(word => utils.normalizeWord(word.word) === utils.normalizeWord(selectedLookupWord));
+    const complete = state.reading.completed.includes(reading.id);
+    view.innerHTML = `
+      <article class="reader-view">
+        <button class="back-button" type="button" data-action="close-reading">← All books</button>
+        <p class="eyebrow">${escapeHtml(reading.author)} · ${reading.year}</p>
+        <h1>${escapeHtml(reading.title)}</h1>
+        <p class="reader-meta">${escapeHtml(reading.chapter)} <span>${escapeHtml(reading.level)}</span></p>
+        <p class="reader-summary">${escapeHtml(reading.summary)}</p>
+        <div class="reader-copy">${readingWordMarkup(reading)}</div>
+        <p class="tap-hint">Tap any blue word to see its Chinese meaning.</p>
+        <aside class="word-lookup" aria-live="polite">
+          ${selectedLookupWord ? `<div><span>Word meaning</span><strong>${escapeHtml(selectedLookupWord)}</strong><p>${escapeHtml(meaning)}</p></div>
+            <button class="${saved ? 'quiet-button' : 'primary-button'}" type="button" data-action="save-reading-word" ${saved ? 'disabled' : ''}>${saved ? 'Saved' : '+ My words'}</button>`
+            : '<div><span>Word meaning</span><p>Choose a highlighted word in the text.</p></div>'}
+        </aside>
+        <div class="reader-actions">
+          <button class="${complete ? 'secondary-button' : 'primary-button'} button-block" type="button" data-action="complete-reading">${complete ? '✓ Read — tap to undo' : 'Mark as read'}</button>
+          <a href="${escapeHtml(reading.sourceUrl)}" target="_blank" rel="noopener noreferrer">Open full book at Project Gutenberg ↗</a>
+        </div>
+      </article>`;
+  }
+
   function renderSettings() {
     view.innerHTML = `
       <p class="eyebrow">Local & private</p>
@@ -724,7 +914,37 @@
         <button class="settings-row" type="button" data-action="import-progress"><span><strong>Import progress</strong><small>Restore a previous JSON backup</small></span><span class="row-action">Import</span></button>
         <button class="settings-row danger" type="button" data-action="reset-progress"><span><strong>Reset all progress</strong><small>Permanently clear local learning data</small></span><span class="row-action">Reset</span></button>
       </section>
-      <div class="version-list">App Version ${APP_VERSION}<br>Content Version ${escapeHtml(lessonData.contentVersion)}<br>Storage Version ${state.version}</div>`;
+      <div class="version-list">App Version ${APP_VERSION}<br>Course Version ${escapeHtml(lessonData.contentVersion)}<br>Reading Version ${escapeHtml(readingData.contentVersion)}<br>Storage Version ${state.version}</div>`;
+  }
+
+  function makeId(prefix) {
+    const suffix = globalThis.crypto?.randomUUID ? crypto.randomUUID() : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+    return `${prefix}-${suffix}`;
+  }
+
+  function savePersonalWord(word, meaning, sentence, source = 'Personal') {
+    const normalized = utils.normalizeWord(word);
+    const existing = state.wordBank.find(item => utils.normalizeWord(item.word) === normalized);
+    if (existing) {
+      existing.meaning = meaning || existing.meaning;
+      existing.sentence = sentence || existing.sentence;
+      existing.source = source || existing.source;
+      existing.dueDate = utils.localDateKey();
+      return existing;
+    }
+    const item = {
+      id: makeId('word'),
+      word: String(word).trim(),
+      meaning: String(meaning || '').trim(),
+      sentence: String(sentence || '').trim(),
+      source,
+      createdAt: new Date().toISOString(),
+      dueDate: utils.localDateKey(),
+      intervalDays: 0,
+      reviewCount: 0
+    };
+    state.wordBank.push(item);
+    return item;
   }
 
   function exportProgress() {
@@ -805,6 +1025,79 @@
       render();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    if (action === 'create-mode') {
+      createMode = button.dataset.mode;
+      reviewRevealed = false;
+      renderCreate();
+    }
+    if (action === 'reveal-word') {
+      reviewRevealed = true;
+      renderCreate();
+    }
+    if (action === 'review-word') {
+      const index = state.wordBank.findIndex(word => word.id === reviewWordId);
+      if (index !== -1) state.wordBank[index] = utils.reviewWord(state.wordBank[index], button.dataset.result);
+      reviewWordId = null;
+      reviewRevealed = false;
+      saveState();
+      renderCreate();
+      showToast(button.dataset.result === 'good' ? 'Next review scheduled' : 'Keep it in today’s review');
+    }
+    if (action === 'delete-word') {
+      const word = state.wordBank.find(item => item.id === button.dataset.id);
+      if (word && confirm(`Remove “${word.word}” from My words?`)) {
+        state.wordBank = state.wordBank.filter(item => item.id !== button.dataset.id);
+        if (reviewWordId === button.dataset.id) reviewWordId = null;
+        saveState();
+        renderCreate();
+        showToast('Word removed');
+      }
+    }
+    if (action === 'next-dialogue') {
+      dialoguePromptIndex = (dialoguePromptIndex + 1) % DIALOGUE_SCENARIOS.length;
+      renderCreate();
+    }
+    if (action === 'next-story') {
+      storyPromptIndex = (storyPromptIndex + 1) % STORY_PROMPTS.length;
+      renderCreate();
+    }
+    if (action === 'open-reading') {
+      selectedReadingId = button.dataset.id;
+      selectedLookupWord = null;
+      state.reading.lastBookId = selectedReadingId;
+      saveState();
+      renderReading();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    if (action === 'close-reading') {
+      selectedReadingId = null;
+      selectedLookupWord = null;
+      renderReading();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    if (action === 'lookup-word') {
+      selectedLookupWord = button.dataset.word;
+      renderReadingDetail();
+      requestAnimationFrame(() => document.querySelector('.word-lookup')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
+    }
+    if (action === 'save-reading-word') {
+      const reading = getReading(selectedReadingId);
+      if (reading && selectedLookupWord) {
+        savePersonalWord(selectedLookupWord, reading.glossary[selectedLookupWord], '', reading.title);
+        saveState();
+        renderReadingDetail();
+        showToast('Added to My words');
+      }
+    }
+    if (action === 'complete-reading') {
+      const completed = new Set(state.reading.completed);
+      if (completed.has(selectedReadingId)) completed.delete(selectedReadingId);
+      else completed.add(selectedReadingId);
+      state.reading.completed = [...completed];
+      saveState();
+      renderReadingDetail();
+      showToast(completed.has(selectedReadingId) ? 'Marked as read' : 'Reading mark removed');
+    }
     if (action === 'export-progress') exportProgress();
     if (action === 'import-progress') importInput.click();
     if (action === 'install-app') promptInstall();
@@ -813,6 +1106,46 @@
       saveState();
       renderSettings();
       showToast('All progress reset');
+    }
+  });
+
+  view.addEventListener('submit', event => {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+    if (form.id === 'word-form') {
+      const word = String(formData.get('word') || '').trim();
+      const meaning = String(formData.get('meaning') || '').trim();
+      const sentence = String(formData.get('sentence') || '').trim();
+      if (!sentence.toLowerCase().includes(word.toLowerCase())) {
+        showToast('Use the new word in your sentence');
+        form.elements.sentence.focus();
+        return;
+      }
+      const saved = savePersonalWord(word, meaning, sentence);
+      reviewWordId = saved.id;
+      reviewRevealed = false;
+      saveState();
+      renderCreate();
+      showToast('Saved to My words');
+    }
+    if (form.id === 'dialogue-form') {
+      const scenario = DIALOGUE_SCENARIOS[dialoguePromptIndex % DIALOGUE_SCENARIOS.length];
+      state.dialogues.unshift({ id: makeId('dialogue'), title: scenario.title, response: String(formData.get('response') || '').trim(), words: activePracticeWords(3).map(word => word.word), createdAt: new Date().toISOString() });
+      state.dialogues = state.dialogues.slice(0, 100);
+      saveState();
+      dialoguePromptIndex = (dialoguePromptIndex + 1) % DIALOGUE_SCENARIOS.length;
+      renderCreate();
+      showToast('Dialogue reply saved');
+    }
+    if (form.id === 'story-form') {
+      const prompt = STORY_PROMPTS[storyPromptIndex % STORY_PROMPTS.length];
+      state.stories.unshift({ id: makeId('story'), title: prompt.title, text: String(formData.get('story') || '').trim(), words: activePracticeWords(3).map(word => word.word), createdAt: new Date().toISOString() });
+      state.stories = state.stories.slice(0, 100);
+      saveState();
+      storyPromptIndex = (storyPromptIndex + 1) % STORY_PROMPTS.length;
+      renderCreate();
+      showToast('Story saved for retelling');
     }
   });
 
@@ -843,10 +1176,16 @@
   async function init() {
     updateNetworkStatus();
     try {
-      const response = await fetch('./data/lessons.json', { cache: 'no-cache' });
-      if (!response.ok) throw new Error(`Lessons failed: ${response.status}`);
-      lessonData = await response.json();
+      const [lessonResponse, readingResponse] = await Promise.all([
+        fetch('./data/lessons.json', { cache: 'no-cache' }),
+        fetch('./data/readings.json', { cache: 'no-cache' })
+      ]);
+      if (!lessonResponse.ok) throw new Error(`Lessons failed: ${lessonResponse.status}`);
+      if (!readingResponse.ok) throw new Error(`Readings failed: ${readingResponse.status}`);
+      lessonData = await lessonResponse.json();
+      readingData = await readingResponse.json();
       if (!Array.isArray(lessonData.lessons) || lessonData.lessons.length !== 30) throw new Error('Expected 30 lessons');
+      if (!Array.isArray(readingData.readings) || readingData.readings.length !== 10) throw new Error('Expected 10 readings');
       state.stats.totalTrainingSeconds = totalTrainingSeconds();
       saveState();
       render();
@@ -854,7 +1193,7 @@
         navigator.serviceWorker.register('./service-worker.js').catch(() => {});
       }
     } catch (error) {
-      view.innerHTML = `<section class="error-state"><div><h1>Lessons unavailable</h1><p>Start the app through a local web server, then try again.</p><button class="primary-button" type="button" onclick="location.reload()">Reload</button></div></section>`;
+      view.innerHTML = `<section class="error-state"><div><h1>Content unavailable</h1><p>Start the app through a local web server, then try again.</p><button class="primary-button" type="button" onclick="location.reload()">Reload</button></div></section>`;
       console.error(error);
     }
   }

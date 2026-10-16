@@ -17,6 +17,9 @@ The MVP is deliberately small: no account, backend, speech recognition, or cloud
 - Real Work Hit tracking for expressions used in meetings
 - Daily score, streak, training time, score trend, and personal bests
 - Review mode that never changes historical scores
+- Create workspace for saving new words, writing personal example sentences, and reviewing them with a simple spaced schedule
+- Reusable real-life dialogue prompts and 60-second story prompts that bring saved words into active speaking
+- Reading library with 10 sourced public-domain classic excerpts, tap-to-translate vocabulary, saved words, and reading completion tracking
 - Local JSON export/import and confirmed full reset
 - Installable PWA with offline application shell and network-first lesson updates
 - Repository-subpath-safe relative URLs for GitHub Pages
@@ -55,6 +58,7 @@ python scripts/generate_audio.py --force
 ├── .github/workflows/deploy.yml  # GitHub Pages deployment
 ├── assets/icons/                 # PWA and browser icons
 ├── data/lessons.json             # Versioned 30-day course content
+├── data/readings.json            # Public-domain excerpts and Chinese glossaries
 ├── tests/                        # Scoring, migration, and content-rule tests
 ├── app.js                        # UI, timers, navigation, and persistence
 ├── index.html                    # Semantic app shell
@@ -115,6 +119,10 @@ State is saved under `ba-speaking-trainer:v1` in `localStorage` with this versio
   createdAt: "...",
   progress: {},
   stats: { totalTrainingSeconds: 0, trainingByDate: {} },
+  wordBank: [],
+  stories: [],
+  dialogues: [],
+  reading: { completed: [], lastBookId: null },
   settings: {}
 }
 ```
@@ -137,7 +145,7 @@ https://wilsonchung818-spec.github.io/project_code/
 
 ## PWA updates and stale-cache troubleshooting
 
-The service worker uses a named, versioned cache. During installation it reloads the application shell from the network instead of copying potentially stale browser-cache entries. HTML/CSS/JS are then served cache-first for reliable offline startup, and navigation requests fall back to cached `index.html` so query-string routes also reload offline. `data/lessons.json` is network-first, so updated lessons are fetched when online and the previous copy remains the offline fallback.
+The service worker uses a named, versioned cache. During installation it reloads the application shell from the network instead of copying potentially stale browser-cache entries. HTML/CSS/JS are then served cache-first for reliable offline startup, and navigation requests fall back to cached `index.html` so query-string routes also reload offline. `data/lessons.json` and `data/readings.json` are network-first, so updated content is fetched when online and the previous copy remains the offline fallback.
 
 For every deployed app release:
 

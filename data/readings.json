@@ -1,0 +1,146 @@
+{
+  "contentVersion": "2026.10.16",
+  "sourceNote": "Public-domain excerpts verified against Project Gutenberg.",
+  "readings": [
+    {
+      "id": "pride-prejudice",
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "year": 1813,
+      "chapter": "Chapter I",
+      "level": "B1",
+      "summary": "一句著名的反讽开场，写婚姻、财富与社会期待。",
+      "text": "It is a truth universally acknowledged, that a single man in possession of a good fortune must be in want of a wife. However little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered as the rightful property of some one or other of their daughters.",
+      "sourceUrl": "https://www.gutenberg.org/files/1342/1342-h/1342-h.htm",
+      "glossary": {
+        "truth": "事实；真相", "universally": "普遍地", "acknowledged": "被承认的；公认的", "single": "单身的", "possession": "拥有；所有物", "fortune": "财富；好运", "feelings": "感受；情感", "views": "看法；观点", "entering": "进入", "neighbourhood": "街区；邻近地区", "fixed": "牢固的；确定的", "surrounding": "周围的", "considered": "被认为", "rightful": "合乎权利的；正当的", "property": "财产；所有物"
+      }
+    },
+    {
+      "id": "alice-wonderland",
+      "title": "Alice’s Adventures in Wonderland",
+      "author": "Lewis Carroll",
+      "year": 1865,
+      "chapter": "Down the Rabbit-Hole",
+      "level": "A2",
+      "summary": "爱丽丝感到无聊，一个奇怪的念头把她带进冒险。",
+      "text": "Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do. Once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it. ‘And what is the use of a book,’ thought Alice, ‘without pictures or conversations?’",
+      "sourceUrl": "https://www.gutenberg.org/files/11/11-h/11-h.htm",
+      "glossary": {
+        "beginning": "开始", "tired": "厌倦的；疲倦的", "sitting": "坐着", "bank": "河岸", "once": "一次；曾经", "twice": "两次", "peeped": "偷看；瞥见", "reading": "阅读", "pictures": "图画", "conversations": "对话", "use": "用途；使用", "thought": "想；认为", "without": "没有"
+      }
+    },
+    {
+      "id": "christmas-carol",
+      "title": "A Christmas Carol",
+      "author": "Charles Dickens",
+      "year": 1843,
+      "chapter": "Marley’s Ghost",
+      "level": "B1",
+      "summary": "狄更斯用干脆又幽默的语气，确认马利已经去世。",
+      "text": "Marley was dead: to begin with. There is no doubt whatever about that. The register of his burial was signed by the clergyman, the clerk, the undertaker, and the chief mourner. Scrooge signed it. Old Marley was as dead as a door-nail.",
+      "sourceUrl": "https://www.gutenberg.org/files/46/46-h/46-h.htm",
+      "glossary": {
+        "dead": "去世的；无生命的", "begin": "开始", "doubt": "怀疑", "whatever": "任何；无论什么", "register": "登记簿", "burial": "埋葬；葬礼", "signed": "签署", "clergyman": "牧师", "clerk": "职员；书记员", "undertaker": "殡葬承办人", "chief": "主要的；首要的", "mourner": "哀悼者", "door-nail": "门钉（as dead as a door-nail 意为死透了）"
+      }
+    },
+    {
+      "id": "jane-eyre",
+      "title": "Jane Eyre",
+      "author": "Charlotte Brontë",
+      "year": 1847,
+      "chapter": "Chapter I",
+      "level": "B1",
+      "summary": "寒冷阴沉的天气，让简只能留在室内。",
+      "text": "There was no possibility of taking a walk that day. We had been wandering, indeed, in the leafless shrubbery an hour in the morning; but since dinner the cold winter wind had brought with it clouds so sombre, and a rain so penetrating, that further outdoor exercise was now out of the question.",
+      "sourceUrl": "https://www.gutenberg.org/files/1260/1260-h/1260-h.htm",
+      "glossary": {
+        "possibility": "可能性", "taking": "进行；拿取", "walk": "散步", "wandering": "漫步；游荡", "indeed": "确实；事实上", "leafless": "无叶的", "shrubbery": "灌木丛", "winter": "冬天", "clouds": "云", "sombre": "阴沉的；忧郁的", "penetrating": "刺骨的；穿透的", "further": "更进一步的", "outdoor": "户外的", "exercise": "运动；锻炼", "question": "问题（out of the question 意为不可能）"
+      }
+    },
+    {
+      "id": "moby-dick",
+      "title": "Moby-Dick",
+      "author": "Herman Melville",
+      "year": 1851,
+      "chapter": "Loomings",
+      "level": "B1",
+      "summary": "伊什梅尔决定离开陆地，到海上看看世界。",
+      "text": "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
+      "sourceUrl": "https://www.gutenberg.org/files/2701/2701-h/2701-h.htm",
+      "glossary": {
+        "precisely": "精确地；恰好", "purse": "钱包", "particular": "特别的；特定的", "interest": "使感兴趣；兴趣", "shore": "岸；陆地", "sail": "航行", "watery": "水的；多水的", "world": "世界", "mind": "介意；头脑"
+      }
+    },
+    {
+      "id": "little-women",
+      "title": "Little Women",
+      "author": "Louisa May Alcott",
+      "year": 1868,
+      "chapter": "Playing Pilgrims",
+      "level": "A2",
+      "summary": "四姐妹谈论贫穷、礼物，以及她们真正拥有的东西。",
+      "text": "‘Christmas won’t be Christmas without any presents,’ grumbled Jo, lying on the rug. ‘It’s so dreadful to be poor!’ sighed Meg, looking down at her old dress. ‘We’ve got Father and Mother, and each other,’ said Beth contentedly from her corner.",
+      "sourceUrl": "https://www.gutenberg.org/files/514/514-h/514-h.htm",
+      "glossary": {
+        "christmas": "圣诞节", "presents": "礼物", "grumbled": "抱怨；嘟囔", "lying": "躺着", "rug": "小地毯", "dreadful": "糟糕的；可怕的", "poor": "贫穷的", "sighed": "叹气", "dress": "连衣裙；衣服", "each": "每个；彼此", "contentedly": "满足地", "corner": "角落"
+      }
+    },
+    {
+      "id": "frankenstein",
+      "title": "Frankenstein",
+      "author": "Mary Shelley",
+      "year": 1818,
+      "chapter": "Letter I",
+      "level": "B2",
+      "summary": "沃尔顿从远方写信，报告冒险顺利开始。",
+      "text": "You will rejoice to hear that no disaster has accompanied the commencement of an enterprise which you have regarded with such evil forebodings. I arrived here yesterday, and my first task is to assure my dear sister of my welfare and increasing confidence in the success of my undertaking.",
+      "sourceUrl": "https://www.gutenberg.org/files/84/84-h/84-h.htm",
+      "glossary": {
+        "rejoice": "欣喜；高兴", "disaster": "灾难", "accompanied": "伴随", "commencement": "开始", "enterprise": "事业；冒险计划", "regarded": "看待；认为", "evil": "邪恶的；不祥的", "forebodings": "不祥的预感", "arrived": "到达", "task": "任务", "assure": "使确信；保证", "welfare": "安康；福祉", "increasing": "不断增加的", "confidence": "信心", "success": "成功", "undertaking": "事业；任务"
+      }
+    },
+    {
+      "id": "great-expectations",
+      "title": "Great Expectations",
+      "author": "Charles Dickens",
+      "year": 1861,
+      "chapter": "Chapter I",
+      "level": "B1",
+      "summary": "小男孩给自己取了一个简单的名字：Pip。",
+      "text": "My father’s family name being Pirrip, and my Christian name Philip, my infant tongue could make of both names nothing longer or more explicit than Pip. So, I called myself Pip, and came to be called Pip.",
+      "sourceUrl": "https://www.gutenberg.org/files/1400/1400-h/1400-h.htm",
+      "glossary": {
+        "family": "家庭；家族", "christian": "教名的；基督教的", "infant": "幼儿；幼小的", "tongue": "舌头；语言", "longer": "更长的", "explicit": "清楚明确的", "called": "称呼；叫作", "myself": "我自己"
+      }
+    },
+    {
+      "id": "treasure-island",
+      "title": "Treasure Island",
+      "author": "Robert Louis Stevenson",
+      "year": 1883,
+      "chapter": "The Old Sea-dog",
+      "level": "B2",
+      "summary": "吉姆受托写下金银岛的全部故事，只隐藏岛的位置。",
+      "text": "Squire Trelawney, Dr. Livesey, and the rest of these gentlemen having asked me to write down the whole particulars about Treasure Island, from the beginning to the end, keeping nothing back but the bearings of the island, I take up my pen and go back to the time when my father kept the Admiral Benbow inn.",
+      "sourceUrl": "https://www.gutenberg.org/files/120/120-h/120-h.htm",
+      "glossary": {
+        "squire": "乡绅；地主", "gentlemen": "先生们；绅士们", "particulars": "详情；细节", "treasure": "宝藏", "beginning": "开始", "keeping": "保留；保持", "bearings": "方位；位置", "island": "岛", "pen": "笔", "kept": "经营；保留", "admiral": "海军上将", "inn": "小旅馆；客栈"
+      }
+    },
+    {
+      "id": "wizard-oz",
+      "title": "The Wonderful Wizard of Oz",
+      "author": "L. Frank Baum",
+      "year": 1900,
+      "chapter": "The Cyclone",
+      "level": "A2",
+      "summary": "多萝西住在辽阔灰色的草原中，一场风暴即将到来。",
+      "text": "Dorothy lived in the midst of the great Kansas prairies, with Uncle Henry, who was a farmer, and Aunt Em, who was the farmer’s wife. Their house was small, for the lumber to build it had to be carried by wagon many miles. There were four walls, a floor and a roof, which made one room.",
+      "sourceUrl": "https://www.gutenberg.org/files/55/55-h/55-h.htm",
+      "glossary": {
+        "midst": "中间；当中", "prairies": "大草原", "uncle": "叔叔；伯伯；舅舅", "farmer": "农民；农场主", "aunt": "姑妈；姨妈；婶婶", "lumber": "木材", "build": "建造", "carried": "搬运；携带", "wagon": "四轮货车；马车", "miles": "英里", "walls": "墙", "floor": "地板", "roof": "屋顶"
+      }
+    }
+  ]
+}

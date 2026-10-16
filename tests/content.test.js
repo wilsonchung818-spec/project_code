@@ -3,6 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const content = require('../data/lessons.json');
+const readings = require('../data/readings.json');
 
 const OPERATORS = {
   come: /\b(?:come|comes|came|coming)\b/i,
@@ -81,4 +82,19 @@ test('every core sentence and context example has a generated audio file', () =>
   const manifest = JSON.parse(fs.readFileSync(path.join(audioDirectory, 'manifest.json'), 'utf8'));
   assert.equal(manifest.voice, 'en-US-AriaNeural');
   assert.equal(manifest.clips, expected.length);
+});
+
+test('reading library has 10 sourced public-domain excerpts with useful glossaries', () => {
+  assert.equal(readings.contentVersion, '2026.10.16');
+  assert.equal(readings.readings.length, 10);
+  assert.equal(new Set(readings.readings.map(item => item.id)).size, 10);
+  for (const reading of readings.readings) {
+    assert.ok(reading.title && reading.author && reading.summary, `${reading.id} metadata`);
+    assert.ok(reading.text.split(/\s+/).length >= 25, `${reading.id} excerpt is too short`);
+    assert.ok(/^https:\/\/www\.gutenberg\.org\//.test(reading.sourceUrl), `${reading.id} source`);
+    assert.ok(Object.keys(reading.glossary).length >= 8, `${reading.id} glossary is too small`);
+    for (const word of Object.keys(reading.glossary)) {
+      assert.match(reading.text.toLowerCase().replace(/’/g, "'"), new RegExp(`\\b${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`), `${reading.id}: ${word}`);
+    }
+  }
 });

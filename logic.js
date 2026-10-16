@@ -5,7 +5,7 @@
 })(typeof globalThis !== 'undefined' ? globalThis : this, function () {
   'use strict';
 
-  const STORAGE_VERSION = 1;
+  const STORAGE_VERSION = 2;
   const COMPLETION_SCORE = 70;
 
   function localDateKey(date = new Date()) {
@@ -97,12 +97,41 @@
     }, 0);
   }
 
+  function normalizeWord(value) {
+    return String(value || '')
+      .trim()
+      .toLowerCase()
+      .replace(/^[^a-z]+|[^a-z'-]+$/g, '');
+  }
+
+  function isWordDue(item, todayKey = localDateKey()) {
+    return !item?.dueDate || item.dueDate <= todayKey;
+  }
+
+  function reviewWord(item, result, todayKey = localDateKey()) {
+    const previousInterval = Math.max(0, Number(item?.intervalDays) || 0);
+    const intervalDays = result === 'again'
+      ? 0
+      : previousInterval === 0 ? 1 : previousInterval < 3 ? 3 : Math.min(30, previousInterval * 2);
+    return {
+      ...item,
+      intervalDays,
+      dueDate: addDays(todayKey, intervalDays),
+      reviewCount: Math.max(0, Number(item?.reviewCount) || 0) + 1,
+      lastReviewed: todayKey
+    };
+  }
+
   function defaultState() {
     return {
       version: STORAGE_VERSION,
       createdAt: new Date().toISOString(),
       progress: {},
       stats: { totalTrainingSeconds: 0, trainingByDate: {} },
+      wordBank: [],
+      stories: [],
+      dialogues: [],
+      reading: { completed: [], lastBookId: null },
       settings: { sound: false, reducedData: false }
     };
   }
@@ -124,6 +153,11 @@
       });
     }
     clean.settings = { ...clean.settings, ...(value.settings || {}) };
+    clean.wordBank = Array.isArray(value.wordBank) ? value.wordBank : [];
+    clean.stories = Array.isArray(value.stories) ? value.stories : [];
+    clean.dialogues = Array.isArray(value.dialogues) ? value.dialogues : [];
+    clean.reading = { ...clean.reading, ...(value.reading || {}) };
+    clean.reading.completed = Array.isArray(clean.reading.completed) ? clean.reading.completed : [];
     return clean;
   }
 
@@ -140,6 +174,9 @@
     longestStreak,
     trainingSecondsForDate,
     weeklyTrainingSeconds,
+    normalizeWord,
+    isWordDue,
+    reviewWord,
     defaultState,
     migrateState
   };

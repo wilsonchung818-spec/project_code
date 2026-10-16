@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'ba-speak-v1.3.0';
+const CACHE_VERSION = 'ba-speak-v1.4.0';
 const APP_SHELL = [
   './',
   './index.html',
@@ -7,6 +7,7 @@ const APP_SHELL = [
   './app.js',
   './manifest.json',
   './data/lessons.json',
+  './data/readings.json',
   './assets/icons/icon.svg',
   './assets/icons/icon-192.png',
   './assets/icons/icon-512.png',
@@ -52,7 +53,7 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  if (url.pathname.endsWith('/data/lessons.json')) {
+  if (url.pathname.endsWith('/data/lessons.json') || url.pathname.endsWith('/data/readings.json')) {
     event.respondWith(
       fetch(event.request)
         .then(response => {

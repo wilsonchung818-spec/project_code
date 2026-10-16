@@ -16,7 +16,7 @@
   ],
   "shortcuts": [
     { "name": "Start today’s training", "short_name": "Train", "url": "./?view=today" },
-    { "name": "View progress", "short_name": "Progress", "url": "./?view=progress" }
+    { "name": "Use my words", "short_name": "Create", "url": "./?view=create" },
+    { "name": "Read a classic", "short_name": "Reading", "url": "./?view=reading" }
   ]
 }
-
