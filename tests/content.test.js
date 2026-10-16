@@ -98,3 +98,19 @@ test('reading library has 10 sourced public-domain excerpts with useful glossari
     }
   }
 });
+
+test('HTML, JavaScript and service-worker cache use one release version', () => {
+  const root = path.join(__dirname, '..');
+  const index = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+  const serviceWorker = fs.readFileSync(path.join(root, 'service-worker.js'), 'utf8');
+  const packageJson = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
+  const version = packageJson.version;
+
+  assert.match(app, new RegExp(`APP_VERSION = '${version.replaceAll('.', '\\.')}'`));
+  assert.match(serviceWorker, new RegExp(`CACHE_VERSION = 'ba-speak-v${version.replaceAll('.', '\\.')}'`));
+  for (const asset of ['styles.css', 'logic.js', 'app.js']) {
+    assert.match(index, new RegExp(`${asset.replace('.', '\\.')}\\?v=${version.replaceAll('.', '\\.')}`), `${asset} HTML version`);
+    assert.ok(serviceWorker.includes(`'./${asset}?v=${version}'`), `${asset} service-worker version`);
+  }
+});

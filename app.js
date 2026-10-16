@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  const APP_VERSION = '1.4.0';
+  const APP_VERSION = '1.4.1';
   const STORAGE_KEY = 'ba-speaking-trainer:v1';
   const view = document.querySelector('#app-view');
   const toast = document.querySelector('#toast');
@@ -31,6 +31,8 @@
   let selectedLookupWord = null;
   let dialoguePromptIndex = 0;
   let storyPromptIndex = 0;
+  let hadServiceWorkerController = Boolean(navigator.serviceWorker?.controller);
+  let reloadingForUpdate = false;
 
   const DIALOGUE_SCENARIOS = [
     { title: 'Daily stand-up', place: 'Work · Teams call', partner: 'Your teammate', opening: 'What changed since yesterday, and what do you need from me?', task: 'Give a short update, name one risk, and ask for one action.' },
@@ -1190,7 +1192,18 @@
       saveState();
       render();
       if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-        navigator.serviceWorker.register('./service-worker.js').catch(() => {});
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          if (!hadServiceWorkerController) {
+            hadServiceWorkerController = true;
+            return;
+          }
+          if (reloadingForUpdate) return;
+          reloadingForUpdate = true;
+          location.reload();
+        });
+        navigator.serviceWorker.register('./service-worker.js')
+          .then(registration => registration.update())
+          .catch(() => {});
       }
     } catch (error) {
       view.innerHTML = `<section class="error-state"><div><h1>Content unavailable</h1><p>Start the app through a local web server, then try again.</p><button class="primary-button" type="button" onclick="location.reload()">Reload</button></div></section>`;
