@@ -1,8 +1,8 @@
 {
-  "contentVersion": "2026.10.12",
+  "contentVersion": "2026.10.20",
   "voice": "en-US-AriaNeural",
   "voiceDescription": "AI-generated US female news-style voice",
   "rate": "-4%",
   "pitch": "-2Hz",
-  "clips": 333
+  "clips": 453
 }

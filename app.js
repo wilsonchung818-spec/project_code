@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  const APP_VERSION = '1.4.1';
+  const APP_VERSION = '1.5.0';
   const STORAGE_KEY = 'ba-speaking-trainer:v1';
   const view = document.querySelector('#app-view');
   const toast = document.querySelector('#toast');
@@ -112,6 +112,32 @@
     const text = escapeHtml(example);
     const src = escapeHtml(audioPath(day, sentenceId, exampleNumber));
     return `<div class="example-audio-row"><p>${text}</p><button type="button" class="example-audio-button" data-action="play-audio" data-audio="${src}" data-rate="1" aria-label="Play example sentence">${speakerIcon()}</button></div>`;
+  }
+
+  function sentenceTextMarkup(sentence, tag = 'p', className = 'sentence-text') {
+    if (!sentence.deconstruction?.segments) return `<${tag} class="${className}">${escapeHtml(sentence.text)}</${tag}>`;
+    const segments = sentence.deconstruction.segments.map(segment => {
+      const cssClass = segment.kind === 'slot' ? 'grammar-slot' : 'grammar-fixed';
+      const label = segment.label ? ` title="Replaceable: ${escapeHtml(segment.label)}"` : '';
+      return `<span class="${cssClass}"${label}>${escapeHtml(segment.text)}</span>`;
+    }).join('');
+    return `<${tag} class="${className} is-deconstructed">${segments}</${tag}>`;
+  }
+
+  function grammarBreakdownMarkup(sentence, compact = false) {
+    const grammar = sentence.deconstruction;
+    if (!grammar) return `<div class="pattern-block"><span>Sentence pattern</span><p>${escapeHtml(sentence.pattern)}</p></div>`;
+    const fixed = grammar.segments
+      .filter(segment => segment.kind === 'fixed' && /[A-Za-z]/.test(segment.text))
+      .map(segment => segment.text.trim())
+      .join(' · ');
+    const slots = grammar.segments.filter(segment => segment.kind === 'slot');
+    return `<section class="grammar-breakdown${compact ? ' is-compact' : ''}" aria-label="Grammar skeleton and replaceable parts">
+      <div class="grammar-heading"><span>Golden frame ${String(grammar.frame).padStart(2, '0')}</span><small>${escapeHtml(grammar.name)}</small></div>
+      <p class="grammar-skeleton">${escapeHtml(grammar.skeleton)}</p>
+      <div class="grammar-key"><span><i class="fixed-swatch"></i>Fixed: <b>${escapeHtml(fixed)}</b></span><span><i class="slot-swatch"></i>Replaceable parts</span></div>
+      <div class="grammar-slot-list">${slots.map(slot => `<span><small>${escapeHtml(slot.label)}</small>${escapeHtml(slot.text)}</span>`).join('')}</div>
+    </section>`;
   }
 
   function clearAudioState() {
@@ -429,10 +455,10 @@
       ${trainingHeader(lesson, session.sentenceIndex + 1, sentences.length)}
       <article class="sentence-panel" key="${escapeHtml(sentence.id)}">
         <div class="sentence-label-row"><span class="sentence-id">${escapeHtml(sentence.id)}</span>${sentenceContextMarkup(sentence)}</div>
-        <p class="sentence-text">${escapeHtml(sentence.text)}</p>
+        ${sentenceTextMarkup(sentence)}
         ${listeningControlsMarkup(sentence, lesson.day)}
-        <div class="pattern-block"><span>Sentence pattern</span><p>${escapeHtml(sentence.pattern)}</p></div>
-        <div class="examples-block"><span>In context</span>${sentence.examples.map((example, index) => exampleMarkup(example, lesson.day, sentence.id, index + 1)).join('')}</div>
+        ${grammarBreakdownMarkup(sentence)}
+        <div class="examples-block"><span>${sentence.deconstruction ? '2 natural alternatives' : 'In context'}</span>${sentence.examples.map((example, index) => exampleMarkup(example, lesson.day, sentence.id, index + 1)).join('')}</div>
         <button class="primary-button button-block" type="button" data-action="practice-sentence">Mark as Practiced</button>
       </article>`;
   }
@@ -673,7 +699,7 @@
       </section>
       <div class="metric-grid">
         <div class="metric"><strong>${formatDuration(stats.total, true)}</strong><span>Total training</span></div>
-        <div class="metric"><strong>${stats.completed} / 30</strong><span>Lessons completed</span></div>
+        <div class="metric"><strong>${stats.completed} / ${lessonData.lessons.length}</strong><span>Lessons completed</span></div>
         <div class="metric"><strong>${stats.average}</strong><span>Average score</span></div>
         <div class="metric"><strong>${stats.realWork}</strong><span>Real Work Hits</span></div>
         <div class="metric"><strong>${stats.speakingPB}s</strong><span>Speaking PB</span></div>
@@ -700,7 +726,7 @@
   function renderLibrary() {
     const current = lessonDayForToday();
     view.innerHTML = `
-      <p class="eyebrow">30-day programme</p>
+      <p class="eyebrow">${lessonData.lessons.length}-day programme</p>
       <h1 class="page-title">Library</h1>
       <p class="page-subtitle">Every lesson stays open for review.</p>
       <div class="library-list">${lessonData.lessons.map(lesson => {
@@ -730,10 +756,10 @@
         <div class="section-heading"><h2>Core sentences</h2><span>Tap for examples</span></div>
         ${sentences.map(sentence => `<article class="review-sentence">
           <div class="sentence-label-row"><span class="sentence-id">${escapeHtml(sentence.id)}</span>${sentenceContextMarkup(sentence)}</div>
-          <h3>${escapeHtml(sentence.text)}</h3>
+          ${sentenceTextMarkup(sentence, 'h3', 'review-sentence-text')}
           ${listeningControlsMarkup(sentence, lesson.day)}
-          <p class="micro">${escapeHtml(sentence.pattern)}</p>
-          <details><summary>Show examples</summary>${sentence.examples.map((example, index) => exampleMarkup(example, lesson.day, sentence.id, index + 1)).join('')}</details>
+          ${grammarBreakdownMarkup(sentence, true)}
+          <details><summary>${sentence.deconstruction ? 'Show 2 natural alternatives' : 'Show examples'}</summary>${sentence.examples.map((example, index) => exampleMarkup(example, lesson.day, sentence.id, index + 1)).join('')}</details>
         </article>`).join('')}
       </section>`;
   }
@@ -1186,7 +1212,7 @@
       if (!readingResponse.ok) throw new Error(`Readings failed: ${readingResponse.status}`);
       lessonData = await lessonResponse.json();
       readingData = await readingResponse.json();
-      if (!Array.isArray(lessonData.lessons) || lessonData.lessons.length !== 30) throw new Error('Expected 30 lessons');
+      if (!Array.isArray(lessonData.lessons) || lessonData.lessons.length !== 40) throw new Error('Expected 40 lessons');
       if (!Array.isArray(readingData.readings) || readingData.readings.length !== 10) throw new Error('Expected 10 readings');
       state.stats.totalTrainingSeconds = totalTrainingSeconds();
       saveState();

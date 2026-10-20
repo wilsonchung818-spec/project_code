@@ -23,6 +23,7 @@ VOLUME = "+0%"
 
 @dataclass(frozen=True)
 class AudioJob:
+    day: int
     path: Path
     text: str
 
@@ -48,9 +49,9 @@ def load_jobs() -> tuple[dict, list[AudioJob]]:
         for section in lesson["sections"]:
             for sentence in section["sentences"]:
                 sentence_prefix = f"{day_prefix}-{sentence['id'].lower()}"
-                jobs.append(AudioJob(OUTPUT_DIR / f"{sentence_prefix}.mp3", pronunciation_text(sentence["text"])))
+                jobs.append(AudioJob(lesson["day"], OUTPUT_DIR / f"{sentence_prefix}.mp3", pronunciation_text(sentence["text"])))
                 for index, example in enumerate(sentence["examples"], start=1):
-                    jobs.append(AudioJob(OUTPUT_DIR / f"{sentence_prefix}-e{index}.mp3", pronunciation_text(example)))
+                    jobs.append(AudioJob(lesson["day"], OUTPUT_DIR / f"{sentence_prefix}-e{index}.mp3", pronunciation_text(example)))
     return content, jobs
 
 
@@ -78,8 +79,15 @@ async def generate(job: AudioJob, semaphore: asyncio.Semaphore, force: bool) -> 
     raise RuntimeError("unreachable")
 
 
-async def run(force: bool, concurrency: int) -> None:
-    content, jobs = load_jobs()
+async def run(force: bool, concurrency: int, from_day: int | None, to_day: int | None) -> None:
+    content, all_jobs = load_jobs()
+    jobs = [
+        job
+        for job in all_jobs
+        if (from_day is None or job.day >= from_day) and (to_day is None or job.day <= to_day)
+    ]
+    if not jobs:
+        raise ValueError("No audio jobs match the selected day range")
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     semaphore = asyncio.Semaphore(concurrency)
     counters = {"generated": 0, "skipped": 0}
@@ -100,7 +108,7 @@ async def run(force: bool, concurrency: int) -> None:
         "voiceDescription": "AI-generated US female news-style voice",
         "rate": RATE,
         "pitch": PITCH,
-        "clips": len(jobs),
+        "clips": len(all_jobs),
     }
     (OUTPUT_DIR / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
 
@@ -109,8 +117,10 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--force", action="store_true", help="Regenerate existing audio files")
     parser.add_argument("--concurrency", type=int, default=4)
+    parser.add_argument("--from-day", type=int, help="Only generate this day and later")
+    parser.add_argument("--to-day", type=int, help="Only generate this day and earlier")
     args = parser.parse_args()
-    asyncio.run(run(args.force, max(1, min(args.concurrency, 8))))
+    asyncio.run(run(args.force, max(1, min(args.concurrency, 8)), args.from_day, args.to_day))
 
 
 if __name__ == "__main__":

@@ -26,12 +26,12 @@ const OPERATORS = {
   will: /\bwill\b/i
 };
 
-test('course has 30 lessons and the current content version', () => {
-  assert.equal(content.contentVersion, '2026.10.12');
-  assert.equal(content.lessons.length, 30);
+test('course has 40 lessons and the current content version', () => {
+  assert.equal(content.contentVersion, '2026.10.20');
+  assert.equal(content.lessons.length, 40);
 });
 
-test('Days 11–30 contain three work sentences and one life sentence', () => {
+test('Days 11–40 contain three work sentences and one life sentence', () => {
   for (const lesson of content.lessons.filter(item => item.day >= 11)) {
     assert.equal(lesson.sections.length, 2, `Day ${lesson.day} section count`);
     const sentences = lesson.sections.flatMap(section => section.sentences);
@@ -43,15 +43,15 @@ test('Days 11–30 contain three work sentences and one life sentence', () => {
   }
 });
 
-test('every revised sentence uses at least one Basic English operator', () => {
-  for (const lesson of content.lessons.filter(item => item.day >= 11)) {
+test('every Basic English sentence in Days 11–18 uses at least one operator', () => {
+  for (const lesson of content.lessons.filter(item => item.day >= 11 && item.day <= 18)) {
     for (const sentence of lesson.sections.flatMap(section => section.sentences)) {
       assert.ok(Object.values(OPERATORS).some(pattern => pattern.test(sentence.text)), `Day ${lesson.day} ${sentence.id}: ${sentence.text}`);
     }
   }
 });
 
-test('Days 11–30 cover all 18 Basic English operators', () => {
+test('Days 11–40 cover all 18 Basic English operators', () => {
   const revisedText = content.lessons
     .filter(item => item.day >= 11)
     .flatMap(item => item.sections.flatMap(section => section.sentences.map(sentence => sentence.text)))
@@ -60,6 +60,27 @@ test('Days 11–30 cover all 18 Basic English operators', () => {
     .filter(([, pattern]) => !pattern.test(revisedText))
     .map(([operator]) => operator);
   assert.deepEqual(missing, []);
+});
+
+test('Days 19–40 cycle through all 12 Golden Sentence frames with explicit parts', () => {
+  const frameCounts = new Map();
+  for (const lesson of content.lessons.filter(item => item.day >= 19)) {
+    const sentences = lesson.sections.flatMap(section => section.sentences);
+    sentences.forEach((sentence, index) => {
+      const expectedFrame = ((lesson.day - 19) * 4 + index) % 12 + 1;
+      const grammar = sentence.deconstruction;
+      assert.equal(grammar.frame, expectedFrame, `Day ${lesson.day} ${sentence.id} frame`);
+      assert.ok(grammar.model && grammar.skeleton && grammar.name, `Day ${lesson.day} ${sentence.id} grammar metadata`);
+      assert.equal(grammar.segments.map(segment => segment.text).join(''), sentence.text, `Day ${lesson.day} ${sentence.id} segments`);
+      assert.ok(grammar.segments.some(segment => segment.kind === 'fixed'), `Day ${lesson.day} ${sentence.id} fixed grammar`);
+      assert.ok(grammar.segments.some(segment => segment.kind === 'slot' && segment.label), `Day ${lesson.day} ${sentence.id} replaceable slot`);
+      assert.equal(sentence.examples.length, 2, `Day ${lesson.day} ${sentence.id} alternatives`);
+      assert.equal(new Set([sentence.text, ...sentence.examples]).size, 3, `Day ${lesson.day} ${sentence.id} alternatives must be distinct`);
+      frameCounts.set(grammar.frame, (frameCounts.get(grammar.frame) || 0) + 1);
+    });
+  }
+  assert.deepEqual([...frameCounts.keys()].sort((a, b) => a - b), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+  assert.ok([...frameCounts.values()].every(count => count >= 7), 'each Golden Sentence frame should repeat at least seven times');
 });
 
 test('every core sentence and context example has a generated audio file', () => {
