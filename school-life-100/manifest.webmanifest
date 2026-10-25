@@ -1,0 +1,24 @@
+{
+  "id": "./",
+  "name": "开口词卡：学校生活100词",
+  "short_name": "开口词卡",
+  "description": "把小学高频词变成可开口、可理解、可复习的轻量英语学习系统。",
+  "lang": "zh-CN",
+  "start_url": "./#learn",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f7faff",
+  "theme_color": "#17375e",
+  "categories": ["education", "kids"],
+  "icons": [
+    { "src": "./assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./assets/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "学习 book", "short_name": "学习", "url": "./#learn" },
+    { "name": "情境问答", "short_name": "情境", "url": "./#speak" },
+    { "name": "口语挑战", "short_name": "挑战", "url": "./#challenge" }
+  ]
+}

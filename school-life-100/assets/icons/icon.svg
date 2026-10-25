@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">学校生活100词</title>
+  <rect width="512" height="512" rx="116" fill="#316BFF"/>
+  <circle cx="256" cy="238" r="176" fill="#DDEAFF"/>
+  <path d="M83 162c58-27 116-22 173 19v216c-53-39-111-45-173-18V162Z" fill="#fff" stroke="#17365F" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M429 162c-58-27-116-22-173 19v216c53-39 111-45 173-18V162Z" fill="#fff" stroke="#17365F" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M256 182v215" stroke="#17365F" stroke-width="18" stroke-linecap="round"/>
+  <path d="M126 221h76M126 270h76M310 221h76M310 270h76" stroke="#9BB8E8" stroke-width="14" stroke-linecap="round"/>
+  <path d="m347 310 13 27 30 4-22 21 6 30-27-14-27 14 6-30-22-21 30-4 13-27Z" fill="#FFD257"/>
+</svg>
