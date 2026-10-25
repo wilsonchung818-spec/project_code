@@ -116,14 +116,6 @@ The included workflow deploys the repository root on pushes to `main` or `master
 https://wilsonchung818-spec.github.io/project_code/
 ```
 
-## School Life 100 PWA
-
-The repository also contains an installable elementary English speaking sample at [`school-life-100/`](./school-life-100/). It combines vocabulary, phonics, collocations, three illustrated question-and-answer scenes, local speaking practice, and spaced-review check-ins.
-
-```text
-https://wilsonchung818-spec.github.io/project_code/school-life-100/
-```
-
 ## PWA updates and stale-cache troubleshooting
 
 The service worker uses a named, versioned cache. During installation it reloads the application shell from the network. HTML/CSS/JS are cache-first for reliable offline startup; `data/lessons.json` and `data/readings.json` are network-first so updated content is fetched while online.
