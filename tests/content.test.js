@@ -26,12 +26,12 @@ const OPERATORS = {
   will: /\bwill\b/i
 };
 
-test('course has 40 lessons and the current content version', () => {
-  assert.equal(content.contentVersion, '2026.10.20');
-  assert.equal(content.lessons.length, 40);
+test('course has 60 lessons and the current content version', () => {
+  assert.equal(content.contentVersion, '2026.11.19');
+  assert.equal(content.lessons.length, 60);
 });
 
-test('Days 11–40 contain three work sentences and one life sentence', () => {
+test('Days 11–60 contain three work sentences and one life sentence', () => {
   for (const lesson of content.lessons.filter(item => item.day >= 11)) {
     assert.equal(lesson.sections.length, 2, `Day ${lesson.day} section count`);
     const sentences = lesson.sections.flatMap(section => section.sentences);
@@ -51,7 +51,7 @@ test('every Basic English sentence in Days 11–18 uses at least one operator', 
   }
 });
 
-test('Days 11–40 cover all 18 Basic English operators', () => {
+test('Days 11–60 cover all 18 Basic English operators', () => {
   const revisedText = content.lessons
     .filter(item => item.day >= 11)
     .flatMap(item => item.sections.flatMap(section => section.sentences.map(sentence => sentence.text)))
@@ -62,7 +62,7 @@ test('Days 11–40 cover all 18 Basic English operators', () => {
   assert.deepEqual(missing, []);
 });
 
-test('Days 19–40 cycle through all 12 Golden Sentence frames with explicit parts', () => {
+test('Days 19–60 cycle through all 12 Golden Sentence frames with explicit parts', () => {
   const frameCounts = new Map();
   for (const lesson of content.lessons.filter(item => item.day >= 19)) {
     const sentences = lesson.sections.flatMap(section => section.sentences);

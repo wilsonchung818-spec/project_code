@@ -1,10 +1,10 @@
-const CACHE_VERSION = 'ba-speak-v1.5.0';
+const CACHE_VERSION = 'ba-speak-v1.6.0';
 const APP_SHELL = [
   './',
   './index.html',
-  './styles.css?v=1.5.0',
-  './logic.js?v=1.5.0',
-  './app.js?v=1.5.0',
+  './styles.css?v=1.6.0',
+  './logic.js?v=1.6.0',
+  './app.js?v=1.6.0',
   './manifest.json',
   './data/lessons.json',
   './data/readings.json',

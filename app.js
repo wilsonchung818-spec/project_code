@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  const APP_VERSION = '1.5.0';
+  const APP_VERSION = '1.6.0';
   const STORAGE_KEY = 'ba-speaking-trainer:v1';
   const view = document.querySelector('#app-view');
   const toast = document.querySelector('#toast');
@@ -1212,7 +1212,7 @@
       if (!readingResponse.ok) throw new Error(`Readings failed: ${readingResponse.status}`);
       lessonData = await lessonResponse.json();
       readingData = await readingResponse.json();
-      if (!Array.isArray(lessonData.lessons) || lessonData.lessons.length !== 40) throw new Error('Expected 40 lessons');
+      if (!Array.isArray(lessonData.lessons) || lessonData.lessons.length !== 60) throw new Error('Expected 60 lessons');
       if (!Array.isArray(readingData.readings) || readingData.readings.length !== 10) throw new Error('Expected 10 readings');
       state.stats.totalTrainingSeconds = totalTrainingSeconds();
       saveState();

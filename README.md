@@ -6,11 +6,11 @@ The app is deliberately private and lightweight: no account, backend, speech rec
 
 ## Features
 
-- 40 practical BA/PM/Scrum Master lessons, stored separately from application code
+- 60 practical BA/PM/Scrum Master lessons, stored separately from application code
 - Days 11–18 use an Ogden Basic English-inspired vocabulary model: the 18 operators, mostly 850-word vocabulary, and necessary BA/Scrum terms
-- Days 19–40 cycle through Tim Ferriss's 12 sentence frames, adapted to natural modern workplace and daily-life English
+- Days 19–60 cycle through Tim Ferriss's 12 sentence frames, adapted to natural modern workplace and daily-life English
 - Four sentences per lesson from Day 11 onward: three workplace situations and one everyday-life situation
-- Days 19–40 visually separate the fixed grammar skeleton from replaceable parts and provide two natural alternatives for every sentence
+- Days 19–60 visually separate the fixed grammar skeleton from replaceable parts and provide two natural alternatives for every sentence
 - Consistent AI-generated US female news-style audio for every core sentence and alternative, with normal speed, slow speed, and a three-pass shadowing drill
 - Active training timer, speaking challenge, recall review, Real Work Hit tracking, scores, streaks, and personal bests
 - Create workspace for saving new words, writing personal sentences, and reviewing them with a simple spaced schedule
@@ -46,7 +46,7 @@ python scripts/generate_audio.py --force
 To regenerate only a changed range:
 
 ```bash
-python scripts/generate_audio.py --force --from-day 19 --to-day 40
+python scripts/generate_audio.py --force --from-day 41 --to-day 60
 ```
 
 ## File structure
@@ -56,7 +56,7 @@ python scripts/generate_audio.py --force --from-day 19 --to-day 40
 ├── .github/workflows/deploy.yml  # GitHub Pages deployment
 ├── assets/audio/                 # Generated lesson MP3 files and manifest
 ├── assets/icons/                 # PWA and browser icons
-├── data/lessons.json             # Versioned 40-day course content
+├── data/lessons.json             # Versioned 60-day course content
 ├── data/readings.json            # Public-domain excerpts and Chinese glossaries
 ├── scripts/generate_audio.py     # Stable lesson-audio generator
 ├── tests/                        # Scoring, migration, content, and release tests
@@ -72,11 +72,11 @@ python scripts/generate_audio.py --force --from-day 19 --to-day 40
 
 `data/lessons.json` has a top-level `contentVersion` plus a `lessons` array. Each lesson contains its day, topic, scenario, speaking logic, sentence patterns, sections, and speaking challenge.
 
-Every sentence has a stable `id`, full `text`, reusable `pattern`, and two contextual `examples`. Days 19–40 also include a `deconstruction` object containing the source frame, fixed skeleton, and ordered fixed/replaceable segments. Keep sentence IDs stable after release because saved practice data refers to them.
+Every sentence has a stable `id`, full `text`, reusable `pattern`, and two contextual `examples`. Days 19–60 also include a `deconstruction` object containing the source frame, fixed skeleton, and ordered fixed/replaceable segments. Keep sentence IDs stable after release because saved practice data refers to them.
 
 Days 11–18 follow [Ogden's 850-word list](https://zbenglish.net/sites/basic/words.html) and the [18 Basic English operators](https://zbenglish.net/sites/basic/verbs.html) as a practical writing guide. Required domain terms such as API, UAT, sprint, story, release, production, dependency, sign-off, and rollback are retained.
 
-Days 19–40 use the 12 diagnostic sentence frames described in [Tim Ferriss's language-learning article](https://tim.blog/2007/11/07/how-to-learn-but-not-master-any-language-in-1-hour-plus-a-favor/). The frames repeat in order while the replaceable parts use current BA, PM, Scrum Master, and everyday situations.
+Days 19–60 use the 12 diagnostic sentence frames described in [Tim Ferriss's language-learning article](https://tim.blog/2007/11/07/how-to-learn-but-not-master-any-language-in-1-hour-plus-a-favor/). The frames repeat in order while the replaceable parts use current BA, PM, Scrum Master, and everyday situations. Days 41–60 add sign-off, sprint focus, change requests, acceptance criteria, cross-team dependencies, roadmap alignment, workshop decisions, data quality, UAT exit, incident updates, root-cause follow-up, customer feedback, backlog refinement, budget, vendor delivery, change communication, retrospectives, benefits, handover, and an end-to-end delivery review. Their editable source is `scripts/extend_course_60.cjs`; rerun it before generating audio if changing these lessons.
 
 ### Modify an existing lesson
 

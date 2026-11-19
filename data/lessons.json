@@ -1,5 +1,5 @@
 {
-  "contentVersion": "2026.10.20",
+  "contentVersion": "2026.11.19",
   "contentMethod": "Ogden Basic English inspired: core operators plus essential BA and Scrum Master terms",
   "lessons": [
     {
@@ -5416,6 +5416,3838 @@
       "speakingChallenge": {
         "targetSeconds": 90,
         "instruction": "Run a complete handover: readiness, ownership, runbook, support route, and the first production check."
+      }
+    },
+    {
+      "day": 41,
+      "topic": "Requirement Sign-off",
+      "scenario": "The BA shares a requirement pack before business approval.",
+      "level": "Senior workplace",
+      "speakingLogic": [
+        "Set the Context",
+        "Share the Evidence",
+        "Agree on Next Steps",
+        "Life Transfer"
+      ],
+      "sentencePatterns": [
+        "[PERSON] gives it to [RECIPIENT].",
+        "[PERSON] gives it to [OBJECT PRONOUN].",
+        "Is [SUBJECT] [DESCRIPTION]?",
+        "[PLURAL SUBJECT] are [DESCRIPTION]."
+      ],
+      "examples": [
+        "Name what each pronoun refers to. Keep the fixed grammar and swap the highlighted parts to fit your own situation."
+      ],
+      "sections": [
+        {
+          "title": "Work · 3 sentences",
+          "sentences": [
+            {
+              "id": "S1",
+              "context": "Work",
+              "text": "The analyst gives it to the product owner.",
+              "pattern": "[PERSON] gives it to [RECIPIENT].",
+              "examples": [
+                "The analyst sends the requirement pack to the product owner.",
+                "The product owner gets the requirements from the analyst."
+              ],
+              "deconstruction": {
+                "frame": 5,
+                "name": "Third person + recipient",
+                "model": "He gives it to John.",
+                "skeleton": "[PERSON] gives it to [RECIPIENT].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The analyst",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " gives it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the product owner",
+                    "label": "RECIPIENT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S2",
+              "context": "Work",
+              "text": "The manager gives it to her.",
+              "pattern": "[PERSON] gives it to [OBJECT PRONOUN].",
+              "examples": [
+                "The manager hands her the approval form.",
+                "She receives the approval form from the manager."
+              ],
+              "deconstruction": {
+                "frame": 6,
+                "name": "Object pronoun",
+                "model": "She gives it to him.",
+                "skeleton": "[PERSON] gives it to [OBJECT PRONOUN].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The manager",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " gives it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "her",
+                    "label": "OBJECT PRONOUN"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S3",
+              "context": "Work",
+              "text": "Is the requirement clear?",
+              "pattern": "Is [SUBJECT] [DESCRIPTION]?",
+              "examples": [
+                "Does the requirement make sense?",
+                "Do we all understand what this requirement means?"
+              ],
+              "deconstruction": {
+                "frame": 7,
+                "name": "Yes/no question",
+                "model": "Is the apple red?",
+                "skeleton": "Is [SUBJECT] [DESCRIPTION]?",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "Is "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the requirement",
+                    "label": "SUBJECT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "clear",
+                    "label": "DESCRIPTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "?"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Life · 1 sentence",
+          "sentences": [
+            {
+              "id": "S4",
+              "context": "Life",
+              "text": "The seats are available.",
+              "pattern": "[PLURAL SUBJECT] are [DESCRIPTION].",
+              "examples": [
+                "There are still seats left.",
+                "We can still get seats."
+              ],
+              "deconstruction": {
+                "frame": 8,
+                "name": "Plural + are",
+                "model": "The apples are red.",
+                "skeleton": "[PLURAL SUBJECT] are [DESCRIPTION].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The seats",
+                    "label": "PLURAL SUBJECT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " are "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "available",
+                    "label": "DESCRIPTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "speakingChallenge": {
+        "targetSeconds": 60,
+        "instruction": "Explain who gets the requirement pack, check agreement, and name the next action."
+      }
+    },
+    {
+      "day": 42,
+      "topic": "Sprint Goal and Focus",
+      "scenario": "The Scrum Master protects the sprint goal when an urgent request arrives.",
+      "level": "Senior workplace",
+      "speakingLogic": [
+        "Set the Context",
+        "Share the Evidence",
+        "Agree on Next Steps",
+        "Life Transfer"
+      ],
+      "sentencePatterns": [
+        "I must [ACTION] it to [PERSON].",
+        "I want to [ACTION] it to [PERSON].",
+        "I'm going to [ACTION] [TIME].",
+        "I can't [ACTION] [THING]."
+      ],
+      "examples": [
+        "Name what each pronoun refers to. Keep the fixed grammar and swap the highlighted parts to fit your own situation."
+      ],
+      "sections": [
+        {
+          "title": "Work · 3 sentences",
+          "sentences": [
+            {
+              "id": "S1",
+              "context": "Work",
+              "text": "I must explain it to the team.",
+              "pattern": "I must [ACTION] it to [PERSON].",
+              "examples": [
+                "I need to explain the sprint goal to the team.",
+                "The team needs a clear explanation of the sprint goal from me."
+              ],
+              "deconstruction": {
+                "frame": 9,
+                "name": "Must + action",
+                "model": "I must give it to him.",
+                "skeleton": "I must [ACTION] it to [PERSON].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I must "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "explain",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the team",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S2",
+              "context": "Work",
+              "text": "I want to show it to the product owner.",
+              "pattern": "I want to [ACTION] it to [PERSON].",
+              "examples": [
+                "I'd like to show the new request to the product owner.",
+                "I want the product owner to see the new request."
+              ],
+              "deconstruction": {
+                "frame": 10,
+                "name": "Want to + action",
+                "model": "I want to give it to her.",
+                "skeleton": "I want to [ACTION] it to [PERSON].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I want to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "show",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the product owner",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S3",
+              "context": "Work",
+              "text": "I'm going to check the sprint goal this morning.",
+              "pattern": "I'm going to [ACTION] [TIME].",
+              "examples": [
+                "I'll check the sprint goal this morning.",
+                "I plan to review the sprint goal this morning."
+              ],
+              "deconstruction": {
+                "frame": 11,
+                "name": "Going to + time",
+                "model": "I'm going to know tomorrow.",
+                "skeleton": "I'm going to [ACTION] [TIME].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I'm going to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "check the sprint goal",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "this morning",
+                    "label": "TIME"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Life · 1 sentence",
+          "sentences": [
+            {
+              "id": "S4",
+              "context": "Life",
+              "text": "I can't find my phone.",
+              "pattern": "I can't [ACTION] [THING].",
+              "examples": [
+                "I don't know where my phone is.",
+                "My phone is missing."
+              ],
+              "deconstruction": {
+                "frame": 12,
+                "name": "Can't + action",
+                "model": "I can't eat the apple.",
+                "skeleton": "I can't [ACTION] [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I can't "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "find",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "my phone",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "speakingChallenge": {
+        "targetSeconds": 60,
+        "instruction": "State what needs attention, explain the sprint goal, and set a clear limit."
+      }
+    },
+    {
+      "day": 43,
+      "topic": "Scope Change Request",
+      "scenario": "A PM checks the cost and ownership of a proposed scope change.",
+      "level": "Senior workplace",
+      "speakingLogic": [
+        "Set the Context",
+        "Share the Evidence",
+        "Agree on Next Steps",
+        "Life Transfer"
+      ],
+      "sentencePatterns": [
+        "[SUBJECT] is [DESCRIPTION].",
+        "It is [OWNER]'s [THING].",
+        "I give [PERSON] [THING].",
+        "We give [PERSON] [THING]."
+      ],
+      "examples": [
+        "Name what each pronoun refers to. Keep the fixed grammar and swap the highlighted parts to fit your own situation."
+      ],
+      "sections": [
+        {
+          "title": "Work · 3 sentences",
+          "sentences": [
+            {
+              "id": "S1",
+              "context": "Work",
+              "text": "The change is small.",
+              "pattern": "[SUBJECT] is [DESCRIPTION].",
+              "examples": [
+                "It's a small change.",
+                "The change is limited in size."
+              ],
+              "deconstruction": {
+                "frame": 1,
+                "name": "Be + description",
+                "model": "The apple is red.",
+                "skeleton": "[SUBJECT] is [DESCRIPTION].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The change",
+                    "label": "SUBJECT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " is "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "small",
+                    "label": "DESCRIPTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S2",
+              "context": "Work",
+              "text": "It is the client's request.",
+              "pattern": "It is [OWNER]'s [THING].",
+              "examples": [
+                "This request comes from the client.",
+                "The client is asking for this change."
+              ],
+              "deconstruction": {
+                "frame": 2,
+                "name": "Possession",
+                "model": "It is John's apple.",
+                "skeleton": "It is [OWNER]'s [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "It is "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the client",
+                    "label": "OWNER"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "'s "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "request",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S3",
+              "context": "Work",
+              "text": "I give the analyst the change request.",
+              "pattern": "I give [PERSON] [THING].",
+              "examples": [
+                "I send the change request to the analyst.",
+                "I hand the change request over to the analyst."
+              ],
+              "deconstruction": {
+                "frame": 3,
+                "name": "Give + person + thing",
+                "model": "I give John the apple.",
+                "skeleton": "I give [PERSON] [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I give "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the analyst",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the change request",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Life · 1 sentence",
+          "sentences": [
+            {
+              "id": "S4",
+              "context": "Life",
+              "text": "We give our neighbor a spare key.",
+              "pattern": "We give [PERSON] [THING].",
+              "examples": [
+                "We leave a spare key with our neighbor.",
+                "Our neighbor keeps an extra key for us."
+              ],
+              "deconstruction": {
+                "frame": 4,
+                "name": "We + give",
+                "model": "We give him the apple.",
+                "skeleton": "We give [PERSON] [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "We give "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "our neighbor",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "a spare key",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "speakingChallenge": {
+        "targetSeconds": 60,
+        "instruction": "Describe the change, identify its owner, and explain how it will be assessed."
+      }
+    },
+    {
+      "day": 44,
+      "topic": "Acceptance Criteria",
+      "scenario": "A BA shares acceptance criteria with QA before development starts.",
+      "level": "Senior workplace",
+      "speakingLogic": [
+        "Set the Context",
+        "Share the Evidence",
+        "Agree on Next Steps",
+        "Life Transfer"
+      ],
+      "sentencePatterns": [
+        "[PERSON] gives it to [RECIPIENT].",
+        "[PERSON] gives it to [OBJECT PRONOUN].",
+        "Is [SUBJECT] [DESCRIPTION]?",
+        "[PLURAL SUBJECT] are [DESCRIPTION]."
+      ],
+      "examples": [
+        "Name what each pronoun refers to. Keep the fixed grammar and swap the highlighted parts to fit your own situation."
+      ],
+      "sections": [
+        {
+          "title": "Work · 3 sentences",
+          "sentences": [
+            {
+              "id": "S1",
+              "context": "Work",
+              "text": "The developer gives it to the tester.",
+              "pattern": "[PERSON] gives it to [RECIPIENT].",
+              "examples": [
+                "The developer sends the acceptance criteria to the tester.",
+                "The tester receives the acceptance criteria from the developer."
+              ],
+              "deconstruction": {
+                "frame": 5,
+                "name": "Third person + recipient",
+                "model": "He gives it to John.",
+                "skeleton": "[PERSON] gives it to [RECIPIENT].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The developer",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " gives it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the tester",
+                    "label": "RECIPIENT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S2",
+              "context": "Work",
+              "text": "The tester gives it to him.",
+              "pattern": "[PERSON] gives it to [OBJECT PRONOUN].",
+              "examples": [
+                "The tester hands him the test plan.",
+                "He gets the test plan from the tester."
+              ],
+              "deconstruction": {
+                "frame": 6,
+                "name": "Object pronoun",
+                "model": "She gives it to him.",
+                "skeleton": "[PERSON] gives it to [OBJECT PRONOUN].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The tester",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " gives it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "him",
+                    "label": "OBJECT PRONOUN"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S3",
+              "context": "Work",
+              "text": "Is the result easy to check?",
+              "pattern": "Is [SUBJECT] [DESCRIPTION]?",
+              "examples": [
+                "Can we check the result easily?",
+                "Is there a clear way to check the result?"
+              ],
+              "deconstruction": {
+                "frame": 7,
+                "name": "Yes/no question",
+                "model": "Is the apple red?",
+                "skeleton": "Is [SUBJECT] [DESCRIPTION]?",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "Is "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the result",
+                    "label": "SUBJECT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "easy to check",
+                    "label": "DESCRIPTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "?"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Life · 1 sentence",
+          "sentences": [
+            {
+              "id": "S4",
+              "context": "Life",
+              "text": "The shops are open.",
+              "pattern": "[PLURAL SUBJECT] are [DESCRIPTION].",
+              "examples": [
+                "The shops are still open.",
+                "We can still go to the shops."
+              ],
+              "deconstruction": {
+                "frame": 8,
+                "name": "Plural + are",
+                "model": "The apples are red.",
+                "skeleton": "[PLURAL SUBJECT] are [DESCRIPTION].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The shops",
+                    "label": "PLURAL SUBJECT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " are "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "open",
+                    "label": "DESCRIPTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "speakingChallenge": {
+        "targetSeconds": 60,
+        "instruction": "Explain who reviews the criteria and ask whether they can be checked."
+      }
+    },
+    {
+      "day": 45,
+      "topic": "Cross-team Dependencies",
+      "scenario": "A PM discusses a blocked task with a partner team.",
+      "level": "Senior workplace",
+      "speakingLogic": [
+        "Set the Context",
+        "Share the Evidence",
+        "Agree on Next Steps",
+        "Life Transfer"
+      ],
+      "sentencePatterns": [
+        "I must [ACTION] it to [PERSON].",
+        "I want to [ACTION] it to [PERSON].",
+        "I'm going to [ACTION] [TIME].",
+        "I can't [ACTION] [THING]."
+      ],
+      "examples": [
+        "Name what each pronoun refers to. Keep the fixed grammar and swap the highlighted parts to fit your own situation."
+      ],
+      "sections": [
+        {
+          "title": "Work · 3 sentences",
+          "sentences": [
+            {
+              "id": "S1",
+              "context": "Work",
+              "text": "I must send it to the other team.",
+              "pattern": "I must [ACTION] it to [PERSON].",
+              "examples": [
+                "I need to send the dependency list to the other team.",
+                "The other team needs the dependency list from me."
+              ],
+              "deconstruction": {
+                "frame": 9,
+                "name": "Must + action",
+                "model": "I must give it to him.",
+                "skeleton": "I must [ACTION] it to [PERSON].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I must "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "send",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the other team",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S2",
+              "context": "Work",
+              "text": "I want to explain it to the project manager.",
+              "pattern": "I want to [ACTION] it to [PERSON].",
+              "examples": [
+                "I'd like to explain the delay to the project manager.",
+                "I want the project manager to understand the delay."
+              ],
+              "deconstruction": {
+                "frame": 10,
+                "name": "Want to + action",
+                "model": "I want to give it to her.",
+                "skeleton": "I want to [ACTION] it to [PERSON].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I want to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "explain",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the project manager",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S3",
+              "context": "Work",
+              "text": "I'm going to get a delivery date tomorrow.",
+              "pattern": "I'm going to [ACTION] [TIME].",
+              "examples": [
+                "I'll get a delivery date tomorrow.",
+                "I plan to confirm the delivery date tomorrow."
+              ],
+              "deconstruction": {
+                "frame": 11,
+                "name": "Going to + time",
+                "model": "I'm going to know tomorrow.",
+                "skeleton": "I'm going to [ACTION] [TIME].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I'm going to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "get a delivery date",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "tomorrow",
+                    "label": "TIME"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Life · 1 sentence",
+          "sentences": [
+            {
+              "id": "S4",
+              "context": "Life",
+              "text": "I can't open this jar.",
+              "pattern": "I can't [ACTION] [THING].",
+              "examples": [
+                "This jar won't open.",
+                "I can't get the lid off this jar."
+              ],
+              "deconstruction": {
+                "frame": 12,
+                "name": "Can't + action",
+                "model": "I can't eat the apple.",
+                "skeleton": "I can't [ACTION] [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I can't "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "open",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "this jar",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "speakingChallenge": {
+        "targetSeconds": 60,
+        "instruction": "Explain the dependency, ask for a date, and state what cannot proceed."
+      }
+    },
+    {
+      "day": 46,
+      "topic": "Roadmap Alignment",
+      "scenario": "A product manager reviews the next quarter's roadmap with the sponsor.",
+      "level": "Senior workplace",
+      "speakingLogic": [
+        "Set the Context",
+        "Share the Evidence",
+        "Agree on Next Steps",
+        "Life Transfer"
+      ],
+      "sentencePatterns": [
+        "[SUBJECT] is [DESCRIPTION].",
+        "It is [OWNER]'s [THING].",
+        "I give [PERSON] [THING].",
+        "We give [PERSON] [THING]."
+      ],
+      "examples": [
+        "Name what each pronoun refers to. Keep the fixed grammar and swap the highlighted parts to fit your own situation."
+      ],
+      "sections": [
+        {
+          "title": "Work · 3 sentences",
+          "sentences": [
+            {
+              "id": "S1",
+              "context": "Work",
+              "text": "The plan is clear.",
+              "pattern": "[SUBJECT] is [DESCRIPTION].",
+              "examples": [
+                "The plan is easy to understand.",
+                "We have a clear plan."
+              ],
+              "deconstruction": {
+                "frame": 1,
+                "name": "Be + description",
+                "model": "The apple is red.",
+                "skeleton": "[SUBJECT] is [DESCRIPTION].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The plan",
+                    "label": "SUBJECT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " is "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "clear",
+                    "label": "DESCRIPTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S2",
+              "context": "Work",
+              "text": "It is the product team's roadmap.",
+              "pattern": "It is [OWNER]'s [THING].",
+              "examples": [
+                "This roadmap belongs to the product team.",
+                "The product team owns this roadmap."
+              ],
+              "deconstruction": {
+                "frame": 2,
+                "name": "Possession",
+                "model": "It is John's apple.",
+                "skeleton": "It is [OWNER]'s [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "It is "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the product team",
+                    "label": "OWNER"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "'s "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "roadmap",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S3",
+              "context": "Work",
+              "text": "I give the sponsor the latest plan.",
+              "pattern": "I give [PERSON] [THING].",
+              "examples": [
+                "I share the latest plan with the sponsor.",
+                "I send the sponsor the updated plan."
+              ],
+              "deconstruction": {
+                "frame": 3,
+                "name": "Give + person + thing",
+                "model": "I give John the apple.",
+                "skeleton": "I give [PERSON] [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I give "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the sponsor",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the latest plan",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Life · 1 sentence",
+          "sentences": [
+            {
+              "id": "S4",
+              "context": "Life",
+              "text": "We give our friend a lift home.",
+              "pattern": "We give [PERSON] [THING].",
+              "examples": [
+                "We drive our friend home.",
+                "Our friend gets a ride home with us."
+              ],
+              "deconstruction": {
+                "frame": 4,
+                "name": "We + give",
+                "model": "We give him the apple.",
+                "skeleton": "We give [PERSON] [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "We give "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "our friend",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "a lift home",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "speakingChallenge": {
+        "targetSeconds": 60,
+        "instruction": "Summarize the plan, identify ownership, and explain how feedback is collected."
+      }
+    },
+    {
+      "day": 47,
+      "topic": "Workshop Decisions",
+      "scenario": "A BA closes a workshop by sharing the decision log and checking agreement.",
+      "level": "Senior workplace",
+      "speakingLogic": [
+        "Set the Context",
+        "Share the Evidence",
+        "Agree on Next Steps",
+        "Life Transfer"
+      ],
+      "sentencePatterns": [
+        "[PERSON] gives it to [RECIPIENT].",
+        "[PERSON] gives it to [OBJECT PRONOUN].",
+        "Is [SUBJECT] [DESCRIPTION]?",
+        "[PLURAL SUBJECT] are [DESCRIPTION]."
+      ],
+      "examples": [
+        "Name what each pronoun refers to. Keep the fixed grammar and swap the highlighted parts to fit your own situation."
+      ],
+      "sections": [
+        {
+          "title": "Work · 3 sentences",
+          "sentences": [
+            {
+              "id": "S1",
+              "context": "Work",
+              "text": "The facilitator gives it to the sponsor.",
+              "pattern": "[PERSON] gives it to [RECIPIENT].",
+              "examples": [
+                "The facilitator sends the decision log to the sponsor.",
+                "The sponsor gets the decision log from the facilitator."
+              ],
+              "deconstruction": {
+                "frame": 5,
+                "name": "Third person + recipient",
+                "model": "He gives it to John.",
+                "skeleton": "[PERSON] gives it to [RECIPIENT].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The facilitator",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " gives it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the sponsor",
+                    "label": "RECIPIENT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S2",
+              "context": "Work",
+              "text": "The sponsor gives it to us.",
+              "pattern": "[PERSON] gives it to [OBJECT PRONOUN].",
+              "examples": [
+                "The sponsor gives us the final decision.",
+                "We receive the final decision from the sponsor."
+              ],
+              "deconstruction": {
+                "frame": 6,
+                "name": "Object pronoun",
+                "model": "She gives it to him.",
+                "skeleton": "[PERSON] gives it to [OBJECT PRONOUN].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The sponsor",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " gives it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "us",
+                    "label": "OBJECT PRONOUN"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S3",
+              "context": "Work",
+              "text": "Is the decision final?",
+              "pattern": "Is [SUBJECT] [DESCRIPTION]?",
+              "examples": [
+                "Have we made a final decision?",
+                "Is that our final decision?"
+              ],
+              "deconstruction": {
+                "frame": 7,
+                "name": "Yes/no question",
+                "model": "Is the apple red?",
+                "skeleton": "Is [SUBJECT] [DESCRIPTION]?",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "Is "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the decision",
+                    "label": "SUBJECT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "final",
+                    "label": "DESCRIPTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "?"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Life · 1 sentence",
+          "sentences": [
+            {
+              "id": "S4",
+              "context": "Life",
+              "text": "The tickets are on my phone.",
+              "pattern": "[PLURAL SUBJECT] are [DESCRIPTION].",
+              "examples": [
+                "I've got the tickets on my phone.",
+                "My phone has the tickets on it."
+              ],
+              "deconstruction": {
+                "frame": 8,
+                "name": "Plural + are",
+                "model": "The apples are red.",
+                "skeleton": "[PLURAL SUBJECT] are [DESCRIPTION].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The tickets",
+                    "label": "PLURAL SUBJECT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " are "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "on my phone",
+                    "label": "DESCRIPTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "speakingChallenge": {
+        "targetSeconds": 60,
+        "instruction": "Name who receives the decision log and check that the decision is final."
+      }
+    },
+    {
+      "day": 48,
+      "topic": "Data Quality Checks",
+      "scenario": "A BA reports missing data before a migration rehearsal.",
+      "level": "Senior workplace",
+      "speakingLogic": [
+        "Set the Context",
+        "Share the Evidence",
+        "Agree on Next Steps",
+        "Life Transfer"
+      ],
+      "sentencePatterns": [
+        "I must [ACTION] it to [PERSON].",
+        "I want to [ACTION] it to [PERSON].",
+        "I'm going to [ACTION] [TIME].",
+        "I can't [ACTION] [THING]."
+      ],
+      "examples": [
+        "Name what each pronoun refers to. Keep the fixed grammar and swap the highlighted parts to fit your own situation."
+      ],
+      "sections": [
+        {
+          "title": "Work · 3 sentences",
+          "sentences": [
+            {
+              "id": "S1",
+              "context": "Work",
+              "text": "I must report it to the data owner.",
+              "pattern": "I must [ACTION] it to [PERSON].",
+              "examples": [
+                "I need to report the data issue to the data owner.",
+                "The data owner needs to hear about the issue from me."
+              ],
+              "deconstruction": {
+                "frame": 9,
+                "name": "Must + action",
+                "model": "I must give it to him.",
+                "skeleton": "I must [ACTION] it to [PERSON].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I must "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "report",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the data owner",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S2",
+              "context": "Work",
+              "text": "I want to show it to the test team.",
+              "pattern": "I want to [ACTION] it to [PERSON].",
+              "examples": [
+                "I'd like to show the missing data to the test team.",
+                "I want the test team to see which data is missing."
+              ],
+              "deconstruction": {
+                "frame": 10,
+                "name": "Want to + action",
+                "model": "I want to give it to her.",
+                "skeleton": "I want to [ACTION] it to [PERSON].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I want to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "show",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the test team",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S3",
+              "context": "Work",
+              "text": "I'm going to check the data after lunch.",
+              "pattern": "I'm going to [ACTION] [TIME].",
+              "examples": [
+                "I'll check the data after lunch.",
+                "I plan to review the data after lunch."
+              ],
+              "deconstruction": {
+                "frame": 11,
+                "name": "Going to + time",
+                "model": "I'm going to know tomorrow.",
+                "skeleton": "I'm going to [ACTION] [TIME].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I'm going to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "check the data",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "after lunch",
+                    "label": "TIME"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Life · 1 sentence",
+          "sentences": [
+            {
+              "id": "S4",
+              "context": "Life",
+              "text": "I can't read this small print.",
+              "pattern": "I can't [ACTION] [THING].",
+              "examples": [
+                "The print is too small for me to read.",
+                "I can't make out these tiny letters."
+              ],
+              "deconstruction": {
+                "frame": 12,
+                "name": "Can't + action",
+                "model": "I can't eat the apple.",
+                "skeleton": "I can't [ACTION] [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I can't "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "read",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "this small print",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "speakingChallenge": {
+        "targetSeconds": 60,
+        "instruction": "Explain the data issue, share evidence, and set the next check."
+      }
+    },
+    {
+      "day": 49,
+      "topic": "UAT Exit Decision",
+      "scenario": "A PM reviews UAT results and prepares the exit decision.",
+      "level": "Senior workplace",
+      "speakingLogic": [
+        "Set the Context",
+        "Share the Evidence",
+        "Agree on Next Steps",
+        "Life Transfer"
+      ],
+      "sentencePatterns": [
+        "[SUBJECT] is [DESCRIPTION].",
+        "It is [OWNER]'s [THING].",
+        "I give [PERSON] [THING].",
+        "We give [PERSON] [THING]."
+      ],
+      "examples": [
+        "Name what each pronoun refers to. Keep the fixed grammar and swap the highlighted parts to fit your own situation."
+      ],
+      "sections": [
+        {
+          "title": "Work · 3 sentences",
+          "sentences": [
+            {
+              "id": "S1",
+              "context": "Work",
+              "text": "The test report is ready.",
+              "pattern": "[SUBJECT] is [DESCRIPTION].",
+              "examples": [
+                "The test report is complete.",
+                "We have the test report ready."
+              ],
+              "deconstruction": {
+                "frame": 1,
+                "name": "Be + description",
+                "model": "The apple is red.",
+                "skeleton": "[SUBJECT] is [DESCRIPTION].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The test report",
+                    "label": "SUBJECT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " is "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "ready",
+                    "label": "DESCRIPTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S2",
+              "context": "Work",
+              "text": "It is the business owner's decision.",
+              "pattern": "It is [OWNER]'s [THING].",
+              "examples": [
+                "The decision rests with the business owner.",
+                "The business owner makes this decision."
+              ],
+              "deconstruction": {
+                "frame": 2,
+                "name": "Possession",
+                "model": "It is John's apple.",
+                "skeleton": "It is [OWNER]'s [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "It is "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the business owner",
+                    "label": "OWNER"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "'s "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "decision",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S3",
+              "context": "Work",
+              "text": "I give the business owner the test results.",
+              "pattern": "I give [PERSON] [THING].",
+              "examples": [
+                "I share the test results with the business owner.",
+                "I send the business owner the results from testing."
+              ],
+              "deconstruction": {
+                "frame": 3,
+                "name": "Give + person + thing",
+                "model": "I give John the apple.",
+                "skeleton": "I give [PERSON] [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I give "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the business owner",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the test results",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Life · 1 sentence",
+          "sentences": [
+            {
+              "id": "S4",
+              "context": "Life",
+              "text": "We give our guests fresh towels.",
+              "pattern": "We give [PERSON] [THING].",
+              "examples": [
+                "We put out fresh towels for our guests.",
+                "Our guests get clean towels when they arrive."
+              ],
+              "deconstruction": {
+                "frame": 4,
+                "name": "We + give",
+                "model": "We give him the apple.",
+                "skeleton": "We give [PERSON] [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "We give "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "our guests",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "fresh towels",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "speakingChallenge": {
+        "targetSeconds": 60,
+        "instruction": "Describe the evidence, name the business owner, and explain the sign-off route."
+      }
+    },
+    {
+      "day": 50,
+      "topic": "Production Incident Updates",
+      "scenario": "The incident lead shares an update during a service outage.",
+      "level": "Senior workplace",
+      "speakingLogic": [
+        "Set the Context",
+        "Share the Evidence",
+        "Agree on Next Steps",
+        "Life Transfer"
+      ],
+      "sentencePatterns": [
+        "[PERSON] gives it to [RECIPIENT].",
+        "[PERSON] gives it to [OBJECT PRONOUN].",
+        "Is [SUBJECT] [DESCRIPTION]?",
+        "[PLURAL SUBJECT] are [DESCRIPTION]."
+      ],
+      "examples": [
+        "Name what each pronoun refers to. Keep the fixed grammar and swap the highlighted parts to fit your own situation."
+      ],
+      "sections": [
+        {
+          "title": "Work · 3 sentences",
+          "sentences": [
+            {
+              "id": "S1",
+              "context": "Work",
+              "text": "The incident lead gives it to the support manager.",
+              "pattern": "[PERSON] gives it to [RECIPIENT].",
+              "examples": [
+                "The incident lead sends the status update to the support manager.",
+                "The support manager receives an update from the incident lead."
+              ],
+              "deconstruction": {
+                "frame": 5,
+                "name": "Third person + recipient",
+                "model": "He gives it to John.",
+                "skeleton": "[PERSON] gives it to [RECIPIENT].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The incident lead",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " gives it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the support manager",
+                    "label": "RECIPIENT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S2",
+              "context": "Work",
+              "text": "The engineer gives it to her.",
+              "pattern": "[PERSON] gives it to [OBJECT PRONOUN].",
+              "examples": [
+                "The engineer hands her the error log.",
+                "She gets the error log from the engineer."
+              ],
+              "deconstruction": {
+                "frame": 6,
+                "name": "Object pronoun",
+                "model": "She gives it to him.",
+                "skeleton": "[PERSON] gives it to [OBJECT PRONOUN].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The engineer",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " gives it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "her",
+                    "label": "OBJECT PRONOUN"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S3",
+              "context": "Work",
+              "text": "Is the service stable?",
+              "pattern": "Is [SUBJECT] [DESCRIPTION]?",
+              "examples": [
+                "Is the service running normally now?",
+                "Has the service settled down?"
+              ],
+              "deconstruction": {
+                "frame": 7,
+                "name": "Yes/no question",
+                "model": "Is the apple red?",
+                "skeleton": "Is [SUBJECT] [DESCRIPTION]?",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "Is "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the service",
+                    "label": "SUBJECT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "stable",
+                    "label": "DESCRIPTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "?"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Life · 1 sentence",
+          "sentences": [
+            {
+              "id": "S4",
+              "context": "Life",
+              "text": "The roads are clear.",
+              "pattern": "[PLURAL SUBJECT] are [DESCRIPTION].",
+              "examples": [
+                "There's no traffic on the roads.",
+                "The roads are free of traffic."
+              ],
+              "deconstruction": {
+                "frame": 8,
+                "name": "Plural + are",
+                "model": "The apples are red.",
+                "skeleton": "[PLURAL SUBJECT] are [DESCRIPTION].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The roads",
+                    "label": "PLURAL SUBJECT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " are "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "clear",
+                    "label": "DESCRIPTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "speakingChallenge": {
+        "targetSeconds": 60,
+        "instruction": "Say who receives the update and check whether the service is stable."
+      }
+    },
+    {
+      "day": 51,
+      "topic": "Root Cause and Follow-up",
+      "scenario": "A Scrum Master turns an incident review into a clear follow-up plan.",
+      "level": "Senior workplace",
+      "speakingLogic": [
+        "Set the Context",
+        "Share the Evidence",
+        "Agree on Next Steps",
+        "Life Transfer"
+      ],
+      "sentencePatterns": [
+        "I must [ACTION] it to [PERSON].",
+        "I want to [ACTION] it to [PERSON].",
+        "I'm going to [ACTION] [TIME].",
+        "I can't [ACTION] [THING]."
+      ],
+      "examples": [
+        "Name what each pronoun refers to. Keep the fixed grammar and swap the highlighted parts to fit your own situation."
+      ],
+      "sections": [
+        {
+          "title": "Work · 3 sentences",
+          "sentences": [
+            {
+              "id": "S1",
+              "context": "Work",
+              "text": "I must explain it to the support team.",
+              "pattern": "I must [ACTION] it to [PERSON].",
+              "examples": [
+                "I need to explain the cause to the support team.",
+                "The support team needs to understand the cause."
+              ],
+              "deconstruction": {
+                "frame": 9,
+                "name": "Must + action",
+                "model": "I must give it to him.",
+                "skeleton": "I must [ACTION] it to [PERSON].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I must "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "explain",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the support team",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S2",
+              "context": "Work",
+              "text": "I want to send it to the service owner.",
+              "pattern": "I want to [ACTION] it to [PERSON].",
+              "examples": [
+                "I'd like to send the follow-up plan to the service owner.",
+                "I want the service owner to have the follow-up plan."
+              ],
+              "deconstruction": {
+                "frame": 10,
+                "name": "Want to + action",
+                "model": "I want to give it to her.",
+                "skeleton": "I want to [ACTION] it to [PERSON].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I want to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "send",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the service owner",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S3",
+              "context": "Work",
+              "text": "I'm going to check the fix this afternoon.",
+              "pattern": "I'm going to [ACTION] [TIME].",
+              "examples": [
+                "I'll check the fix this afternoon.",
+                "I plan to test the fix this afternoon."
+              ],
+              "deconstruction": {
+                "frame": 11,
+                "name": "Going to + time",
+                "model": "I'm going to know tomorrow.",
+                "skeleton": "I'm going to [ACTION] [TIME].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I'm going to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "check the fix",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "this afternoon",
+                    "label": "TIME"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Life · 1 sentence",
+          "sentences": [
+            {
+              "id": "S4",
+              "context": "Life",
+              "text": "I can't make dinner tonight.",
+              "pattern": "I can't [ACTION] [THING].",
+              "examples": [
+                "I won't be able to cook tonight.",
+                "I can't cook dinner this evening."
+              ],
+              "deconstruction": {
+                "frame": 12,
+                "name": "Can't + action",
+                "model": "I can't eat the apple.",
+                "skeleton": "I can't [ACTION] [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I can't "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "make",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "dinner tonight",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "speakingChallenge": {
+        "targetSeconds": 60,
+        "instruction": "Share the cause, explain the next check, and avoid making an unsupported promise."
+      }
+    },
+    {
+      "day": 52,
+      "topic": "Customer Feedback Review",
+      "scenario": "A product manager reviews feedback with design and support.",
+      "level": "Senior workplace",
+      "speakingLogic": [
+        "Set the Context",
+        "Share the Evidence",
+        "Agree on Next Steps",
+        "Life Transfer"
+      ],
+      "sentencePatterns": [
+        "[SUBJECT] is [DESCRIPTION].",
+        "It is [OWNER]'s [THING].",
+        "I give [PERSON] [THING].",
+        "We give [PERSON] [THING]."
+      ],
+      "examples": [
+        "Name what each pronoun refers to. Keep the fixed grammar and swap the highlighted parts to fit your own situation."
+      ],
+      "sections": [
+        {
+          "title": "Work · 3 sentences",
+          "sentences": [
+            {
+              "id": "S1",
+              "context": "Work",
+              "text": "The feedback is useful.",
+              "pattern": "[SUBJECT] is [DESCRIPTION].",
+              "examples": [
+                "We can use this feedback.",
+                "This feedback gives us something to work with."
+              ],
+              "deconstruction": {
+                "frame": 1,
+                "name": "Be + description",
+                "model": "The apple is red.",
+                "skeleton": "[SUBJECT] is [DESCRIPTION].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The feedback",
+                    "label": "SUBJECT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " is "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "useful",
+                    "label": "DESCRIPTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S2",
+              "context": "Work",
+              "text": "It is the customer's main concern.",
+              "pattern": "It is [OWNER]'s [THING].",
+              "examples": [
+                "This is the customer's biggest concern.",
+                "The customer is most concerned about this."
+              ],
+              "deconstruction": {
+                "frame": 2,
+                "name": "Possession",
+                "model": "It is John's apple.",
+                "skeleton": "It is [OWNER]'s [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "It is "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the customer",
+                    "label": "OWNER"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "'s "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "main concern",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S3",
+              "context": "Work",
+              "text": "I give the designer the customer notes.",
+              "pattern": "I give [PERSON] [THING].",
+              "examples": [
+                "I share the customer notes with the designer.",
+                "I send the designer the notes from the customer call."
+              ],
+              "deconstruction": {
+                "frame": 3,
+                "name": "Give + person + thing",
+                "model": "I give John the apple.",
+                "skeleton": "I give [PERSON] [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I give "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the designer",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the customer notes",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Life · 1 sentence",
+          "sentences": [
+            {
+              "id": "S4",
+              "context": "Life",
+              "text": "We give our host a small gift.",
+              "pattern": "We give [PERSON] [THING].",
+              "examples": [
+                "We bring our host a small gift.",
+                "We give a little present to the person hosting us."
+              ],
+              "deconstruction": {
+                "frame": 4,
+                "name": "We + give",
+                "model": "We give him the apple.",
+                "skeleton": "We give [PERSON] [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "We give "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "our host",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "a small gift",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "speakingChallenge": {
+        "targetSeconds": 60,
+        "instruction": "Describe the feedback, name its source, and explain how it reaches the team."
+      }
+    },
+    {
+      "day": 53,
+      "topic": "Backlog Refinement",
+      "scenario": "A BA and product owner prepare the next set of stories.",
+      "level": "Senior workplace",
+      "speakingLogic": [
+        "Set the Context",
+        "Share the Evidence",
+        "Agree on Next Steps",
+        "Life Transfer"
+      ],
+      "sentencePatterns": [
+        "[PERSON] gives it to [RECIPIENT].",
+        "[PERSON] gives it to [OBJECT PRONOUN].",
+        "Is [SUBJECT] [DESCRIPTION]?",
+        "[PLURAL SUBJECT] are [DESCRIPTION]."
+      ],
+      "examples": [
+        "Name what each pronoun refers to. Keep the fixed grammar and swap the highlighted parts to fit your own situation."
+      ],
+      "sections": [
+        {
+          "title": "Work · 3 sentences",
+          "sentences": [
+            {
+              "id": "S1",
+              "context": "Work",
+              "text": "The analyst gives it to the product owner.",
+              "pattern": "[PERSON] gives it to [RECIPIENT].",
+              "examples": [
+                "The analyst sends the revised story to the product owner.",
+                "The product owner receives the updated story from the analyst."
+              ],
+              "deconstruction": {
+                "frame": 5,
+                "name": "Third person + recipient",
+                "model": "He gives it to John.",
+                "skeleton": "[PERSON] gives it to [RECIPIENT].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The analyst",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " gives it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the product owner",
+                    "label": "RECIPIENT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S2",
+              "context": "Work",
+              "text": "The product owner gives it to them.",
+              "pattern": "[PERSON] gives it to [OBJECT PRONOUN].",
+              "examples": [
+                "The product owner gives them the priority list.",
+                "They get the priority list from the product owner."
+              ],
+              "deconstruction": {
+                "frame": 6,
+                "name": "Object pronoun",
+                "model": "She gives it to him.",
+                "skeleton": "[PERSON] gives it to [OBJECT PRONOUN].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The product owner",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " gives it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "them",
+                    "label": "OBJECT PRONOUN"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S3",
+              "context": "Work",
+              "text": "Is the story small enough?",
+              "pattern": "Is [SUBJECT] [DESCRIPTION]?",
+              "examples": [
+                "Have we made the story small enough?",
+                "Do we need to split this story further?"
+              ],
+              "deconstruction": {
+                "frame": 7,
+                "name": "Yes/no question",
+                "model": "Is the apple red?",
+                "skeleton": "Is [SUBJECT] [DESCRIPTION]?",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "Is "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the story",
+                    "label": "SUBJECT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "small enough",
+                    "label": "DESCRIPTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "?"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Life · 1 sentence",
+          "sentences": [
+            {
+              "id": "S4",
+              "context": "Life",
+              "text": "The bags are too heavy.",
+              "pattern": "[PLURAL SUBJECT] are [DESCRIPTION].",
+              "examples": [
+                "These bags weigh too much.",
+                "We've packed too much into these bags."
+              ],
+              "deconstruction": {
+                "frame": 8,
+                "name": "Plural + are",
+                "model": "The apples are red.",
+                "skeleton": "[PLURAL SUBJECT] are [DESCRIPTION].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The bags",
+                    "label": "PLURAL SUBJECT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " are "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "too heavy",
+                    "label": "DESCRIPTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "speakingChallenge": {
+        "targetSeconds": 60,
+        "instruction": "Explain the review route and check whether the story is small enough to discuss."
+      }
+    },
+    {
+      "day": 54,
+      "topic": "Budget and Forecast",
+      "scenario": "A PM reviews a cost increase and updates the forecast.",
+      "level": "Senior workplace",
+      "speakingLogic": [
+        "Set the Context",
+        "Share the Evidence",
+        "Agree on Next Steps",
+        "Life Transfer"
+      ],
+      "sentencePatterns": [
+        "I must [ACTION] it to [PERSON].",
+        "I want to [ACTION] it to [PERSON].",
+        "I'm going to [ACTION] [TIME].",
+        "I can't [ACTION] [THING]."
+      ],
+      "examples": [
+        "Name what each pronoun refers to. Keep the fixed grammar and swap the highlighted parts to fit your own situation."
+      ],
+      "sections": [
+        {
+          "title": "Work · 3 sentences",
+          "sentences": [
+            {
+              "id": "S1",
+              "context": "Work",
+              "text": "I must send it to the finance team.",
+              "pattern": "I must [ACTION] it to [PERSON].",
+              "examples": [
+                "I need to send the cost update to the finance team.",
+                "Finance needs the latest cost figures from me."
+              ],
+              "deconstruction": {
+                "frame": 9,
+                "name": "Must + action",
+                "model": "I must give it to him.",
+                "skeleton": "I must [ACTION] it to [PERSON].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I must "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "send",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the finance team",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S2",
+              "context": "Work",
+              "text": "I want to explain it to the sponsor.",
+              "pattern": "I want to [ACTION] it to [PERSON].",
+              "examples": [
+                "I'd like to explain the cost increase to the sponsor.",
+                "I want the sponsor to understand why the cost has gone up."
+              ],
+              "deconstruction": {
+                "frame": 10,
+                "name": "Want to + action",
+                "model": "I want to give it to her.",
+                "skeleton": "I want to [ACTION] it to [PERSON].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I want to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "explain",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the sponsor",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S3",
+              "context": "Work",
+              "text": "I'm going to check the forecast on Friday.",
+              "pattern": "I'm going to [ACTION] [TIME].",
+              "examples": [
+                "I'll check the forecast on Friday.",
+                "I plan to review the forecast on Friday."
+              ],
+              "deconstruction": {
+                "frame": 11,
+                "name": "Going to + time",
+                "model": "I'm going to know tomorrow.",
+                "skeleton": "I'm going to [ACTION] [TIME].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I'm going to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "check the forecast",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "on Friday",
+                    "label": "TIME"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Life · 1 sentence",
+          "sentences": [
+            {
+              "id": "S4",
+              "context": "Life",
+              "text": "I can't pay by card here.",
+              "pattern": "I can't [ACTION] [THING].",
+              "examples": [
+                "They don't take cards here.",
+                "I need to use cash here."
+              ],
+              "deconstruction": {
+                "frame": 12,
+                "name": "Can't + action",
+                "model": "I can't eat the apple.",
+                "skeleton": "I can't [ACTION] [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I can't "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "pay",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "by card here",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "speakingChallenge": {
+        "targetSeconds": 60,
+        "instruction": "Explain the cost change, share the forecast, and name the next review date."
+      }
+    },
+    {
+      "day": 55,
+      "topic": "Vendor Delivery Review",
+      "scenario": "A PM reviews a supplier's late delivery and the recovery plan.",
+      "level": "Senior workplace",
+      "speakingLogic": [
+        "Set the Context",
+        "Share the Evidence",
+        "Agree on Next Steps",
+        "Life Transfer"
+      ],
+      "sentencePatterns": [
+        "[SUBJECT] is [DESCRIPTION].",
+        "It is [OWNER]'s [THING].",
+        "I give [PERSON] [THING].",
+        "We give [PERSON] [THING]."
+      ],
+      "examples": [
+        "Name what each pronoun refers to. Keep the fixed grammar and swap the highlighted parts to fit your own situation."
+      ],
+      "sections": [
+        {
+          "title": "Work · 3 sentences",
+          "sentences": [
+            {
+              "id": "S1",
+              "context": "Work",
+              "text": "The delivery is late.",
+              "pattern": "[SUBJECT] is [DESCRIPTION].",
+              "examples": [
+                "The delivery is behind schedule.",
+                "The delivery has missed the agreed date."
+              ],
+              "deconstruction": {
+                "frame": 1,
+                "name": "Be + description",
+                "model": "The apple is red.",
+                "skeleton": "[SUBJECT] is [DESCRIPTION].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The delivery",
+                    "label": "SUBJECT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " is "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "late",
+                    "label": "DESCRIPTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S2",
+              "context": "Work",
+              "text": "It is the vendor's responsibility.",
+              "pattern": "It is [OWNER]'s [THING].",
+              "examples": [
+                "The vendor is responsible for this.",
+                "This is something the vendor needs to handle."
+              ],
+              "deconstruction": {
+                "frame": 2,
+                "name": "Possession",
+                "model": "It is John's apple.",
+                "skeleton": "It is [OWNER]'s [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "It is "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the vendor",
+                    "label": "OWNER"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "'s "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "responsibility",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S3",
+              "context": "Work",
+              "text": "I give the vendor the revised dates.",
+              "pattern": "I give [PERSON] [THING].",
+              "examples": [
+                "I send the revised dates to the vendor.",
+                "I share the updated dates with the vendor."
+              ],
+              "deconstruction": {
+                "frame": 3,
+                "name": "Give + person + thing",
+                "model": "I give John the apple.",
+                "skeleton": "I give [PERSON] [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I give "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the vendor",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the revised dates",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Life · 1 sentence",
+          "sentences": [
+            {
+              "id": "S4",
+              "context": "Life",
+              "text": "We give our children time to rest.",
+              "pattern": "We give [PERSON] [THING].",
+              "examples": [
+                "We let our children have a rest.",
+                "We make sure our children get some downtime."
+              ],
+              "deconstruction": {
+                "frame": 4,
+                "name": "We + give",
+                "model": "We give him the apple.",
+                "skeleton": "We give [PERSON] [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "We give "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "our children",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "time to rest",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "speakingChallenge": {
+        "targetSeconds": 60,
+        "instruction": "Describe the delay, confirm responsibility, and explain the recovery plan."
+      }
+    },
+    {
+      "day": 56,
+      "topic": "Change Communication",
+      "scenario": "A change lead shares a staff message before a new process goes live.",
+      "level": "Senior workplace",
+      "speakingLogic": [
+        "Set the Context",
+        "Share the Evidence",
+        "Agree on Next Steps",
+        "Life Transfer"
+      ],
+      "sentencePatterns": [
+        "[PERSON] gives it to [RECIPIENT].",
+        "[PERSON] gives it to [OBJECT PRONOUN].",
+        "Is [SUBJECT] [DESCRIPTION]?",
+        "[PLURAL SUBJECT] are [DESCRIPTION]."
+      ],
+      "examples": [
+        "Name what each pronoun refers to. Keep the fixed grammar and swap the highlighted parts to fit your own situation."
+      ],
+      "sections": [
+        {
+          "title": "Work · 3 sentences",
+          "sentences": [
+            {
+              "id": "S1",
+              "context": "Work",
+              "text": "The change lead gives it to the team manager.",
+              "pattern": "[PERSON] gives it to [RECIPIENT].",
+              "examples": [
+                "The change lead sends the staff message to the team manager.",
+                "The team manager gets the message from the change lead."
+              ],
+              "deconstruction": {
+                "frame": 5,
+                "name": "Third person + recipient",
+                "model": "He gives it to John.",
+                "skeleton": "[PERSON] gives it to [RECIPIENT].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The change lead",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " gives it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the team manager",
+                    "label": "RECIPIENT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S2",
+              "context": "Work",
+              "text": "The manager gives it to us.",
+              "pattern": "[PERSON] gives it to [OBJECT PRONOUN].",
+              "examples": [
+                "The manager shares the training plan with us.",
+                "We get the training plan from the manager."
+              ],
+              "deconstruction": {
+                "frame": 6,
+                "name": "Object pronoun",
+                "model": "She gives it to him.",
+                "skeleton": "[PERSON] gives it to [OBJECT PRONOUN].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The manager",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " gives it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "us",
+                    "label": "OBJECT PRONOUN"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S3",
+              "context": "Work",
+              "text": "Is the message clear enough?",
+              "pattern": "Is [SUBJECT] [DESCRIPTION]?",
+              "examples": [
+                "Will people understand the message?",
+                "Do we need to make the message clearer?"
+              ],
+              "deconstruction": {
+                "frame": 7,
+                "name": "Yes/no question",
+                "model": "Is the apple red?",
+                "skeleton": "Is [SUBJECT] [DESCRIPTION]?",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "Is "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the message",
+                    "label": "SUBJECT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "clear enough",
+                    "label": "DESCRIPTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "?"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Life · 1 sentence",
+          "sentences": [
+            {
+              "id": "S4",
+              "context": "Life",
+              "text": "The instructions are easy to follow.",
+              "pattern": "[PLURAL SUBJECT] are [DESCRIPTION].",
+              "examples": [
+                "The instructions are straightforward.",
+                "It's easy to follow these instructions."
+              ],
+              "deconstruction": {
+                "frame": 8,
+                "name": "Plural + are",
+                "model": "The apples are red.",
+                "skeleton": "[PLURAL SUBJECT] are [DESCRIPTION].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The instructions",
+                    "label": "PLURAL SUBJECT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " are "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "easy to follow",
+                    "label": "DESCRIPTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "speakingChallenge": {
+        "targetSeconds": 60,
+        "instruction": "Describe who gets the message and check whether it is clear for staff."
+      }
+    },
+    {
+      "day": 57,
+      "topic": "Retrospective Actions",
+      "scenario": "A Scrum Master checks whether the last retrospective led to action.",
+      "level": "Senior workplace",
+      "speakingLogic": [
+        "Set the Context",
+        "Share the Evidence",
+        "Agree on Next Steps",
+        "Life Transfer"
+      ],
+      "sentencePatterns": [
+        "I must [ACTION] it to [PERSON].",
+        "I want to [ACTION] it to [PERSON].",
+        "I'm going to [ACTION] [TIME].",
+        "I can't [ACTION] [THING]."
+      ],
+      "examples": [
+        "Name what each pronoun refers to. Keep the fixed grammar and swap the highlighted parts to fit your own situation."
+      ],
+      "sections": [
+        {
+          "title": "Work · 3 sentences",
+          "sentences": [
+            {
+              "id": "S1",
+              "context": "Work",
+              "text": "I must show it to the team.",
+              "pattern": "I must [ACTION] it to [PERSON].",
+              "examples": [
+                "I need to show the action log to the team.",
+                "The team needs to see the action log."
+              ],
+              "deconstruction": {
+                "frame": 9,
+                "name": "Must + action",
+                "model": "I must give it to him.",
+                "skeleton": "I must [ACTION] it to [PERSON].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I must "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "show",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the team",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S2",
+              "context": "Work",
+              "text": "I want to explain it to the team lead.",
+              "pattern": "I want to [ACTION] it to [PERSON].",
+              "examples": [
+                "I'd like to explain the new approach to the team lead.",
+                "I want the team lead to understand the new approach."
+              ],
+              "deconstruction": {
+                "frame": 10,
+                "name": "Want to + action",
+                "model": "I want to give it to her.",
+                "skeleton": "I want to [ACTION] it to [PERSON].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I want to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "explain",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the team lead",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S3",
+              "context": "Work",
+              "text": "I'm going to check the action log next Monday.",
+              "pattern": "I'm going to [ACTION] [TIME].",
+              "examples": [
+                "I'll check the action log next Monday.",
+                "I plan to review our actions next Monday."
+              ],
+              "deconstruction": {
+                "frame": 11,
+                "name": "Going to + time",
+                "model": "I'm going to know tomorrow.",
+                "skeleton": "I'm going to [ACTION] [TIME].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I'm going to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "check the action log",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "next Monday",
+                    "label": "TIME"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Life · 1 sentence",
+          "sentences": [
+            {
+              "id": "S4",
+              "context": "Life",
+              "text": "I can't meet before six.",
+              "pattern": "I can't [ACTION] [THING].",
+              "examples": [
+                "I'm not free until six.",
+                "Six is the earliest I can meet."
+              ],
+              "deconstruction": {
+                "frame": 12,
+                "name": "Can't + action",
+                "model": "I can't eat the apple.",
+                "skeleton": "I can't [ACTION] [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I can't "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "meet",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "before six",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "speakingChallenge": {
+        "targetSeconds": 60,
+        "instruction": "Share evidence, set the next check, and explain one limit on the proposed action."
+      }
+    },
+    {
+      "day": 58,
+      "topic": "Benefits and Outcomes",
+      "scenario": "A BA checks whether a released change is producing the expected result.",
+      "level": "Senior workplace",
+      "speakingLogic": [
+        "Set the Context",
+        "Share the Evidence",
+        "Agree on Next Steps",
+        "Life Transfer"
+      ],
+      "sentencePatterns": [
+        "[SUBJECT] is [DESCRIPTION].",
+        "It is [OWNER]'s [THING].",
+        "I give [PERSON] [THING].",
+        "We give [PERSON] [THING]."
+      ],
+      "examples": [
+        "Name what each pronoun refers to. Keep the fixed grammar and swap the highlighted parts to fit your own situation."
+      ],
+      "sections": [
+        {
+          "title": "Work · 3 sentences",
+          "sentences": [
+            {
+              "id": "S1",
+              "context": "Work",
+              "text": "The result is better than expected.",
+              "pattern": "[SUBJECT] is [DESCRIPTION].",
+              "examples": [
+                "The result is better than we thought it would be.",
+                "We've done better than expected."
+              ],
+              "deconstruction": {
+                "frame": 1,
+                "name": "Be + description",
+                "model": "The apple is red.",
+                "skeleton": "[SUBJECT] is [DESCRIPTION].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The result",
+                    "label": "SUBJECT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " is "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "better than expected",
+                    "label": "DESCRIPTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S2",
+              "context": "Work",
+              "text": "It is the service owner's target.",
+              "pattern": "It is [OWNER]'s [THING].",
+              "examples": [
+                "This target belongs to the service owner.",
+                "The service owner is accountable for this target."
+              ],
+              "deconstruction": {
+                "frame": 2,
+                "name": "Possession",
+                "model": "It is John's apple.",
+                "skeleton": "It is [OWNER]'s [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "It is "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the service owner",
+                    "label": "OWNER"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "'s "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "target",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S3",
+              "context": "Work",
+              "text": "I give the sponsor the latest figures.",
+              "pattern": "I give [PERSON] [THING].",
+              "examples": [
+                "I share the latest figures with the sponsor.",
+                "I send the sponsor the most recent numbers."
+              ],
+              "deconstruction": {
+                "frame": 3,
+                "name": "Give + person + thing",
+                "model": "I give John the apple.",
+                "skeleton": "I give [PERSON] [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I give "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the sponsor",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the latest figures",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Life · 1 sentence",
+          "sentences": [
+            {
+              "id": "S4",
+              "context": "Life",
+              "text": "We give our friends a place to stay.",
+              "pattern": "We give [PERSON] [THING].",
+              "examples": [
+                "We let our friends stay with us.",
+                "Our friends can stay at our place."
+              ],
+              "deconstruction": {
+                "frame": 4,
+                "name": "We + give",
+                "model": "We give him the apple.",
+                "skeleton": "We give [PERSON] [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "We give "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "our friends",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "a place to stay",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "speakingChallenge": {
+        "targetSeconds": 60,
+        "instruction": "Describe the result, identify the owner, and explain what the evidence shows."
+      }
+    },
+    {
+      "day": 59,
+      "topic": "Release and Support Handover",
+      "scenario": "A PM hands a release over to support and checks readiness.",
+      "level": "Senior workplace",
+      "speakingLogic": [
+        "Set the Context",
+        "Share the Evidence",
+        "Agree on Next Steps",
+        "Life Transfer"
+      ],
+      "sentencePatterns": [
+        "[PERSON] gives it to [RECIPIENT].",
+        "[PERSON] gives it to [OBJECT PRONOUN].",
+        "Is [SUBJECT] [DESCRIPTION]?",
+        "[PLURAL SUBJECT] are [DESCRIPTION]."
+      ],
+      "examples": [
+        "Name what each pronoun refers to. Keep the fixed grammar and swap the highlighted parts to fit your own situation."
+      ],
+      "sections": [
+        {
+          "title": "Work · 3 sentences",
+          "sentences": [
+            {
+              "id": "S1",
+              "context": "Work",
+              "text": "The release manager gives it to the support lead.",
+              "pattern": "[PERSON] gives it to [RECIPIENT].",
+              "examples": [
+                "The release manager sends the runbook to the support lead.",
+                "The support lead gets the runbook from the release manager."
+              ],
+              "deconstruction": {
+                "frame": 5,
+                "name": "Third person + recipient",
+                "model": "He gives it to John.",
+                "skeleton": "[PERSON] gives it to [RECIPIENT].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The release manager",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " gives it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the support lead",
+                    "label": "RECIPIENT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S2",
+              "context": "Work",
+              "text": "The support lead gives it to him.",
+              "pattern": "[PERSON] gives it to [OBJECT PRONOUN].",
+              "examples": [
+                "The support lead hands him the on-call schedule.",
+                "He receives the on-call schedule from the support lead."
+              ],
+              "deconstruction": {
+                "frame": 6,
+                "name": "Object pronoun",
+                "model": "She gives it to him.",
+                "skeleton": "[PERSON] gives it to [OBJECT PRONOUN].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The support lead",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " gives it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "him",
+                    "label": "OBJECT PRONOUN"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S3",
+              "context": "Work",
+              "text": "Is the support team ready?",
+              "pattern": "Is [SUBJECT] [DESCRIPTION]?",
+              "examples": [
+                "Can the support team take over now?",
+                "Is support ready to take ownership?"
+              ],
+              "deconstruction": {
+                "frame": 7,
+                "name": "Yes/no question",
+                "model": "Is the apple red?",
+                "skeleton": "Is [SUBJECT] [DESCRIPTION]?",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "Is "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the support team",
+                    "label": "SUBJECT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "ready",
+                    "label": "DESCRIPTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "?"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Life · 1 sentence",
+          "sentences": [
+            {
+              "id": "S4",
+              "context": "Life",
+              "text": "The keys are on the table.",
+              "pattern": "[PLURAL SUBJECT] are [DESCRIPTION].",
+              "examples": [
+                "You'll find the keys on the table.",
+                "I've left the keys on the table."
+              ],
+              "deconstruction": {
+                "frame": 8,
+                "name": "Plural + are",
+                "model": "The apples are red.",
+                "skeleton": "[PLURAL SUBJECT] are [DESCRIPTION].",
+                "segments": [
+                  {
+                    "kind": "slot",
+                    "text": "The keys",
+                    "label": "PLURAL SUBJECT"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " are "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "on the table",
+                    "label": "DESCRIPTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "speakingChallenge": {
+        "targetSeconds": 60,
+        "instruction": "Explain the handover route, confirm readiness, and name the next owner."
+      }
+    },
+    {
+      "day": 60,
+      "topic": "End-to-end Delivery Review",
+      "scenario": "A BA, PM, and Scrum Master review the whole delivery and agree on next steps.",
+      "level": "Senior workplace",
+      "speakingLogic": [
+        "Set the Context",
+        "Share the Evidence",
+        "Agree on Next Steps",
+        "Life Transfer"
+      ],
+      "sentencePatterns": [
+        "I must [ACTION] it to [PERSON].",
+        "I want to [ACTION] it to [PERSON].",
+        "I'm going to [ACTION] [TIME].",
+        "I can't [ACTION] [THING]."
+      ],
+      "examples": [
+        "Name what each pronoun refers to. Keep the fixed grammar and swap the highlighted parts to fit your own situation."
+      ],
+      "sections": [
+        {
+          "title": "Work · 3 sentences",
+          "sentences": [
+            {
+              "id": "S1",
+              "context": "Work",
+              "text": "I must explain it to the sponsor.",
+              "pattern": "I must [ACTION] it to [PERSON].",
+              "examples": [
+                "I need to explain the delivery result to the sponsor.",
+                "The sponsor needs a clear account of the delivery result."
+              ],
+              "deconstruction": {
+                "frame": 9,
+                "name": "Must + action",
+                "model": "I must give it to him.",
+                "skeleton": "I must [ACTION] it to [PERSON].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I must "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "explain",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the sponsor",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S2",
+              "context": "Work",
+              "text": "I want to show it to the whole team.",
+              "pattern": "I want to [ACTION] it to [PERSON].",
+              "examples": [
+                "I'd like to show the final report to the whole team.",
+                "I want everyone on the team to see the final report."
+              ],
+              "deconstruction": {
+                "frame": 10,
+                "name": "Want to + action",
+                "model": "I want to give it to her.",
+                "skeleton": "I want to [ACTION] it to [PERSON].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I want to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "show",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " it to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the whole team",
+                    "label": "PERSON"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "S3",
+              "context": "Work",
+              "text": "I'm going to share the next steps tomorrow.",
+              "pattern": "I'm going to [ACTION] [TIME].",
+              "examples": [
+                "I'll share the next steps tomorrow.",
+                "I plan to walk everyone through the next steps tomorrow."
+              ],
+              "deconstruction": {
+                "frame": 11,
+                "name": "Going to + time",
+                "model": "I'm going to know tomorrow.",
+                "skeleton": "I'm going to [ACTION] [TIME].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I'm going to "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "share the next steps",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "tomorrow",
+                    "label": "TIME"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Life · 1 sentence",
+          "sentences": [
+            {
+              "id": "S4",
+              "context": "Life",
+              "text": "I can't join the call tonight.",
+              "pattern": "I can't [ACTION] [THING].",
+              "examples": [
+                "I won't be able to make the call tonight.",
+                "I'm not available for tonight's call."
+              ],
+              "deconstruction": {
+                "frame": 12,
+                "name": "Can't + action",
+                "model": "I can't eat the apple.",
+                "skeleton": "I can't [ACTION] [THING].",
+                "segments": [
+                  {
+                    "kind": "fixed",
+                    "text": "I can't "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "join",
+                    "label": "ACTION"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": " "
+                  },
+                  {
+                    "kind": "slot",
+                    "text": "the call tonight",
+                    "label": "THING"
+                  },
+                  {
+                    "kind": "fixed",
+                    "text": "."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "speakingChallenge": {
+        "targetSeconds": 90,
+        "instruction": "Give a 90-second delivery summary: result, evidence, unresolved risk, owner, and next check."
       }
     }
   ]
