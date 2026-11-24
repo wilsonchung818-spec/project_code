@@ -27,7 +27,7 @@ const OPERATORS = {
 };
 
 test('course has 60 lessons and the current content version', () => {
-  assert.equal(content.contentVersion, '2026.11.19');
+  assert.equal(content.contentVersion, '2026.11.24');
   assert.equal(content.lessons.length, 60);
 });
 
@@ -62,9 +62,9 @@ test('Days 11–60 cover all 18 Basic English operators', () => {
   assert.deepEqual(missing, []);
 });
 
-test('Days 19–60 cycle through all 12 Golden Sentence frames with explicit parts', () => {
+test('Days 19–41 retain all 12 Golden Sentence frames with explicit parts', () => {
   const frameCounts = new Map();
-  for (const lesson of content.lessons.filter(item => item.day >= 19)) {
+  for (const lesson of content.lessons.filter(item => item.day >= 19 && item.day <= 41)) {
     const sentences = lesson.sections.flatMap(section => section.sentences);
     sentences.forEach((sentence, index) => {
       const expectedFrame = ((lesson.day - 19) * 4 + index) % 12 + 1;
@@ -83,13 +83,46 @@ test('Days 19–60 cycle through all 12 Golden Sentence frames with explicit par
   assert.ok([...frameCounts.values()].every(count => count >= 7), 'each Golden Sentence frame should repeat at least seven times');
 });
 
-test('every core sentence and context example has a generated audio file', () => {
+test('Days 42–60 have two-round dialogues and two reusable answers in every scene', () => {
+  const lessons = content.lessons.filter(item => item.day >= 42);
+  assert.equal(lessons.length, 19);
+  const patterns = new Map();
+  for (const lesson of lessons) for (const sentence of lesson.sections.flatMap(section => section.sentences)) {
+    const dialogue = sentence.dialogue;
+    assert.ok(dialogue.scene && dialogue.role && dialogue.partner);
+    assert.deepEqual(dialogue.turns.map(turn=>turn.speaker), ['Q1','A1','Q2','A2']);
+    assert.equal(sentence.context, sentence.id === 'S4' ? 'Life' : 'Work');
+    for (const turn of dialogue.turns) {
+      if (turn.speaker.startsWith('Q')) { assert.ok(turn.text.endsWith('?')); continue; }
+      const reuse = turn.reuse;
+      assert.ok(reuse.template && reuse.purpose && reuse.guidance);
+      assert.equal(reuse.segments.map(s=>s.text).join(''), turn.text);
+      assert.ok(reuse.segments.some(s=>s.kind === 'fixed'));
+      assert.ok(reuse.segments.some(s=>s.kind === 'slot' && s.label));
+      let index=0;const slots=reuse.segments.filter(s=>s.kind==='slot');
+      assert.equal(reuse.template.replace(/\[[^\]]+\]/g,()=>slots[index++].text),turn.text);
+      assert.equal(reuse.examples.length,2);
+      assert.equal(new Set([turn.text,...reuse.examples]).size,3,`${lesson.day} ${sentence.id} ${turn.speaker} unique examples`);
+      assert.ok(!/[\[\]~|]/.test(turn.text));
+      patterns.set(reuse.patternId,(patterns.get(reuse.patternId)||0)+1);
+    }
+    assert.equal(sentence.text,dialogue.turns[1].text);
+    assert.deepEqual(sentence.examples,dialogue.turns[1].reuse.examples);
+  }
+  assert.ok([...patterns.values()].filter(count=>count>1).length >= 25, 'Frames repeat across scenes');
+});
+
+test('every core sentence, dialogue turn, and reuse example has a generated audio file', () => {
   const expected = [];
   for (const lesson of content.lessons) {
     for (const sentence of lesson.sections.flatMap(section => section.sentences)) {
       const prefix = `day-${String(lesson.day).padStart(2, '0')}-${sentence.id.toLowerCase()}`;
       expected.push(`${prefix}.mp3`);
       sentence.examples.forEach((example, index) => expected.push(`${prefix}-e${index + 1}.mp3`));
+      for (const turn of sentence.dialogue?.turns || []) {
+        expected.push(`${prefix}-${turn.speaker.toLowerCase()}.mp3`);
+        if (turn.speaker === 'A2') turn.reuse.examples.forEach((_,index)=>expected.push(`${prefix}-a2-e${index+1}.mp3`));
+      }
     }
   }
 

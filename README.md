@@ -8,9 +8,11 @@ The app is deliberately private and lightweight: no account, backend, speech rec
 
 - 60 practical BA/PM/Scrum Master lessons, stored separately from application code
 - Days 11–18 use an Ogden Basic English-inspired vocabulary model: the 18 operators, mostly 850-word vocabulary, and necessary BA/Scrum terms
-- Days 19–60 cycle through Tim Ferriss's 12 sentence frames, adapted to natural modern workplace and daily-life English
-- Four sentences per lesson from Day 11 onward: three workplace situations and one everyday-life situation
-- Days 19–60 visually separate the fixed grammar skeleton from replaceable parts and provide two natural alternatives for every sentence
+- Days 19–41 cycle through Tim Ferriss's 12 sentence frames, adapted to workplace and daily-life English
+- Days 11–41 have four core sentences: three workplace situations and one everyday-life situation
+- Days 42–60 have four independent dialogues per day (three BA/SM work scenes and one life scene), each with Q1 → A1 → Q2 → A2
+- Every dialogue answer has a reusable frame, highlighted replaceable parts, Chinese substitution guidance, two cross-context examples, and editable slots with a live sentence preview
+- High-frequency answer frames recur across scenes; hide answers to practise recall, play questions individually, and listen to full dialogues or example sentences
 - Consistent AI-generated US female news-style audio for every core sentence and alternative, with normal speed, slow speed, and a three-pass shadowing drill
 - Active training timer, speaking challenge, recall review, Real Work Hit tracking, scores, streaks, and personal bests
 - Create workspace for saving new words, writing personal sentences, and reviewing them with a simple spaced schedule
@@ -46,7 +48,8 @@ python scripts/generate_audio.py --force
 To regenerate only a changed range:
 
 ```bash
-python scripts/generate_audio.py --force --from-day 41 --to-day 60
+node scripts/upgrade_dialogues.cjs
+python scripts/generate_audio.py --force --from-day 42 --to-day 60
 ```
 
 ## File structure
@@ -72,24 +75,26 @@ python scripts/generate_audio.py --force --from-day 41 --to-day 60
 
 `data/lessons.json` has a top-level `contentVersion` plus a `lessons` array. Each lesson contains its day, topic, scenario, speaking logic, sentence patterns, sections, and speaking challenge.
 
-Every sentence has a stable `id`, full `text`, reusable `pattern`, and two contextual `examples`. Days 19–60 also include a `deconstruction` object containing the source frame, fixed skeleton, and ordered fixed/replaceable segments. Keep sentence IDs stable after release because saved practice data refers to them.
+Each S item has a stable `id`, `text`, `pattern`, and two `examples`. Days 19–41 include a `deconstruction` object for the 12-frame course. Days 42–60 include a `dialogue` with scene, roles, and four turns; A1/A2 each have `reuse` metadata. Legacy fields mirror A1 for compatibility. Keep day numbers and S IDs stable because saved practice data refers to them. Existing progress is retained when content changes; all revised dialogues are accessible through Library.
 
 Days 11–18 follow [Ogden's 850-word list](https://zbenglish.net/sites/basic/words.html) and the [18 Basic English operators](https://zbenglish.net/sites/basic/verbs.html) as a practical writing guide. Required domain terms such as API, UAT, sprint, story, release, production, dependency, sign-off, and rollback are retained.
 
-Days 19–60 use the 12 diagnostic sentence frames described in [Tim Ferriss's language-learning article](https://tim.blog/2007/11/07/how-to-learn-but-not-master-any-language-in-1-hour-plus-a-favor/). The frames repeat in order while the replaceable parts use current BA, PM, Scrum Master, and everyday situations. Days 41–60 add sign-off, sprint focus, change requests, acceptance criteria, cross-team dependencies, roadmap alignment, workshop decisions, data quality, UAT exit, incident updates, root-cause follow-up, customer feedback, backlog refinement, budget, vendor delivery, change communication, retrospectives, benefits, handover, and an end-to-end delivery review. Their editable source is `scripts/extend_course_60.cjs`; rerun it before generating audio if changing these lessons.
+Days 19–41 use the 12 diagnostic sentence frames described in [Tim Ferriss's language-learning article](https://tim.blog/2007/11/07/how-to-learn-but-not-master-any-language-in-1-hour-plus-a-favor/). Days 42–60 extend the fixed-skeleton/replaceable-parts method into practical two-round conversations rather than forcing every response into the original 12 frames. Edit `scripts/upgrade_dialogues.cjs` and run it to rebuild both the lesson JSON and [the full dialogue text](docs/dialogues-42-60.md). The older `extend_course_60.cjs` script is guarded against overwriting the dialogue course.
+
+The 76 revised scenes contain 304 dialogue turns, 152 reusable answers, and 304 example instances. Each scene has nine audio files: the full conversation, four turns, two A1 examples, and two A2 examples. Audio uses AI-generated `en-US-AriaNeural`; app audio URLs include the content version to avoid replaying old recordings after an update. Edited personal sentences are for speaking practice and are not saved or automatically checked for grammar.
 
 ### Modify an existing lesson
 
-1. Edit only the relevant lesson in `data/lessons.json`.
+1. For Days 42–60, edit `scripts/upgrade_dialogues.cjs` and run it. For earlier days, edit the relevant lesson in `data/lessons.json`.
 2. Keep its `day` and existing sentence IDs stable where possible.
 3. Update `contentVersion`.
 4. Bump the release version in `package.json`, `index.html`, `app.js`, and `service-worker.js`.
 5. Regenerate changed audio, run tests, and check the mobile UI.
 
-### Add Day 41
+### Add a future day
 
 1. Copy one complete lesson object in `data/lessons.json`.
-2. Set `day` to `41` and provide unique, stable sentence IDs.
+2. Set `day` to the next day number and use stable sentence IDs.
 3. Update `contentVersion` and the expected lesson count in `app.js` and tests.
 4. Regenerate audio, bump the cache version, and test the full release.
 

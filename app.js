@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  const APP_VERSION = '1.6.0';
+  const APP_VERSION = '1.7.0';
   const STORAGE_KEY = 'ba-speaking-trainer:v1';
   const view = document.querySelector('#app-view');
   const toast = document.querySelector('#toast');
@@ -92,19 +92,19 @@
 
   function audioPath(day, sentenceId, exampleNumber = null) {
     const suffix = exampleNumber ? `-e${exampleNumber}` : '';
-    return `./assets/audio/day-${String(day).padStart(2, '0')}-${sentenceId.toLowerCase()}${suffix}.mp3`;
+    return `./assets/audio/day-${String(day).padStart(2, '0')}-${sentenceId.toLowerCase()}${suffix}.mp3?v=${encodeURIComponent(lessonData.contentVersion)}`;
   }
 
   function listeningControlsMarkup(sentence, day) {
     const src = escapeHtml(audioPath(day, sentence.id));
     return `<section class="listening-drill" aria-label="Listening and connected speech practice">
-      <div class="listening-heading"><span>Connected speech</span><small>AI voice · US female news style</small></div>
+      <div class="listening-heading"><span>${sentence.dialogue ? 'Full dialogue · 2 rounds' : 'Connected speech'}</span><small>AI voice · US female news style</small></div>
       <div class="listening-actions">
         <button type="button" data-action="play-audio" data-audio="${src}" data-rate="1" aria-label="Play at natural speed">${speakerIcon()}<span>Natural</span></button>
         <button type="button" data-action="play-audio" data-audio="${src}" data-rate="0.74" aria-label="Play slowly">${speakerIcon()}<span>Slow</span></button>
         <button type="button" data-action="play-audio" data-audio="${src}" data-mode="shadow" aria-label="Play three times for shadowing">${speakerIcon()}<span>Shadow ×3</span></button>
       </div>
-      <p>Listen for linked sounds, then copy the rhythm without stopping.</p>
+      <p>${sentence.dialogue ? 'Listen to both rounds. Then play each question and say your own answer.' : 'Listen for linked sounds, then copy the rhythm without stopping.'}</p>
     </section>`;
   }
 
@@ -138,6 +138,53 @@
       <div class="grammar-key"><span><i class="fixed-swatch"></i>Fixed: <b>${escapeHtml(fixed)}</b></span><span><i class="slot-swatch"></i>Replaceable parts</span></div>
       <div class="grammar-slot-list">${slots.map(slot => `<span><small>${escapeHtml(slot.label)}</small>${escapeHtml(slot.text)}</span>`).join('')}</div>
     </section>`;
+  }
+
+  function reuseMarkup(turn, sentence, day) {
+    const reuse = turn.reuse;
+    const key = `${day}-${sentence.id}-${turn.speaker}`;
+    const slots = reuse.segments.filter(segment => segment.kind === 'slot');
+    const prefix = turn.speaker === 'A1' ? sentence.id : `${sentence.id}-a2`;
+    return `<details class="answer-reuse" data-pattern="${escapeHtml(reuse.template)}">
+      <summary>${turn.speaker} · 套用这个回答 <span>${escapeHtml(reuse.purpose)}</span></summary>
+      <div class="reuse-content">
+        <p class="reuse-label">固定骨架 + 可替换词块</p>
+        <p class="reuse-template">${escapeHtml(reuse.template)}</p>
+        <p class="reuse-guide">${escapeHtml(reuse.guidance)}</p>
+        <div class="swap-fields">${slots.map((slot, index) => `<label for="swap-${key}-${index}">${escapeHtml(slot.label)}<input id="swap-${key}-${index}" data-swap-input type="text" maxlength="160" value="${escapeHtml(slot.text)}" autocomplete="off"></label>`).join('')}</div>
+        <p class="reuse-label">替换后，大声说出你的回答</p>
+        <p class="swap-preview" aria-live="polite">${escapeHtml(turn.text)}</p>
+        <p class="reuse-label">同一句型，换两个场景</p>
+        ${reuse.examples.map((example,index) => exampleMarkup(example,day,prefix,index+1)).join('')}
+      </div>
+    </details>`;
+  }
+
+  function dialogueMarkup(sentence, day) {
+    const dialogue = sentence.dialogue;
+    return `<section class="dialogue-practice">
+      <h3 class="dialogue-scene">${escapeHtml(dialogue.scene)}</h3>
+      <p class="dialogue-roles">你：${escapeHtml(dialogue.role)} · 对方：${escapeHtml(dialogue.partner)}</p>
+      ${listeningControlsMarkup(sentence,day)}
+      <button class="secondary-button recall-toggle" type="button" data-action="toggle-dialogue-answers" aria-pressed="false">隐藏回答 · 听问题开口说</button>
+      <ol class="dialogue-turns">${dialogue.turns.map(turn => {
+        const isAnswer = Boolean(turn.reuse);
+        const text = isAnswer ? turn.reuse.segments.map(segment => `<span class="${segment.kind === 'slot' ? 'grammar-slot' : 'grammar-fixed'}">${escapeHtml(segment.text)}</span>`).join('') : escapeHtml(turn.text);
+        return `<li class="dialogue-turn ${isAnswer ? 'turn-answer' : 'turn-question'}">
+          <div class="turn-heading"><span>${turn.speaker} · ${isAnswer ? '你来回答' : '对方提问'}</span><button type="button" class="example-audio-button turn-audio" data-action="play-audio" data-audio="${escapeHtml(audioPath(day,`${sentence.id}-${turn.speaker}`))}" aria-label="Play ${turn.speaker}">${speakerIcon()}</button></div>
+          <p class="turn-copy">${text}</p>${isAnswer ? '<p class="answer-prompt">用熟悉的句型回答，再换一个词块说一遍。</p>' : ''}
+          ${isAnswer ? reuseMarkup(turn,sentence,day) : ''}
+        </li>`;
+      }).join('')}</ol>
+    </section>`;
+  }
+
+  function practiceContentMarkup(sentence, day, compact = false) {
+    if (sentence.dialogue) return dialogueMarkup(sentence,day);
+    const examples = sentence.examples.map((example,index)=>exampleMarkup(example,day,sentence.id,index+1)).join('');
+    return `${sentenceTextMarkup(sentence,compact ? 'h3' : 'p',compact ? 'review-sentence-text' : 'sentence-text')}
+      ${listeningControlsMarkup(sentence,day)}${grammarBreakdownMarkup(sentence,compact)}
+      ${compact ? `<details><summary>${sentence.deconstruction ? 'Show 2 natural alternatives' : 'Show examples'}</summary>${examples}</details>` : `<div class="examples-block"><span>${sentence.deconstruction ? '2 natural alternatives' : 'In context'}</span>${examples}</div>`}`;
   }
 
   function clearAudioState() {
@@ -348,14 +395,14 @@
           <div class="score-copy">
             <p class="eyebrow">Today’s score</p>
             <h2>${doneToday ? 'Strong session.' : 'Ready when you are.'}</h2>
-            <p>${doneToday ? `${formatDuration(item.trainingSeconds)} of focused training logged.` : `${sentenceCount} expressions · ${lesson.speakingChallenge.targetSeconds}s speaking target`}</p>
+            <p>${doneToday ? `${formatDuration(item.trainingSeconds)} of focused training logged.` : `${sentenceCount} ${lesson.format === 'reusable-dialogues' ? 'dialogues' : 'expressions'} · ${lesson.speakingChallenge.targetSeconds}s speaking target`}</p>
             <button class="primary-button is-light" type="button" data-action="${doneToday ? 'show-result' : 'start-training'}">${doneToday ? 'View Result' : item.practiced?.length ? 'Continue Training' : 'Start Training'}</button>
           </div>
         </div>
       </section>
       <div class="section-heading"><h2>Speaking logic</h2><span>10–15 min</span></div>
       ${logicMarkup(lesson.speakingLogic)}
-      <div class="session-meta"><span>${sentenceCount} core sentences</span><span>${contextSummary(lesson)}</span><span>${escapeHtml(lesson.level || 'Senior workplace')}</span></div>
+      <div class="session-meta"><span>${sentenceCount} ${lesson.format === 'reusable-dialogues' ? 'dialogues · 2 rounds each' : 'core sentences'}</span><span>${contextSummary(lesson)}</span><span>${escapeHtml(lesson.level || 'Senior workplace')}</span></div>
     `;
   }
 
@@ -452,13 +499,10 @@
     const sentences = getSentences(lesson);
     const sentence = sentences[session.sentenceIndex];
     view.innerHTML = `
-      ${trainingHeader(lesson, session.sentenceIndex + 1, sentences.length)}
+      ${trainingHeader(lesson, session.sentenceIndex + 1, sentences.length, sentence.dialogue ? 'Dialogue practice' : 'Sentence practice')}
       <article class="sentence-panel" key="${escapeHtml(sentence.id)}">
         <div class="sentence-label-row"><span class="sentence-id">${escapeHtml(sentence.id)}</span>${sentenceContextMarkup(sentence)}</div>
-        ${sentenceTextMarkup(sentence)}
-        ${listeningControlsMarkup(sentence, lesson.day)}
-        ${grammarBreakdownMarkup(sentence)}
-        <div class="examples-block"><span>${sentence.deconstruction ? '2 natural alternatives' : 'In context'}</span>${sentence.examples.map((example, index) => exampleMarkup(example, lesson.day, sentence.id, index + 1)).join('')}</div>
+        ${practiceContentMarkup(sentence, lesson.day)}
         <button class="primary-button button-block" type="button" data-action="practice-sentence">Mark as Practiced</button>
       </article>`;
   }
@@ -512,7 +556,7 @@
   function buildReviewPrompts(day) {
     const priorPatterns = lessonData.lessons
       .filter(lesson => lesson.day < day && state.progress[String(lesson.day)]?.practiced?.length)
-      .flatMap(lesson => getSentences(lesson).map(sentence => ({ day: lesson.day, topic: lesson.topic, pattern: sentence.pattern })));
+      .flatMap(lesson => getSentences(lesson).flatMap(sentence => (sentence.dialogue ? sentence.dialogue.turns.filter(turn => turn.reuse).map(turn => turn.reuse.template) : [sentence.pattern]).map(pattern => ({ day: lesson.day, topic: lesson.topic, pattern }))));
     if (!priorPatterns.length) return [];
     const offset = day % priorPatterns.length;
     return [priorPatterns[offset], priorPatterns[(offset + Math.max(1, Math.floor(priorPatterns.length / 2))) % priorPatterns.length]]
@@ -751,15 +795,12 @@
         <p class="eyebrow">Day ${String(lesson.day).padStart(2, '0')} · Review mode</p>
         <h1>${escapeHtml(lesson.topic)}</h1>
         <p class="page-subtitle">${escapeHtml(lesson.scenario)}</p>
-        <div class="section-heading"><h2>Speaking logic</h2><span>${sentences.length} expressions</span></div>
+        <div class="section-heading"><h2>Speaking logic</h2><span>${sentences.length} ${lesson.format === 'reusable-dialogues' ? 'dialogues' : 'expressions'}</span></div>
         ${logicMarkup(lesson.speakingLogic)}
-        <div class="section-heading"><h2>Core sentences</h2><span>Tap for examples</span></div>
+        <div class="section-heading"><h2>${lesson.format === 'reusable-dialogues' ? 'Dialogues & reusable answers' : 'Core sentences'}</h2><span>${lesson.format === 'reusable-dialogues' ? '2 questions · 2 answers' : 'Tap for examples'}</span></div>
         ${sentences.map(sentence => `<article class="review-sentence">
           <div class="sentence-label-row"><span class="sentence-id">${escapeHtml(sentence.id)}</span>${sentenceContextMarkup(sentence)}</div>
-          ${sentenceTextMarkup(sentence, 'h3', 'review-sentence-text')}
-          ${listeningControlsMarkup(sentence, lesson.day)}
-          ${grammarBreakdownMarkup(sentence, true)}
-          <details><summary>${sentence.deconstruction ? 'Show 2 natural alternatives' : 'Show examples'}</summary>${sentence.examples.map((example, index) => exampleMarkup(example, lesson.day, sentence.id, index + 1)).join('')}</details>
+          ${practiceContentMarkup(sentence, lesson.day, true)}
         </article>`).join('')}
       </section>`;
   }
@@ -1020,6 +1061,13 @@
     if (!button) return;
     if (button.dataset.nav) return setView(button.dataset.nav);
     const action = button.dataset.action;
+    if (action === 'toggle-dialogue-answers') {
+      stopAudioPlayback();
+      const hidden = button.closest('.dialogue-practice').classList.toggle('answers-hidden');
+      button.setAttribute('aria-pressed', String(hidden));
+      button.textContent = hidden ? '显示回答 · 查看句型' : '隐藏回答 · 听问题开口说';
+      return;
+    }
     if (action === 'play-audio') {
       if (button === activeAudioButton) {
         stopAudioPlayback();
@@ -1135,6 +1183,14 @@
       renderSettings();
       showToast('All progress reset');
     }
+  });
+
+  view.addEventListener('input', event => {
+    if (!event.target.matches('[data-swap-input]')) return;
+    const block = event.target.closest('.answer-reuse');
+    const values = [...block.querySelectorAll('[data-swap-input]')].map(input => input.value.trim());
+    let index = 0;
+    block.querySelector('.swap-preview').textContent = block.dataset.pattern.replace(/\[[^\]]+\]/g, label => values[index++] || label);
   });
 
   view.addEventListener('submit', event => {

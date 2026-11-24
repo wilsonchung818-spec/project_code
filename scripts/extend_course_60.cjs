@@ -4,6 +4,7 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const source = path.join(root, 'data', 'lessons.json');
 const data = JSON.parse(fs.readFileSync(source, 'utf8'));
+if (data.lessons.some(lesson => lesson.format === 'reusable-dialogues')) throw new Error('Use scripts/upgrade_dialogues.cjs to edit the current dialogue course.');
 const templates = new Map();
 for (const lesson of data.lessons) for (const section of lesson.sections) for (const sentence of section.sentences) {
   if (sentence.deconstruction && !templates.has(sentence.deconstruction.frame)) templates.set(sentence.deconstruction.frame, sentence);

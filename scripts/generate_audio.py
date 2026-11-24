@@ -35,6 +35,7 @@ def pronunciation_text(text: str) -> str:
         r"\bUAT\b": "U. A. T.",
         r"\bSIT\b": "S. I. T.",
         r"\bID\b": "I. D.",
+        r"\bQA\b": "Q. A.",
     }
     for pattern, replacement in replacements.items():
         text = re.sub(pattern, replacement, text)
@@ -49,9 +50,17 @@ def load_jobs() -> tuple[dict, list[AudioJob]]:
         for section in lesson["sections"]:
             for sentence in section["sentences"]:
                 sentence_prefix = f"{day_prefix}-{sentence['id'].lower()}"
-                jobs.append(AudioJob(lesson["day"], OUTPUT_DIR / f"{sentence_prefix}.mp3", pronunciation_text(sentence["text"])))
+                turns = sentence.get("dialogue", {}).get("turns", [])
+                full_text = " ".join(turn["text"] for turn in turns) if turns else sentence["text"]
+                jobs.append(AudioJob(lesson["day"], OUTPUT_DIR / f"{sentence_prefix}.mp3", pronunciation_text(full_text)))
                 for index, example in enumerate(sentence["examples"], start=1):
                     jobs.append(AudioJob(lesson["day"], OUTPUT_DIR / f"{sentence_prefix}-e{index}.mp3", pronunciation_text(example)))
+                for turn in turns:
+                    turn_prefix = f"{sentence_prefix}-{turn['speaker'].lower()}"
+                    jobs.append(AudioJob(lesson["day"], OUTPUT_DIR / f"{turn_prefix}.mp3", pronunciation_text(turn["text"])))
+                    if turn["speaker"] == "A2":
+                        for index, example in enumerate(turn["reuse"]["examples"], start=1):
+                            jobs.append(AudioJob(lesson["day"], OUTPUT_DIR / f"{turn_prefix}-e{index}.mp3", pronunciation_text(example)))
     return content, jobs
 
 
